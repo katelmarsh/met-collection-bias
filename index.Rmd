@@ -1,9 +1,11 @@
 --- 
 title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+author: "Kate Marsh"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
 # Proposal
 
+Kate Marsh    
+klm2244    
