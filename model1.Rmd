@@ -1,1 +1,14 @@
 # [Model 1]
+
+
+```{r}
+library(httr)
+library(jsonlite)
+
+res = GET("https://collectionapi.metmuseum.org/public/collection/v1/objects")
+data = fromJSON(rawToChar(res$content))
+
+
+
+```
+
