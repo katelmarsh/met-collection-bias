@@ -1,5 +1,5 @@
 --- 
-title: "Analyzing the Highlighted Met Art Pieces and Possible Biases"
+title: "Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum"
 author: "Kate Marsh"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -11,7 +11,9 @@ Final Project for Topics in Modern Statistics: Interpretable ML
 
 ## Data 
        
-The data I plan to use is dataset from the Metropolitan Museum of Art's collection. To use this, I plan to access the API, which can be found at this link: https://metmuseum.github.io/. I plan to use artworks that are in the Met's collection and their data to predict whether the Met deems them important. This can be done by analyzing how I can predict the "isHighlight" variable. The isHighlight variable when "true" indicates a popular and important artwork in the collection", according to the Met's API documentation. An example of one such work is Van Gogh's "Wheat Field with Cypresses". 
+The data I plan to use is dataset from the Metropolitan Museum of Art's collection. To use this, I plan to access the API, which can be found at this link: https://metmuseum.github.io/. I plan to use artworks that are in the Met's collection and their data to predict whether the Met deems them important. 
+         
+This can be done by analyzing how I can predict the "isHighlight" variable. The isHighlight variable when "true" indicates a popular and important artwork in the collection", according to the Met's API documentation. An example of one such work is Van Gogh's "Wheat Field with Cypresses". 
        
        
 ## The Modeling Goal 
@@ -20,12 +22,14 @@ The modeling goal of this project is to predict the isHighlight variable and use
 
 ## Models I Intend To Use 
 
-I plan to use the following models
-- a simple OneRule model     
-- decision tree     
-- random forest     
-- support vector machine      
-- artificial neural network      
+I plan to use the following models     
+* a simple OneRule model     
+* decision tree     
+* random forest     
+* support vector machine      
+* artificial neural network      
 
 I plan to create all of these models with the intention of showing the pros and cons of interpretability. In addition, I wish to see if the different models achieve accuracy using different predictors or if they rely on the same features. 
+      
+I expect that the first two will be the most interpretable, while the last three will have the highest accuracy. 
 
