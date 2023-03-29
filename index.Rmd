@@ -22,7 +22,7 @@ The modeling goal of this project is to predict the isHighlight variable and use
 
 ## Models I Intend To Use 
 
-I plan to use the following models     
+I plan to use the following models    
 * a simple OneRule model     
 * decision tree     
 * random forest     
