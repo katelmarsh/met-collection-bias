@@ -57,3 +57,76 @@ mod <- OneR(Is.Highlight ~ Classification + Country + Artist.Nationality + Artis
 ```
 
 The One Rule Model does not work for this task. The summary of the model is incredibly dense, and the "One Rule" chosen is in fact the name of the artist. For a datset of this size, it is almost impossible to interpret the model results because the model results are no better than me walking into the Met with a list of famous artists in my head. Van Gogh = Is.Highlight I would expect, and that is the case. 
+
+
+
+```{r}
+
+# sampling 1000 rows 
+
+set.seed(5293)
+
+data_s1 <- df[sample(1:nrow(df), 1000), ]
+head(data_s1)   
+
+n <- nrow(data_s1)
+train <- sample(n, .8*n)
+train_dat <- data_s1[train, ]
+test_dat <- data_s1[-train, ]
+
+mod <- OneR(Is.Highlight ~ Classification + Country + Artist.Nationality + Artist.Display.Name + Object.Name + Department + Is.Public.Domain + Object.Date, data = train_dat)
+summary(mod)
+
+mean(predict(mod, train_dat) == train_dat$Is.Highlight)
+
+mean(predict(mod, test_dat) == test_dat$Is.Highlight)
+
+```
+
+
+With the oneRule model, we are able to find out that the Object.Date column is able to predict the training dataset 96% of the time; however, on the test dataset it is only able to predict 46.5% of the time. This means that the oneRule model is not very accurate, and thus we should try more models. 
+
+It also tells us that 46.5% of the variation in the IsHighlight variable can be explained with the Object.Date variable in this sample. Let's see if that holds up if we use a larger sample!
+
+```{r}
+
+# sampling 1000 rows 
+
+set.seed(5293)
+
+data_s1 <- df[sample(1:nrow(df), 100000), ]
+head(data_s1)   
+
+n <- nrow(data_s1)
+train <- sample(n, .8*n)
+train_dat <- data_s1[train, ]
+test_dat <- data_s1[-train, ]
+
+mod <- OneR(Is.Highlight ~ Classification + Country + Artist.Nationality + Artist.Display.Name + Object.Name + Department + Is.Public.Domain + Object.Date, data = train_dat)
+summary(mod)
+
+mean(predict(mod, train_dat) == train_dat$Is.Highlight)
+
+mean(predict(mod, test_dat) == test_dat$Is.Highlight)
+```
+
+With a dataset of 100,000 randomly selected rows, the model chooses to use the Artist Display Name as the explanatory variable, instead of the ObjectDate variable. 
+
+For this larger sample, we find that it is only able to predict the class from the name of the artist with 58% accuracy on the training set, while it is able to predict the isHighlight variable with a 43% accuracy. 
+
+While this project focuses on interpretability, it is clear that the model does not capture the nuances of the isHighlight variable and thus it is hard to trust the results. Thus, we will move onto the next option. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
