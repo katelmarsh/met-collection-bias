@@ -1,1 +1,79 @@
 # [Model 2]
+
+Going forward, we are going to use the randomly sampled 100,000 art pieces in order to make this project less computationally heavy. 
+
+```{r}
+df <- read.csv("met_data_sample_100k")
+
+table(df$Is.Highlight)
+
+table(df$Is.Public.Domain)
+
+```
+
+
+Actually no! Here is a cleaned and manageable dataset. 
+```{r}
+
+df <- read.csv("~/Downloads/MetObjects_Cleaned_Small.csv")
+```
+
+
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+n <- nrow(df)
+
+train <- sample(n, .8*n)
+train_dat <- df[train, ]
+test_dat <- df[-train, ]
+
+fit <- rpart(is.highlight~., data = train_dat, method = 'class', control = rpart.control(cp = 0))
+summary(fit)
+plotcp(fit)
+
+
+test_dat$pred <- predict(fit, test_dat, type = "class")
+accuracy <- mean(test_dat$pred == test_dat$ss.highlight)
+
+
+#rpart.plot(fit, extra = 101) 
+
+
+```
+Prune to .18 ! 
+
+```{r}
+#predict_unseen <-predict(fit, test_dat, type = 'class')
+#table_mat <- table(test_dat$Is.Highlight, predict_unseen)
+
+```
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+n <- nrow(df)
+
+train <- sample(n, .8*n)
+train_dat <- df[train, ]
+test_dat <- df[-train, ]
+
+
+fit <- rpart(is.highlight~., data = train_dat, 
+             method = 'class', 
+             control = rpart.control(cp = .18))
+fit$xlevels[["object.name"]] <- union(fit$xlevels[["object.name"]], levels(test_dat$object.name))
+
+summary(fit)
+
+#test_dat$pred <- predict(fit, test_dat, type = "class")
+#accuracy <- mean(test_dat$pred == test_dat$Is.Highlight)
+
+
+rpart.plot(fit) 
+
+
+```

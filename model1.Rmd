@@ -94,8 +94,9 @@ It also tells us that 46.5% of the variation in the IsHighlight variable can be 
 
 set.seed(5293)
 
-data_s1 <- df[sample(1:nrow(df), 100000), ]
-head(data_s1)   
+data_s2 <- df[sample(1:nrow(df), 100000), ]
+head(data_s2)   
+write.csv(data_s2, "met_data_sample_100k")
 
 n <- nrow(data_s1)
 train <- sample(n, .8*n)
@@ -112,21 +113,129 @@ mean(predict(mod, test_dat) == test_dat$Is.Highlight)
 
 With a dataset of 100,000 randomly selected rows, the model chooses to use the Artist Display Name as the explanatory variable, instead of the ObjectDate variable. 
 
-For this larger sample, we find that it is only able to predict the class from the name of the artist with 58% accuracy on the training set, while it is able to predict the isHighlight variable with a 43% accuracy. 
+For this larger sample, we find that it is  able to predict the class from the object data with 96% accuracy on the training set, while it is able to predict the isHighlight variable with a 47% accuracy. 
 
 While this project focuses on interpretability, it is clear that the model does not capture the nuances of the isHighlight variable and thus it is hard to trust the results. Thus, we will move onto the next option. 
 
 
+```{r}
+library(ggplot2)
+library(waffle)
+
+culture <- head(sort(table(df$Culture), decreasing = TRUE), 8) # the culture section could clearly use some cleaning! japan and japanese haha 
+
+department <- head(sort(table(df$Department), decreasing = TRUE), 8)
+
+River <- head(sort(table(df$River), decreasing = TRUE), 8)
+
+artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
+
+waffle(period/1000, rows=5, size=0.6, 
+       title="Art Period", 
+       xlab="1 square = 1000 artworks")
+
+waffle(department/1000, rows=5, size=0.6, 
+       title="Art Department", 
+       xlab="1 square = 1000 artworks")
+
+waffle(locus/1000, rows=5, size=0.6, 
+       title="Art Culture", 
+       xlab="1 square = 1000 artworks")
+
+waffle(period/1000, rows=5, size=0.6, 
+       title="Art Period", 
+       xlab="1 square = 1000 artworks")
+
+waffle(department/1000, rows=5, size=0.6, 
+       title="Art Department", 
+       xlab="1 square = 1000 artworks")
+
+waffle(artist.begin.date/1000, rows=5, size=0.6, 
+       title="Art Culture", 
+       xlab="1 square = 1000 artworks")
+```
+The period and culture variables are dominated by empty values. The department is not - something that the Met must use as a catch-all term for all different types of artworks. 
+
+
+# Remove empties and basic cleaning! 
+```{r}
+library(dplyr)
+library(janitor)
+
+df <- read.csv("~/Downloads/MetObjects.csv")
+
+names(which(colSums(is.na(df)) > 0))
+
+#df <- df[-which(df$Culture == ""),]
+#df <- df[-which(df$Country == ""),]
+
+df1 <- df %>% select(!c(Link.Resource, Repository, Rights.and.Reproduction, Object.Number, Credit.Line, Locus,  
+                        Period, Dynasty, Reign, Portfolio,
+                        Artist.Prefix, Artist.Suffix,
+                        Locale, Excavation, River)) 
+
+df1 <- df1 %>%
+  rename_all(tolower) %>%
+  mutate(across(everything(), ~gsub("[^[:alnum:]]", "_", .x))) %>%
+  mutate(across(everything(), ~gsub("[[:punct:]]", "", .x))) %>%
+  mutate(across(everything(), ~gsub("&", "and", .x))) %>%
+  mutate(across(everything(), ~gsub("probably", "", .x))) %>%# for all my intents and purposes the "probably" is good enough 
+  mutate(across(everything(), ~gsub("possibly", "", .x))) # for all my intents and purposes the "probably" is good enough 
+
+# cleaner dataset! 
+
+write.csv(df1, "~/Downloads/MetObjects_Cleaned.csv")
+
+```
+
+#dealing with all the accents! 
+not sure if this is worth it ugh 
+
+```{r}
+library(janitor)
+
+#df2 <- 
+#df1$city <- make_clean_names(df1$city)
+
+#table(df1$city)
+```
 
 
 
+```{r}
+df <- read.csv("~/Downloads/MetObjects_Cleaned.csv")
+
+explore_true <- df[which(df$is.highlight == "True"),]
+explore_false <- df[which(df$is.highlight == "False"),]
+df_small <- explore_false[sample(1:nrow(explore_false), 1859), ]
+
+df2 <- rbind(explore_true, df_small)
+
+write.csv(df2, "~/Downloads/MetObjects_Cleaned_Small.csv")
+
+```
 
 
+```{r}
+library(OneR)
 
+df <- read.csv("~/Downloads/MetObjects_Cleaned_Small.csv")
 
+#Classification + Country + Artist.Nationality + Artist.Display.Name + Object.Name + Department + Is.Public.Domain + Object.Date + Artist.Role + Geography.Type + Region + Medium + Portfolio + Object.Begin.Date + Object.End.Date + Artist.Begin.Date + Artist.End.Date + Artist.Nationality
+n <- nrow(df)
+train <- sample(n, .8*n)
+train_dat <- df[train, ]
+test_dat <- df[-train, ]
 
+mod2 <- OneR(is.highlight ~ ., data = train_dat)
+summary(mod2)
 
+mean(predict(mod2, train_dat) == train_dat$is.highlight)
 
+mean(predict(mod2, test_dat) == test_dat$is.highlight)
+```
+
+In this model, the One Rule is the title of the artwork Using the art titke, we perform only a little better than random on the dataset and we perform much worse than random on the test set. 
 
 
 

@@ -1,0 +1,32 @@
+# [Model 5]
+
+neural network <3 
+
+```{r}
+
+library("neuralnet")
+library("dplyr")
+
+
+m <- model.matrix( 
+   ~is.highlight + classification + country + artist.nationality + artist.display.name + object.name + department + is.public.domain + object.begin.date + object.end.date, 
+  data = data_s1) 
+
+m_df <- as.data.frame(m)
+
+m_df <-  m_df %>% subset(., select = which(!duplicated(names(.))))
+
+train <- sample(n, .8*n)
+train_dat <- m_df[train, ]
+test_dat <- m_df[-train, ]
+
+nn=neuralnet(is.highlightTrue ~., 
+             data = train_dat, 
+             hidden=3,
+             act.fct = "logistic", 
+             linear.output = FALSE)
+
+
+
+```
+
