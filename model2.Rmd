@@ -43,7 +43,7 @@ plotcp(fit)
 
 
 ```
-Prune to .18 ! 
+Prune to .14 ! 
 
 
 ```{r}
