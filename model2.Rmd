@@ -59,7 +59,7 @@ River <- head(sort(table(df$River), decreasing = TRUE), 8)
 artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
 
 waffle(River/10, rows=5, size=0.6, 
-       title="Art Period", 
+       title="Art River", 
        xlab="1 square = 1000 artworks")
 
 waffle(department/10, rows=5, size=0.6, 
@@ -68,14 +68,6 @@ waffle(department/10, rows=5, size=0.6,
 
 waffle(culture, rows=5, size=0.6, 
        title="Art Culture", 
-       xlab="1 square = 1000 artworks")
-
-waffle(period/10, rows=5, size=0.6, 
-       title="Art Period", 
-       xlab="1 square = 1000 artworks")
-
-waffle(department/10, rows=5, size=0.6, 
-       title="Art Department", 
        xlab="1 square = 1000 artworks")
 
 waffle(artist.begin.date/10, rows=5, size=0.6, 
