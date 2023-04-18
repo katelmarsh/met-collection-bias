@@ -172,7 +172,8 @@ names(which(colSums(is.na(df)) > 0))
 df1 <- df %>% select(!c(Link.Resource, Repository, Rights.and.Reproduction, Object.Number, Credit.Line, Locus,  
                         Period, Dynasty, Reign, Portfolio,
                         Artist.Prefix, Artist.Suffix,
-                        Locale, Excavation, River)) 
+                        Locale, Excavation, River,
+                        Metadata.Date)) 
 
 df1 <- df1 %>%
   rename_all(tolower) %>%
