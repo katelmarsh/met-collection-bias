@@ -82,7 +82,9 @@
 <li class="chapter" data-level="3" data-path="remove-empties-and-basic-cleaning.html"><a href="remove-empties-and-basic-cleaning.html"><i class="fa fa-check"></i><b>3</b> Remove empties and basic cleaning!</a></li>
 <li class="chapter" data-level="4" data-path="model-2.html"><a href="model-2.html"><i class="fa fa-check"></i><b>4</b> [Model 2]</a></li>
 <li class="chapter" data-level="5" data-path="model-3.html"><a href="model-3.html"><i class="fa fa-check"></i><b>5</b> [Model 3]</a></li>
-<li class="chapter" data-level="6" data-path="reflections.html"><a href="reflections.html"><i class="fa fa-check"></i><b>6</b> Reflections</a></li>
+<li class="chapter" data-level="6" data-path="model-4.html"><a href="model-4.html"><i class="fa fa-check"></i><b>6</b> [Model 4]</a></li>
+<li class="chapter" data-level="7" data-path="model-5.html"><a href="model-5.html"><i class="fa fa-check"></i><b>7</b> [Model 5]</a></li>
+<li class="chapter" data-level="8" data-path="reflections.html"><a href="reflections.html"><i class="fa fa-check"></i><b>8</b> Reflections</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -104,153 +106,244 @@
             <section class="normal" id="section-">
 <div id="model-1" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> [Model 1]<a href="model-1.html#model-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<pre><code>##  Object.Number      Is.Highlight       Is.Public.Domain  
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##    Object.ID       Department        Object.Name       
-##  Min.   :     1   Length:448203      Length:448203     
-##  1st Qu.:198808   Class :character   Class :character  
-##  Median :349816   Mode  :character   Mode  :character  
-##  Mean   :346273                                        
-##  3rd Qu.:481764                                        
-##  Max.   :750830                                        
-##     Title             Culture             Period         
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##    Dynasty             Reign            Portfolio        
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##  Artist.Role        Artist.Prefix      Artist.Display.Name
-##  Length:448203      Length:448203      Length:448203      
-##  Class :character   Class :character   Class :character   
-##  Mode  :character   Mode  :character   Mode  :character   
-##                                                           
-##                                                           
-##                                                           
-##  Artist.Display.Bio Artist.Suffix      Artist.Alpha.Sort 
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##  Artist.Nationality Artist.Begin.Date  Artist.End.Date   
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##  Object.Date        Object.Begin.Date  Object.End.Date   
-##  Length:448203      Min.   :  -95000   Min.   :  -35000  
-##  Class :character   1st Qu.:    1567   1st Qu.:    1600  
-##  Mode  :character   Median :    1800   Median :    1850  
-##                     Mean   :    1391   Mean   :    1493  
-##                     3rd Qu.:    1895   3rd Qu.:    1910  
-##                     Max.   :18591861   Max.   :18591861  
-##     Medium           Dimensions        Credit.Line       
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##  Geography.Type         City              State          
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##     County            Country             Region         
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##   Subregion            Locale             Locus          
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##   Excavation           River           Classification    
-##  Length:448203      Length:448203      Length:448203     
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##  Rights.and.Reproduction Link.Resource     
-##  Length:448203           Length:448203     
-##  Class :character        Class :character  
-##  Mode  :character        Mode  :character  
-##                                            
-##                                            
-##                                            
-##  Metadata.Date       Repository       
+<pre><code>##  Object.Number      Is.Highlight      
 ##  Length:448203      Length:448203     
 ##  Class :character   Class :character  
 ##  Mode  :character   Mode  :character  
 ##                                       
 ##                                       
+##                                       
+##  Is.Public.Domain     Object.ID     
+##  Length:448203      Min.   :     1  
+##  Class :character   1st Qu.:198808  
+##  Mode  :character   Median :349816  
+##                     Mean   :346273  
+##                     3rd Qu.:481764  
+##                     Max.   :750830  
+##   Department        Object.Name       
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##     Title             Culture         
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##     Period            Dynasty         
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##     Reign            Portfolio        
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##  Artist.Role        Artist.Prefix     
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##  Artist.Display.Name Artist.Display.Bio
+##  Length:448203       Length:448203     
+##  Class :character    Class :character  
+##  Mode  :character    Mode  :character  
+##                                        
+##                                        
+##                                        
+##  Artist.Suffix      Artist.Alpha.Sort 
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##  Artist.Nationality Artist.Begin.Date 
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##  Artist.End.Date    Object.Date       
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##  Object.Begin.Date  Object.End.Date   
+##  Min.   :  -95000   Min.   :  -35000  
+##  1st Qu.:    1567   1st Qu.:    1600  
+##  Median :    1800   Median :    1850  
+##  Mean   :    1391   Mean   :    1493  
+##  3rd Qu.:    1895   3rd Qu.:    1910  
+##  Max.   :18591861   Max.   :18591861  
+##     Medium           Dimensions       
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##  Credit.Line        Geography.Type    
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##      City              State          
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##     County            Country         
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##     Region           Subregion        
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##     Locale             Locus          
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##   Excavation           River          
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##  Classification     Rights.and.Reproduction
+##  Length:448203      Length:448203          
+##  Class :character   Class :character       
+##  Mode  :character   Mode  :character       
+##                                            
+##                                            
+##                                            
+##  Link.Resource      Metadata.Date     
+##  Length:448203      Length:448203     
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
+##                                       
+##   Repository       
+##  Length:448203     
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
 ## </code></pre>
-<pre><code>##           Object.Number            Is.Highlight 
-##                       0                       0 
-##        Is.Public.Domain               Object.ID 
-##                       0                       0 
-##              Department             Object.Name 
-##                       0                       0 
-##                   Title                 Culture 
-##                       0                       0 
-##                  Period                 Dynasty 
-##                       0                       0 
-##                   Reign               Portfolio 
-##                       0                       0 
-##             Artist.Role           Artist.Prefix 
-##                       0                       0 
-##     Artist.Display.Name      Artist.Display.Bio 
-##                       0                       0 
-##           Artist.Suffix       Artist.Alpha.Sort 
-##                       0                       0 
-##      Artist.Nationality       Artist.Begin.Date 
-##                       0                       0 
-##         Artist.End.Date             Object.Date 
-##                       0                       0 
-##       Object.Begin.Date         Object.End.Date 
-##                       0                       0 
-##                  Medium              Dimensions 
-##                       0                       0 
-##             Credit.Line          Geography.Type 
-##                       0                       0 
-##                    City                   State 
-##                       0                       0 
-##                  County                 Country 
-##                       0                       0 
-##                  Region               Subregion 
-##                       0                       0 
-##                  Locale                   Locus 
-##                       0                       0 
-##              Excavation                   River 
-##                       0                       0 
-##          Classification Rights.and.Reproduction 
-##                       0                       0 
-##           Link.Resource           Metadata.Date 
-##                       0                       0 
+<pre><code>##           Object.Number 
+##                       0 
+##            Is.Highlight 
+##                       0 
+##        Is.Public.Domain 
+##                       0 
+##               Object.ID 
+##                       0 
+##              Department 
+##                       0 
+##             Object.Name 
+##                       0 
+##                   Title 
+##                       0 
+##                 Culture 
+##                       0 
+##                  Period 
+##                       0 
+##                 Dynasty 
+##                       0 
+##                   Reign 
+##                       0 
+##               Portfolio 
+##                       0 
+##             Artist.Role 
+##                       0 
+##           Artist.Prefix 
+##                       0 
+##     Artist.Display.Name 
+##                       0 
+##      Artist.Display.Bio 
+##                       0 
+##           Artist.Suffix 
+##                       0 
+##       Artist.Alpha.Sort 
+##                       0 
+##      Artist.Nationality 
+##                       0 
+##       Artist.Begin.Date 
+##                       0 
+##         Artist.End.Date 
+##                       0 
+##             Object.Date 
+##                       0 
+##       Object.Begin.Date 
+##                       0 
+##         Object.End.Date 
+##                       0 
+##                  Medium 
+##                       0 
+##              Dimensions 
+##                       0 
+##             Credit.Line 
+##                       0 
+##          Geography.Type 
+##                       0 
+##                    City 
+##                       0 
+##                   State 
+##                       0 
+##                  County 
+##                       0 
+##                 Country 
+##                       0 
+##                  Region 
+##                       0 
+##               Subregion 
+##                       0 
+##                  Locale 
+##                       0 
+##                   Locus 
+##                       0 
+##              Excavation 
+##                       0 
+##                   River 
+##                       0 
+##          Classification 
+##                       0 
+## Rights.and.Reproduction 
+##                       0 
+##           Link.Resource 
+##                       0 
+##           Metadata.Date 
+##                       0 
 ##              Repository 
 ##                       0</code></pre>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-4-1.png" width="672" />
@@ -258,20 +351,27 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 <p><img src="finalproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>The One Rule Model does not work for this task. The summary of the model is incredibly dense, and the “One Rule” chosen is in fact the name of the artist. For a datset of this size, it is almost impossible to interpret the model results because the model results are no better than me walking into the Met with a list of famous artists in my head. Van Gogh = Is.Highlight I would expect, and that is the case.</p>
-<pre><code>##          Object.Number Is.Highlight Is.Public.Domain
-## 324947     1975.1.2462        False             True
-## 131082       20.186.17        False             True
-## 27784        22.122.45        False             True
-## 4464        62.232a, b        False             True
-## 425620 1986.1250.8(10)        False            False
-## 446136   44.91.783(56)        False            False
-##        Object.ID                             Department
-## 324947    461327               Robert Lehman Collection
-## 131082    220827 European Sculpture and Decorative Arts
-## 27784      32994                         Arms and Armor
-## 4464        4800               American Decorative Arts
-## 425620    704845                    Drawings and Prints
-## 446136    746302                    Drawings and Prints
+<pre><code>##          Object.Number Is.Highlight
+## 324947     1975.1.2462        False
+## 131082       20.186.17        False
+## 27784        22.122.45        False
+## 4464        62.232a, b        False
+## 425620 1986.1250.8(10)        False
+## 446136   44.91.783(56)        False
+##        Is.Public.Domain Object.ID
+## 324947             True    461327
+## 131082             True    220827
+## 27784              True     32994
+## 4464               True      4800
+## 425620            False    704845
+## 446136            False    746302
+##                                    Department
+## 324947               Robert Lehman Collection
+## 131082 European Sculpture and Decorative Arts
+## 27784                          Arms and Armor
+## 4464                 American Decorative Arts
+## 425620                    Drawings and Prints
+## 446136                    Drawings and Prints
 ##                               Object.Name
 ## 324947                             Carpet
 ## 131082                              Strip
@@ -286,13 +386,20 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## 4464                                                                                       Lithophane
 ## 425620 Taschenbuch der Reisen, oder unterhaltende Darstellung der Entdeckungen des 18ten Jahrhunderts
 ## 446136          Ornamental designs with semi-abstract patterns and thin bundles of flowers and leaves
-##             Culture Period Dynasty Reign Portfolio
-## 324947 Indo-Persian                               
-## 131082      Italian                               
-## 27784       Russian                               
-## 4464         German                               
-## 425620                                            
-## 446136                                            
+##             Culture Period Dynasty Reign
+## 324947 Indo-Persian                     
+## 131082      Italian                     
+## 27784       Russian                     
+## 4464         German                     
+## 425620                                  
+## 446136                                  
+##        Portfolio
+## 324947          
+## 131082          
+## 27784           
+## 4464            
+## 425620          
+## 446136          
 ##                                                                            Artist.Role
 ## 324947                                                                                
 ## 131082                                                                                
@@ -356,20 +463,27 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## 4464                                                                                                      9999      
 ## 425620 0019      |0019      |1524      |1859      |1900      |1774      |1689      |1844      |1753      |1596      
 ## 446136                                                                                         1900      |0019      
-##                            Object.Date Object.Begin.Date
-## 324947 second half of the 17th century              1650
-## 131082                    16th century              1500
-## 27784                             1728              1728
-## 4464                          ca. 1840              1837
-## 425620                         1802–13              1802
-## 446136                    [after 1844]              1844
-##        Object.End.Date                          Medium
-## 324947            1700 Wool pile on cotton foundation.
-## 131082            1599                     Needle lace
-## 27784             1728                          Bronze
-## 4464              1840              Porcelain and wood
-## 425620            1813        Illustrations: engraving
-## 446136            1900                     Lithography
+##                            Object.Date
+## 324947 second half of the 17th century
+## 131082                    16th century
+## 27784                             1728
+## 4464                          ca. 1840
+## 425620                         1802–13
+## 446136                    [after 1844]
+##        Object.Begin.Date Object.End.Date
+## 324947              1650            1700
+## 131082              1500            1599
+## 27784               1728            1728
+## 4464                1837            1840
+## 425620              1802            1813
+## 446136              1844            1900
+##                                 Medium
+## 324947 Wool pile on cotton foundation.
+## 131082                     Needle lace
+## 27784                           Bronze
+## 4464                Porcelain and wood
+## 425620        Illustrations: engraving
+## 446136                     Lithography
 ##                                                                                                     Dimensions
 ## 324947                                                                           Length: 5.5 m.\nWidth: 2.5 m.
 ## 131082                                                              L. 9 1/2 x W. 1 3/4 inches (24.1 x 4.4 cm)
@@ -384,20 +498,27 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## 4464                             Gift of Mrs. Cecil J. North, 1962
 ## 425620 Gift of Ica Waldes Busek in Memory of Jindrich Waldes, 1986
 ## 446136                                Gift of Edith P. Blase, 1944
-##        Geography.Type  City State County Country Region
-## 324947                                                 
-## 131082                                                 
-## 27784                                                  
-## 4464          Made in                    Germany       
-## 425620                                                 
-## 446136                Paris                            
-##        Subregion Locale Locus Excavation River
-## 324947                                        
-## 131082                                        
-## 27784                                         
-## 4464                                          
-## 425620                                        
-## 446136                                        
+##        Geography.Type  City State County
+## 324947                                  
+## 131082                                  
+## 27784                                   
+## 4464          Made in                   
+## 425620                                  
+## 446136                Paris             
+##        Country Region Subregion Locale Locus
+## 324947                                      
+## 131082                                      
+## 27784                                       
+## 4464   Germany                              
+## 425620                                      
+## 446136                                      
+##        Excavation River
+## 324947                 
+## 131082                 
+## 27784                  
+## 4464                   
+## 425620                 
+## 446136                 
 ##                              Classification
 ## 324947                        Textiles-Rugs
 ## 131082                       Textiles-Laces
@@ -971,11 +1092,14 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## 
 ## Contingency table:
 ##             Object.Date
-## Is.Highlight      [1910] [after 1844] 100 BC–100 AD
-##        False * 33    * 1          * 1           * 1
+## Is.Highlight      [1910] [after 1844]
+##        False * 33    * 1          * 1
 ##             Object.Date
-## Is.Highlight 10th century 10th–11th century
-##        False          * 1               * 1
+## Is.Highlight 100 BC–100 AD 10th century
+##        False           * 1          * 1
+##             Object.Date
+## Is.Highlight 10th–11th century
+##        False               * 1
 ##             Object.Date
 ## Is.Highlight 11th–16th century 12th century
 ##        False               * 1          * 2
@@ -983,137 +1107,212 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight 12th–13th century 13th century
 ##        False               * 1          * 2
 ##             Object.Date
-## Is.Highlight 13th–14th century 1493 14th century
-##        False               * 1  * 1          * 1
+## Is.Highlight 13th–14th century 1493
+##        False               * 1  * 1
 ##             Object.Date
-## Is.Highlight 14th–early 16th century 1505 1508 1512 1517
-##        False                     * 1  * 1  * 1  * 1  * 1
+## Is.Highlight 14th century
+##        False          * 1
 ##             Object.Date
-## Is.Highlight 1527–85 1540–45 1541 1544 1546 1556 1557 1558
-##        False     * 1     * 1  * 1  * 1  * 1  * 1  * 2  * 1
+## Is.Highlight 14th–early 16th century 1505
+##        False                     * 1  * 1
 ##             Object.Date
-## Is.Highlight 1560 1562 1564 1565 1566 1567 1572, 1576 1573
-##        False  * 1  * 3  * 1  * 1  * 1  * 2        * 1  * 1
+## Is.Highlight 1508 1512 1517 1527–85 1540–45
+##        False  * 1  * 1  * 1     * 1     * 1
 ##             Object.Date
-## Is.Highlight 1576 1580–1600 1594 1597 15th century
-##        False  * 1       * 1  * 1  * 1          * 1
+## Is.Highlight 1541 1544 1546 1556 1557 1558
+##        False  * 1  * 1  * 1  * 1  * 2  * 1
 ##             Object.Date
-## Is.Highlight 15th–16th century 1600–1605 1601 1606
-##        False               * 2       * 1  * 1  * 1
+## Is.Highlight 1560 1562 1564 1565 1566 1567
+##        False  * 1  * 3  * 1  * 1  * 1  * 2
 ##             Object.Date
-## Is.Highlight 1609?–?1610  1612 1624 1625 1632 1634 1636 1646
-##        False          * 1  * 3  * 1  * 1  * 1  * 1  * 2  * 1
+## Is.Highlight 1572, 1576 1573 1576 1580–1600
+##        False        * 1  * 1  * 1       * 1
 ##             Object.Date
-## Is.Highlight 1647 1650 1650–75 1662–78 1668 1696 1696–1770
-##        False  * 2  * 1     * 1     * 1  * 1  * 1       * 1
+## Is.Highlight 1594 1597 15th century
+##        False  * 1  * 1          * 1
 ##             Object.Date
-## Is.Highlight 16th century 16th–17th and 20th century
-##        False          * 7                        * 1
+## Is.Highlight 15th–16th century 1600–1605 1601
+##        False               * 2       * 1  * 1
 ##             Object.Date
-## Is.Highlight 16th–17th century 16th–18th century 1719–20
-##        False               * 1               * 1     * 1
+## Is.Highlight 1606 1609?–?1610  1612 1624 1625
+##        False  * 1          * 1  * 3  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1720–25 1720–27 1728 1734–91 1742 1750–99
-##        False     * 1     * 1  * 1     * 1  * 2     * 1
+## Is.Highlight 1632 1634 1636 1646 1647 1650
+##        False  * 1  * 1  * 2  * 1  * 2  * 1
 ##             Object.Date
-## Is.Highlight 1755–90 1763 1764–1802 1765–1776 1765–85 1769
-##        False     * 1  * 1       * 1         0     * 1  * 1
+## Is.Highlight 1650–75 1662–78 1668 1696
+##        False     * 1     * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1772 1778 1780–90 1788–95 1790–1810 1795–1807
-##        False  * 1  * 1     * 1     * 1       * 1       * 1
+## Is.Highlight 1696–1770 16th century
+##        False       * 1          * 7
 ##             Object.Date
-## Is.Highlight 1799 17th century 17th century (first half)
-##        False  * 1         * 10                       * 1
+## Is.Highlight 16th–17th and 20th century
+##        False                        * 1
 ##             Object.Date
-## Is.Highlight 17th–18th century 1800–1925 1800–1939 1800–1940
-##        False               * 3       * 1       * 1       * 1
+## Is.Highlight 16th–17th century
+##        False               * 1
 ##             Object.Date
-## Is.Highlight 1800–1960 1800–50 (?) 1801 1802–13 1807 1810–75
-##        False       * 1         * 1  * 1     * 1  * 1     * 1
+## Is.Highlight 16th–18th century 1719–20
+##        False               * 1     * 1
 ##             Object.Date
-## Is.Highlight 1820–30 1825–40 1830 1830–40 1830–90 1831–34
-##        False     * 1     * 1  * 1     * 1     * 1     * 1
+## Is.Highlight 1720–25 1720–27 1728 1734–91
+##        False     * 1     * 1  * 1     * 1
 ##             Object.Date
-## Is.Highlight 1835–1900 1838–55 1839 1841 1843–47 1845
-##        False       * 1     * 1  * 1  * 1     * 2  * 1
+## Is.Highlight 1742 1750–99 1755–90 1763
+##        False  * 2     * 1     * 1  * 1
 ##             Object.Date
-## Is.Highlight 1845–55 1847 1849 1850 1850–65 1850–70 1850–74
-##        False     * 1  * 1  * 1  * 3     * 1     * 2     * 1
+## Is.Highlight 1764–1802 1765–1776 1765–85 1769
+##        False       * 1         0     * 1  * 1
 ##             Object.Date
-## Is.Highlight 1850s 1850s–60s 1851 1853 1854–56, printed 1862
-##        False   * 1       * 1  * 1  * 1                   * 1
+## Is.Highlight 1772 1778 1780–90 1788–95
+##        False  * 1  * 1     * 1     * 1
 ##             Object.Date
-## Is.Highlight 1857–67 1858 1860s 1860s–70s 1861–63 1861–64
-##        False     * 1  * 1   * 3       * 1     * 1     * 1
+## Is.Highlight 1790–1810 1795–1807 1799
+##        False       * 1       * 1  * 1
 ##             Object.Date
-## Is.Highlight 1864 1865 1865 or later 1868 1869 1869 (?)
-##        False  * 2  * 1           * 1  * 3  * 1      * 1
+## Is.Highlight 17th century
+##        False         * 10
 ##             Object.Date
-## Is.Highlight 1870s 1872 1873 1874 1877 1878–79 1878–93
-##        False   * 1  * 1  * 1  * 2  * 1     * 1     * 1
+## Is.Highlight 17th century (first half)
+##        False                       * 1
 ##             Object.Date
-## Is.Highlight 1880–87 1880–92 1880s 1881 1884 1886 1887
-##        False     * 2     * 2   * 2  * 3  * 1  * 2  * 4
+## Is.Highlight 17th–18th century 1800–1925
+##        False               * 3       * 1
 ##             Object.Date
-## Is.Highlight 1887–92 1888 1888–89 1889 1890 1890–1925
-##        False     * 1  * 6     * 1  * 3  * 5       * 1
+## Is.Highlight 1800–1939 1800–1940 1800–1960
+##        False       * 1       * 1       * 1
 ##             Object.Date
-## Is.Highlight 1890–95 1890–99 1890s–1920s 1891 1892 1893 1894
-##        False     * 1     * 1         * 1  * 1  * 2  * 2  * 3
+## Is.Highlight 1800–50 (?) 1801 1802–13 1807
+##        False         * 1  * 1     * 1  * 1
 ##             Object.Date
-## Is.Highlight 1895 1896 1897–99 1899 18th century
-##        False  * 3  * 1     * 1  * 1         * 27
+## Is.Highlight 1810–75 1820–30 1825–40 1830
+##        False     * 1     * 1     * 1  * 1
 ##             Object.Date
-## Is.Highlight 18th–19th century 18th–early 19th century
-##        False               * 8                     * 1
+## Is.Highlight 1830–40 1830–90 1831–34
+##        False     * 1     * 1     * 1
 ##             Object.Date
-## Is.Highlight 1900–1915 1900s 1900s–1930s 1900s–1970s 1902–04
-##        False       * 1   * 2         * 1         * 1     * 1
+## Is.Highlight 1835–1900 1838–55 1839 1841
+##        False       * 1     * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1902–3 1903 1904 1906 1907 1908 1909 1909–11
-##        False    * 1  * 1  * 1  * 2  * 1  * 1  * 1     * 2
+## Is.Highlight 1843–47 1845 1845–55 1847 1849
+##        False     * 2  * 1     * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1909–1910 1909–1912 1910 1910–11 1910–14 1911
-##        False       * 1       * 1  * 9     * 1     * 1  * 1
+## Is.Highlight 1850 1850–65 1850–70 1850–74
+##        False  * 3     * 1     * 2     * 1
 ##             Object.Date
-## Is.Highlight 1912 1913 1914 1914–15 1915 1915–20 1915–41
-##        False  * 1  * 1  * 1     * 2  * 1     * 1     * 1
+## Is.Highlight 1850s 1850s–60s 1851 1853
+##        False   * 1       * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1918 1919–21 1920 1920s 1920s–30s 1922 1924
-##        False  * 1     * 1    0   * 4       * 1  * 1  * 2
+## Is.Highlight 1854–56, printed 1862 1857–67
+##        False                   * 1     * 1
 ##             Object.Date
-## Is.Highlight 1925 1926 1927 1928 1928–30 1928–48 1929
-##        False  * 2  * 1  * 1  * 2     * 1     * 1  * 3
+## Is.Highlight 1858 1860s 1860s–70s 1861–63
+##        False  * 1   * 3       * 1     * 1
 ##             Object.Date
-## Is.Highlight 1929–30 1930 1930–31 1932 1934–36 1935 1936
-##        False     * 1  * 1     * 1  * 1     * 1  * 1  * 2
+## Is.Highlight 1861–64 1864 1865 1865 or later
+##        False     * 1  * 2  * 1           * 1
 ##             Object.Date
-## Is.Highlight 1937 1938 1939 1940 1941 1942–45 1943 1944 1945
-##        False  * 1  * 2  * 3  * 1  * 1     * 1  * 1  * 1  * 2
+## Is.Highlight 1868 1869 1869 (?) 1870s 1872
+##        False  * 3  * 1      * 1   * 1  * 1
+##             Object.Date
+## Is.Highlight 1873 1874 1877 1878–79 1878–93
+##        False  * 1  * 2  * 1     * 1     * 1
+##             Object.Date
+## Is.Highlight 1880–87 1880–92 1880s 1881 1884
+##        False     * 2     * 2   * 2  * 3  * 1
+##             Object.Date
+## Is.Highlight 1886 1887 1887–92 1888 1888–89
+##        False  * 2  * 4     * 1  * 6     * 1
+##             Object.Date
+## Is.Highlight 1889 1890 1890–1925 1890–95
+##        False  * 3  * 5       * 1     * 1
+##             Object.Date
+## Is.Highlight 1890–99 1890s–1920s 1891 1892
+##        False     * 1         * 1  * 1  * 2
+##             Object.Date
+## Is.Highlight 1893 1894 1895 1896 1897–99 1899
+##        False  * 2  * 3  * 3  * 1     * 1  * 1
+##             Object.Date
+## Is.Highlight 18th century 18th–19th century
+##        False         * 27               * 8
+##             Object.Date
+## Is.Highlight 18th–early 19th century
+##        False                     * 1
+##             Object.Date
+## Is.Highlight 1900–1915 1900s 1900s–1930s
+##        False       * 1   * 2         * 1
+##             Object.Date
+## Is.Highlight 1900s–1970s 1902–04 1902–3 1903
+##        False         * 1     * 1    * 1  * 1
+##             Object.Date
+## Is.Highlight 1904 1906 1907 1908 1909 1909–11
+##        False  * 1  * 2  * 1  * 1  * 1     * 2
+##             Object.Date
+## Is.Highlight 1909–1910 1909–1912 1910 1910–11
+##        False       * 1       * 1  * 9     * 1
+##             Object.Date
+## Is.Highlight 1910–14 1911 1912 1913 1914
+##        False     * 1  * 1  * 1  * 1  * 1
+##             Object.Date
+## Is.Highlight 1914–15 1915 1915–20 1915–41
+##        False     * 2  * 1     * 1     * 1
+##             Object.Date
+## Is.Highlight 1918 1919–21 1920 1920s
+##        False  * 1     * 1    0   * 4
+##             Object.Date
+## Is.Highlight 1920s–30s 1922 1924 1925 1926
+##        False       * 1  * 1  * 2  * 2  * 1
+##             Object.Date
+## Is.Highlight 1927 1928 1928–30 1928–48 1929
+##        False  * 1  * 2     * 1     * 1  * 3
+##             Object.Date
+## Is.Highlight 1929–30 1930 1930–31 1932
+##        False     * 1  * 1     * 1  * 1
+##             Object.Date
+## Is.Highlight 1934–36 1935 1936 1937 1938 1939
+##        False     * 1  * 1  * 2  * 1  * 2  * 3
+##             Object.Date
+## Is.Highlight 1940 1941 1942–45 1943 1944 1945
+##        False  * 1  * 1     * 1  * 1  * 1  * 2
 ##             Object.Date
 ## Is.Highlight 1946 1947 1949 1950 1950s 1951
 ##        False  * 1  * 1  * 1  * 1   * 1  * 3
 ##             Object.Date
-## Is.Highlight 1951, printed 1967 1952 1953 1954 1956 1957
-##        False                * 1  * 2  * 3  * 1  * 1  * 1
+## Is.Highlight 1951, printed 1967 1952 1953
+##        False                * 1  * 2  * 3
 ##             Object.Date
-## Is.Highlight 1958 1959 1960 1960s 1965 1966 1967 1969 1970
-##        False  * 1  * 1  * 1   * 1  * 1  * 1  * 2  * 2  * 1
+## Is.Highlight 1954 1956 1957 1958 1959 1960
+##        False  * 1  * 1  * 1  * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1970–73 1970s 1971 1973–74 1975 1976–78 1978
-##        False     * 1   * 1  * 2     * 1  * 1     * 1  * 1
+## Is.Highlight 1960s 1965 1966 1967 1969 1970
+##        False   * 1  * 1  * 1  * 2  * 2  * 1
 ##             Object.Date
-## Is.Highlight 1980 1981 1982 1982; printed 1987 1984 1987
-##        False  * 1  * 1  * 1                * 1  * 2  * 1
+## Is.Highlight 1970–73 1970s 1971 1973–74 1975
+##        False     * 1   * 1  * 2     * 1  * 1
 ##             Object.Date
-## Is.Highlight 1989 1989, printed 1990 1993 1993, printed 1997
-##        False  * 1                * 1  * 1                * 1
+## Is.Highlight 1976–78 1978 1980 1981 1982
+##        False     * 1  * 1  * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1996 19th century 19th century–20th century
-##        False  * 1         * 39                       * 1
+## Is.Highlight 1982; printed 1987 1984 1987
+##        False                * 1  * 2  * 1
 ##             Object.Date
-## Is.Highlight 19th–20th century 1st century 1st century A.D.
-##        False               * 2         * 1              * 1
+## Is.Highlight 1989 1989, printed 1990 1993
+##        False  * 1                * 1  * 1
+##             Object.Date
+## Is.Highlight 1993, printed 1997 1996
+##        False                * 1  * 1
+##             Object.Date
+## Is.Highlight 19th century
+##        False         * 39
+##             Object.Date
+## Is.Highlight 19th century–20th century
+##        False                       * 1
+##             Object.Date
+## Is.Highlight 19th–20th century 1st century
+##        False               * 2         * 1
+##             Object.Date
+## Is.Highlight 1st century A.D.
+##        False              * 1
 ##             Object.Date
 ## Is.Highlight 1st century B.C.–1st century A.D.
 ##        False                               * 2
@@ -1121,59 +1320,83 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight 1st century B.C.–3rd century A.D.
 ##        False                               * 1
 ##             Object.Date
-## Is.Highlight 1st half of 1st century A.D. 200 BC–100 AD 2003
-##        False                          * 1           * 1  * 1
+## Is.Highlight 1st half of 1st century A.D.
+##        False                          * 1
 ##             Object.Date
-## Is.Highlight 2013 20th century
-##        False  * 1          * 7
+## Is.Highlight 200 BC–100 AD 2003 2013
+##        False           * 1  * 1  * 1
+##             Object.Date
+## Is.Highlight 20th century
+##        False          * 7
 ##             Object.Date
 ## Is.Highlight 2nd half of the 5th century B.C.
 ##        False                              * 1
 ##             Object.Date
-## Is.Highlight 2nd–1st century B.C. 30 B.C.–A.D. 346
-##        False                  * 2              * 1
+## Is.Highlight 2nd–1st century B.C.
+##        False                  * 2
 ##             Object.Date
-## Is.Highlight 30 B.C.–A.D. 364 300 B.C.–A.D. 400
-##        False              * 1               * 1
+## Is.Highlight 30 B.C.–A.D. 346
+##        False              * 1
 ##             Object.Date
-## Is.Highlight 3200–2700 B.C. 332–30 B.C. 380–30 B.C.
-##        False            * 1         * 1         * 1
+## Is.Highlight 30 B.C.–A.D. 364
+##        False              * 1
+##             Object.Date
+## Is.Highlight 300 B.C.–A.D. 400 3200–2700 B.C.
+##        False               * 1            * 1
+##             Object.Date
+## Is.Highlight 332–30 B.C. 380–30 B.C.
+##        False         * 1         * 1
 ##             Object.Date
 ## Is.Highlight 3rd century B.C. 3rd–4th century
 ##        False              * 2             * 1
 ##             Object.Date
-## Is.Highlight 3rd–5th century 3rd–6th century 4th–5th century
-##        False             * 1             * 1             * 1
+## Is.Highlight 3rd–5th century 3rd–6th century
+##        False             * 1             * 1
 ##             Object.Date
-## Is.Highlight 4th–7th century 581–906 5th century B.C.
-##        False             * 1     * 1              * 1
+## Is.Highlight 4th–5th century 4th–7th century
+##        False             * 1             * 1
 ##             Object.Date
-## Is.Highlight 5th–4th century B.C. 5th–7th century
-##        False                  * 1             * 1
+## Is.Highlight 581–906 5th century B.C.
+##        False     * 1              * 1
 ##             Object.Date
-## Is.Highlight 664–332 B.C. 664–380 B.C. 6th century B.C.
-##        False          * 2          * 1              * 1
+## Is.Highlight 5th–4th century B.C.
+##        False                  * 1
 ##             Object.Date
-## Is.Highlight 6th–4th century B.C. 6th–5th century B.C.
-##        False                  * 1                  * 1
+## Is.Highlight 5th–7th century 664–332 B.C.
+##        False             * 1          * 2
 ##             Object.Date
-## Is.Highlight 6th–7th century 750–600 B.C. 7th–11th century
-##        False             * 1          * 1              * 1
+## Is.Highlight 664–380 B.C. 6th century B.C.
+##        False          * 1              * 1
 ##             Object.Date
-## Is.Highlight 8th century 8th–12th century 8th–9th century
-##        False         * 1              * 1             * 1
+## Is.Highlight 6th–4th century B.C.
+##        False                  * 1
+##             Object.Date
+## Is.Highlight 6th–5th century B.C.
+##        False                  * 1
+##             Object.Date
+## Is.Highlight 6th–7th century 750–600 B.C.
+##        False             * 1          * 1
+##             Object.Date
+## Is.Highlight 7th–11th century 8th century
+##        False              * 1         * 1
+##             Object.Date
+## Is.Highlight 8th–12th century 8th–9th century
+##        False              * 1             * 1
 ##             Object.Date
 ## Is.Highlight A.D. 2nd–3rd century A.D. 50–100
 ##        False                  * 1         * 1
 ##             Object.Date
-## Is.Highlight A.H. 531/ A.D. 1137 after 1847 after 1867
-##        False                 * 1        * 1        * 1
+## Is.Highlight A.H. 531/ A.D. 1137 after 1847
+##        False                 * 1        * 1
 ##             Object.Date
-## Is.Highlight after 1886 April 1972 April 2, 1938
-##        False        * 1        * 1           * 1
+## Is.Highlight after 1867 after 1886 April 1972
+##        False        * 1        * 1        * 1
 ##             Object.Date
-## Is.Highlight August 12, 1974 before 16th century before 1719
-##        False             * 2                 * 1         * 1
+## Is.Highlight April 2, 1938 August 12, 1974
+##        False           * 1             * 2
+##             Object.Date
+## Is.Highlight before 16th century before 1719
+##        False                 * 1         * 1
 ##             Object.Date
 ## Is.Highlight before 1941 before 7th century
 ##        False         * 1                * 1
@@ -1181,11 +1404,17 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight blade, 19th century; mounting, 19th century
 ##        False                                         * 1
 ##             Object.Date
-## Is.Highlight ca. 1070–343 B.C ca. 1070–945 B.C.
-##        False              * 1               * 1
+## Is.Highlight ca. 1070–343 B.C
+##        False              * 1
 ##             Object.Date
-## Is.Highlight ca. 1153–1147 B.C. ca. 1265 ca. 1279–1213 B.C.
-##        False                * 2      * 1                * 1
+## Is.Highlight ca. 1070–945 B.C.
+##        False               * 1
+##             Object.Date
+## Is.Highlight ca. 1153–1147 B.C. ca. 1265
+##        False                * 2      * 1
+##             Object.Date
+## Is.Highlight ca. 1279–1213 B.C.
+##        False                * 1
 ##             Object.Date
 ## Is.Highlight ca. 1295–1070 B.C.
 ##        False                * 2
@@ -1193,227 +1422,368 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight ca. 1295–1070 B.C., later than
 ##        False                            * 1
 ##             Object.Date
-## Is.Highlight ca. 1295–1294 B.C. ca. 1336–1327 B.C.
-##        False                * 1                * 1
+## Is.Highlight ca. 1295–1294 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 1353–1336 B.C. ca. 1475 ca. 1479–1425 B.C.
-##        False                * 1      * 1                * 2
+## Is.Highlight ca. 1336–1327 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 1479–1458 B.C. ca. 14th–13th century B.C.
-##        False                * 5                        * 1
+## Is.Highlight ca. 1353–1336 B.C. ca. 1475
+##        False                * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1500 ca. 1500–1510 ca. 1510 ca. 1545–65
-##        False      * 2           * 1      * 1         * 1
+## Is.Highlight ca. 1479–1425 B.C.
+##        False                * 2
 ##             Object.Date
-## Is.Highlight ca. 1547 ca. 1550 ca. 1550–1295 B.C.
-##        False      * 1      * 1                * 1
+## Is.Highlight ca. 1479–1458 B.C.
+##        False                * 5
 ##             Object.Date
-## Is.Highlight ca. 1570–1600 ca. 1579 ca. 1580–1479 B.C.
-##        False           * 1      * 1                * 1
+## Is.Highlight ca. 14th–13th century B.C.
+##        False                        * 1
 ##             Object.Date
-## Is.Highlight ca. 1590–1610 ca. 1600 ca. 1600–1050 B.C.
-##        False           * 1      * 1                * 1
+## Is.Highlight ca. 1500 ca. 1500–1510 ca. 1510
+##        False      * 2           * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1600–1450 B.C. ca. 1600–20 ca. 1615–1868
-##        False                * 1         * 1           * 5
+## Is.Highlight ca. 1545–65 ca. 1547 ca. 1550
+##        False         * 1      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1635–45 ca. 1640–1550 B.C. ca. 1645
-##        False         * 1                * 1      * 1
+## Is.Highlight ca. 1550–1295 B.C. ca. 1570–1600
+##        False                * 1           * 1
 ##             Object.Date
-## Is.Highlight ca. 1645–46 ca. 1647 ca. 1650 ca. 1680–1700
-##        False         * 1      * 1      * 1           * 1
+## Is.Highlight ca. 1579 ca. 1580–1479 B.C.
+##        False      * 1                * 1
 ##             Object.Date
-## Is.Highlight ca. 1690–1740 ca. 1700–1450 B.C. ca. 1720–30
-##        False           * 1                * 1         * 1
+## Is.Highlight ca. 1590–1610 ca. 1600
+##        False           * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1727–30 ca. 1745 ca. 1749–50 ca. 1750
-##        False         * 1      * 1         * 1      * 2
+## Is.Highlight ca. 1600–1050 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 1756 ca. 1759 ca. 1760 ca. 1762 ca. 1765
-##        False      * 1      * 1      * 2      * 1      * 1
+## Is.Highlight ca. 1600–1450 B.C. ca. 1600–20
+##        False                * 1         * 1
 ##             Object.Date
-## Is.Highlight ca. 1770 ca. 1779–84 ca. 1780 ca. 1790–1800
-##        False      * 1         * 1      * 1           * 1
+## Is.Highlight ca. 1615–1868 ca. 1635–45
+##        False           * 5         * 1
 ##             Object.Date
-## Is.Highlight ca. 1839 ca. 1840 ca. 1848 ca. 1850
-##        False      * 2      * 1      * 1      * 1
+## Is.Highlight ca. 1640–1550 B.C. ca. 1645
+##        False                * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1850–1640 B.C. ca. 1853 ca. 1860–66
-##        False                * 1      * 1         * 1
+## Is.Highlight ca. 1645–46 ca. 1647 ca. 1650
+##        False         * 1      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1864 ca. 1865 ca. 1866 ca. 1867 ca. 1875
-##        False      * 1      * 1      * 1      * 1      * 2
+## Is.Highlight ca. 1680–1700 ca. 1690–1740
+##        False           * 1           * 1
 ##             Object.Date
-## Is.Highlight ca. 1876 ca. 1878 ca. 1880 ca. 1880–1895
-##        False      * 1      * 1      * 2           * 1
+## Is.Highlight ca. 1700–1450 B.C. ca. 1720–30
+##        False                * 1         * 1
 ##             Object.Date
-## Is.Highlight ca. 1880–1910 ca. 1888 ca. 1889 ca. 1890
-##        False           * 1      * 3      * 1      * 3
+## Is.Highlight ca. 1727–30 ca. 1745 ca. 1749–50
+##        False         * 1      * 1         * 1
 ##             Object.Date
-## Is.Highlight ca. 1891 ca. 1891–92 ca. 1898 ca. 1900
-##        False      * 2         * 1      * 1      * 6
+## Is.Highlight ca. 1750 ca. 1756 ca. 1759
+##        False      * 2      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1900 B.C. ca. 1900–1910 ca. 1914 ca. 1917
-##        False           * 1           * 1      * 1      * 1
+## Is.Highlight ca. 1760 ca. 1762 ca. 1765
+##        False      * 2      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1919 ca. 1920 ca. 1925–54 ca. 1927 ca. 1928
-##        False      * 1      * 3         * 1      * 1      * 1
+## Is.Highlight ca. 1770 ca. 1779–84 ca. 1780
+##        False      * 1         * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1929 ca. 1929–1930 ca. 1930 ca. 1931
-##        False      * 1           * 1      * 2      * 1
+## Is.Highlight ca. 1790–1800 ca. 1839 ca. 1840
+##        False           * 1      * 2      * 1
 ##             Object.Date
-## Is.Highlight ca. 1934 ca. 1936 ca. 1938 ca. 1938–41 ca. 1940
-##        False      * 1      * 1      * 1         * 2      * 2
+## Is.Highlight ca. 1848 ca. 1850
+##        False      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1940–1950 ca. 1941 ca. 1943 ca. 1944
-##        False           * 1      * 1      * 2      * 2
+## Is.Highlight ca. 1850–1640 B.C. ca. 1853
+##        False                * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1945 ca. 1951 ca. 1954 ca. 1961
-##        False      * 1      * 1      * 1      * 1
+## Is.Highlight ca. 1860–66 ca. 1864 ca. 1865
+##        False         * 1      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1961–1917 B.C. ca. 1963 ca. 1967
-##        False                * 2      * 1      * 1
+## Is.Highlight ca. 1866 ca. 1867 ca. 1875
+##        False      * 1      * 1      * 2
 ##             Object.Date
-## Is.Highlight ca. 1971–1928 B.C. ca. 1981–1550 B.C.
-##        False                * 1                * 2
+## Is.Highlight ca. 1876 ca. 1878 ca. 1880
+##        False      * 1      * 1      * 2
 ##             Object.Date
-## Is.Highlight ca. 1981–1802 B.C. ca. 1981–1975 B.C. ca. 1991
-##        False                * 1                * 1      * 1
+## Is.Highlight ca. 1880–1895 ca. 1880–1910
+##        False           * 1           * 1
 ##             Object.Date
-## Is.Highlight ca. 19th–16th century B.C. ca. 1st century A.D.
-##        False                        * 1                  * 1
+## Is.Highlight ca. 1888 ca. 1889 ca. 1890
+##        False      * 3      * 1      * 3
+##             Object.Date
+## Is.Highlight ca. 1891 ca. 1891–92 ca. 1898
+##        False      * 2         * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1900 ca. 1900 B.C.
+##        False      * 6           * 1
+##             Object.Date
+## Is.Highlight ca. 1900–1910 ca. 1914 ca. 1917
+##        False           * 1      * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1919 ca. 1920 ca. 1925–54
+##        False      * 1      * 3         * 1
+##             Object.Date
+## Is.Highlight ca. 1927 ca. 1928 ca. 1929
+##        False      * 1      * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1929–1930 ca. 1930 ca. 1931
+##        False           * 1      * 2      * 1
+##             Object.Date
+## Is.Highlight ca. 1934 ca. 1936 ca. 1938
+##        False      * 1      * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1938–41 ca. 1940
+##        False         * 2      * 2
+##             Object.Date
+## Is.Highlight ca. 1940–1950 ca. 1941 ca. 1943
+##        False           * 1      * 1      * 2
+##             Object.Date
+## Is.Highlight ca. 1944 ca. 1945 ca. 1951
+##        False      * 2      * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1954 ca. 1961
+##        False      * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1961–1917 B.C. ca. 1963
+##        False                * 2      * 1
+##             Object.Date
+## Is.Highlight ca. 1967 ca. 1971–1928 B.C.
+##        False      * 1                * 1
+##             Object.Date
+## Is.Highlight ca. 1981–1550 B.C.
+##        False                * 2
+##             Object.Date
+## Is.Highlight ca. 1981–1802 B.C.
+##        False                * 1
+##             Object.Date
+## Is.Highlight ca. 1981–1975 B.C. ca. 1991
+##        False                * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 19th–16th century B.C.
+##        False                        * 1
+##             Object.Date
+## Is.Highlight ca. 1st century A.D.
+##        False                  * 1
 ##             Object.Date
 ## Is.Highlight ca. 1st century B.C.–1st century A.D.
 ##        False                                   * 1
 ##             Object.Date
-## Is.Highlight ca. 2030–1640 B.C. ca. 2200–1900 B.C.
-##        False                * 3                * 1
+## Is.Highlight ca. 2030–1640 B.C.
+##        False                * 3
 ##             Object.Date
-## Is.Highlight ca. 2323–2255 B.C. ca. 2600–2500 B.C.
-##        False                * 1                * 1
+## Is.Highlight ca. 2200–1900 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 2700 B.C.–A.D. 400 ca. 3100–2900 B.C.
-##        False                    * 1                * 1
+## Is.Highlight ca. 2323–2255 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 325–300 B.C. ca. 3850–2100 B.C.
-##        False              * 1                * 1
+## Is.Highlight ca. 2600–2500 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 3850–2960 B.C.\n ca. 450–440 B.C.
-##        False                  * 1              * 1
+## Is.Highlight ca. 2700 B.C.–A.D. 400
+##        False                    * 1
 ##             Object.Date
-## Is.Highlight ca. 46 B.C.–A.D. 68 ca. 470–460 B.C.
-##        False                 * 1              * 1
+## Is.Highlight ca. 3100–2900 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 50 B.C.–ca. 500 A.D. ca. 60 B.C.
-##        False                      * 1           0
+## Is.Highlight ca. 325–300 B.C.
+##        False              * 1
 ##             Object.Date
-## Is.Highlight ca. 750–600 B.C. ca. 7th–6th century B.C.
-##        False              * 1                      * 1
+## Is.Highlight ca. 3850–2100 B.C.
+##        False                * 1
+##             Object.Date
+## Is.Highlight ca. 3850–2960 B.C.\n
+##        False                  * 1
+##             Object.Date
+## Is.Highlight ca. 450–440 B.C.
+##        False              * 1
+##             Object.Date
+## Is.Highlight ca. 46 B.C.–A.D. 68
+##        False                 * 1
+##             Object.Date
+## Is.Highlight ca. 470–460 B.C.
+##        False              * 1
+##             Object.Date
+## Is.Highlight ca. 50 B.C.–ca. 500 A.D.
+##        False                      * 1
+##             Object.Date
+## Is.Highlight ca. 60 B.C. ca. 750–600 B.C.
+##        False           0              * 1
+##             Object.Date
+## Is.Highlight ca. 7th–6th century B.C.
+##        False                      * 1
 ##             Object.Date
 ## Is.Highlight ca. 850–900 ca. 883–859 B.C.
 ##        False         * 1                0
 ##             Object.Date
-## Is.Highlight ca. 8th–7th century B.C. ca. 946–74
-##        False                      * 2        * 1
+## Is.Highlight ca. 8th–7th century B.C.
+##        False                      * 2
 ##             Object.Date
-## Is.Highlight ca. 990–970 B.C. ca. 9th century B.C.
-##        False              * 1                  * 1
+## Is.Highlight ca. 946–74 ca. 990–970 B.C.
+##        False        * 1              * 1
 ##             Object.Date
-## Is.Highlight dated  August 1645 dated 1589 dated 1613
-##        False                * 1        * 1        * 1
+## Is.Highlight ca. 9th century B.C.
+##        False                  * 1
 ##             Object.Date
-## Is.Highlight dated 1666 dated 1729 dated 1868 dated 689
-##        False        * 1        * 1        * 1       * 1
+## Is.Highlight dated  August 1645 dated 1589
+##        False                * 1        * 1
 ##             Object.Date
-## Is.Highlight December 1849–January 1850 December 21, 1861
-##        False                        * 1               * 1
+## Is.Highlight dated 1613 dated 1666 dated 1729
+##        False        * 1        * 1        * 1
 ##             Object.Date
-## Is.Highlight December 25, 1858 early 16th century
-##        False               * 1                * 1
+## Is.Highlight dated 1868 dated 689
+##        False        * 1       * 1
 ##             Object.Date
-## Is.Highlight early 17th century Early 17th century
-##        False                * 1                * 1
+## Is.Highlight December 1849–January 1850
+##        False                        * 1
 ##             Object.Date
-## Is.Highlight early 18th century early 1960s early 1970s
-##        False                * 1         * 1         * 1
+## Is.Highlight December 21, 1861
+##        False               * 1
 ##             Object.Date
-## Is.Highlight early 1980s early 19th century
-##        False         * 1                * 2
+## Is.Highlight December 25, 1858
+##        False               * 1
 ##             Object.Date
-## Is.Highlight early 20th century early to mid-20th century
-##        False                * 2                       * 2
+## Is.Highlight early 16th century
+##        False                * 1
 ##             Object.Date
-## Is.Highlight fall/winter 1963–64 fall/winter 1983–84
-##        False                 * 1                 * 1
+## Is.Highlight early 17th century
+##        False                * 1
 ##             Object.Date
-## Is.Highlight fall/winter 2003–4 February 1, 1790
-##        False                * 1              * 1
+## Is.Highlight Early 17th century
+##        False                * 1
+##             Object.Date
+## Is.Highlight early 18th century early 1960s
+##        False                * 1         * 1
+##             Object.Date
+## Is.Highlight early 1970s early 1980s
+##        False         * 1         * 1
+##             Object.Date
+## Is.Highlight early 19th century
+##        False                * 2
+##             Object.Date
+## Is.Highlight early 20th century
+##        False                * 2
+##             Object.Date
+## Is.Highlight early to mid-20th century
+##        False                       * 2
+##             Object.Date
+## Is.Highlight fall/winter 1963–64
+##        False                 * 1
+##             Object.Date
+## Is.Highlight fall/winter 1983–84
+##        False                 * 1
+##             Object.Date
+## Is.Highlight fall/winter 2003–4
+##        False                * 1
+##             Object.Date
+## Is.Highlight February 1, 1790
+##        False              * 1
 ##             Object.Date
 ## Is.Highlight February 13, 1844 February 1935
 ##        False               * 1           * 1
 ##             Object.Date
-## Is.Highlight February 20, 1757 first half 17th century
-##        False               * 1                     * 1
+## Is.Highlight February 20, 1757
+##        False               * 1
+##             Object.Date
+## Is.Highlight first half 17th century
+##        False                     * 1
 ##             Object.Date
 ## Is.Highlight first half 19th century
 ##        False                     * 1
 ##             Object.Date
-## Is.Highlight fourth quarter 18th century January 1, 1788
-##        False                         * 1             * 1
+## Is.Highlight fourth quarter 18th century
+##        False                         * 1
 ##             Object.Date
-## Is.Highlight January 22, 1974 July 23, 1962 June 6, 1912
-##        False              * 1           * 1          * 1
+## Is.Highlight January 1, 1788 January 22, 1974
+##        False             * 1              * 1
 ##             Object.Date
-## Is.Highlight last quarter 15th century late 16th century
-##        False                       * 1               * 1
+## Is.Highlight July 23, 1962 June 6, 1912
+##        False           * 1          * 1
 ##             Object.Date
-## Is.Highlight late 17th–early 18th century late 1850s–70s
-##        False                          * 1            * 1
+## Is.Highlight last quarter 15th century
+##        False                       * 1
 ##             Object.Date
-## Is.Highlight late 1880s late 18th century
+## Is.Highlight late 16th century
+##        False               * 1
+##             Object.Date
+## Is.Highlight late 17th–early 18th century
+##        False                          * 1
+##             Object.Date
+## Is.Highlight late 1850s–70s late 1880s
+##        False            * 1        * 1
+##             Object.Date
+## Is.Highlight late 18th century
+##        False               * 3
+##             Object.Date
+## Is.Highlight late 18th or early 19th century
+##        False                             * 1
+##             Object.Date
+## Is.Highlight late 1960s late 19th century
 ##        False        * 1               * 3
 ##             Object.Date
-## Is.Highlight late 18th or early 19th century late 1960s
-##        False                             * 1        * 1
-##             Object.Date
-## Is.Highlight late 19th century late 19th–early 20th century
-##        False               * 3                          * 4
+## Is.Highlight late 19th–early 20th century
+##        False                          * 4
 ##             Object.Date
 ## Is.Highlight late 1st century B.C.–early 1st century A.D.
 ##        False                                          * 1
 ##             Object.Date
-## Is.Highlight late 2nd–1st century B.C. late 6th century B.C.
-##        False                       * 1                   * 1
+## Is.Highlight late 2nd–1st century B.C.
+##        False                       * 1
 ##             Object.Date
-## Is.Highlight March 1935   May 31, 1779 May 31, 1806
-##        False          * 1          * 1          * 1
+## Is.Highlight late 6th century B.C.
+##        False                   * 1
 ##             Object.Date
-## Is.Highlight mid 1830s (?) mid to late 19th century
-##        False           * 1                      * 1
+## Is.Highlight March 1935   May 31, 1779
+##        False          * 1          * 1
+##             Object.Date
+## Is.Highlight May 31, 1806 mid 1830s (?)
+##        False          * 1           * 1
+##             Object.Date
+## Is.Highlight mid to late 19th century
+##        False                      * 1
 ##             Object.Date
 ## Is.Highlight mid- 1810s mid-18th century
 ##        False        * 1              * 2
 ##             Object.Date
-## Is.Highlight mid-18th–early 19th century mid-19th century
-##        False                         * 1              * 1
+## Is.Highlight mid-18th–early 19th century
+##        False                         * 1
 ##             Object.Date
-## Is.Highlight mid-20th century mid-4th–early 3rd century B.C.
-##        False              * 3                            * 1
+## Is.Highlight mid-19th century
+##        False              * 1
 ##             Object.Date
-## Is.Highlight mid–19th century n.d. November 10, 1935
-##        False              * 1  * 9               * 1
+## Is.Highlight mid-20th century
+##        False              * 3
 ##             Object.Date
-## Is.Highlight November 4, 1973 November–December 1941
-##        False              * 1                    * 1
+## Is.Highlight mid-4th–early 3rd century B.C.
+##        False                            * 1
+##             Object.Date
+## Is.Highlight mid–19th century n.d.
+##        False              * 1  * 9
+##             Object.Date
+## Is.Highlight November 10, 1935
+##        False               * 1
+##             Object.Date
+## Is.Highlight November 4, 1973
+##        False              * 1
+##             Object.Date
+## Is.Highlight November–December 1941
+##        False                    * 1
 ##             Object.Date
 ## Is.Highlight October 1, 1604 October 6, 1844
 ##        False             * 1             * 1
 ##             Object.Date
-## Is.Highlight possibly ca. 1760 probably 17th century
-##        False               * 1                   * 1
+## Is.Highlight possibly ca. 1760
+##        False               * 1
 ##             Object.Date
-## Is.Highlight republished in 1659 second half 18th century
-##        False                 * 1                      * 3
+## Is.Highlight probably 17th century
+##        False                   * 1
+##             Object.Date
+## Is.Highlight republished in 1659
+##        False                 * 1
+##             Object.Date
+## Is.Highlight second half 18th century
+##        False                      * 3
 ##             Object.Date
 ## Is.Highlight second half of the 17th century
 ##        False                             * 1
@@ -1421,8 +1791,11 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight Second half of the 9th–first quarter of the 10th century
 ##        False                                                      * 1
 ##             Object.Date
-## Is.Highlight spring/summer 1963 spring/summer 1986
-##        False                * 1                * 1
+## Is.Highlight spring/summer 1963
+##        False                * 1
+##             Object.Date
+## Is.Highlight spring/summer 1986
+##        False                * 1
 ##             Object.Date
 ## Is.Highlight spring/summer 2016 Sum
 ##        False                * 1 796
@@ -1431,25 +1804,33 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Maximum in each column: &#39;*&#39;
 ## 
 ## Pearson&#39;s Chi-squared test:
-## X-squared = 800, df = 523, p-value = 6.018e-14</code></pre>
+## X-squared = 800, df = 523, p-value =
+## 6.018e-14</code></pre>
 <pre><code>## [1] 0.95875</code></pre>
 <pre><code>## [1] 0.465</code></pre>
 <p>With the oneRule model, we are able to find out that the Object.Date column is able to predict the training dataset 96% of the time; however, on the test dataset it is only able to predict 46.5% of the time. This means that the oneRule model is not very accurate, and thus we should try more models.</p>
 <p>It also tells us that 46.5% of the variation in the IsHighlight variable can be explained with the Object.Date variable in this sample. Let’s see if that holds up if we use a larger sample!</p>
-<pre><code>##          Object.Number Is.Highlight Is.Public.Domain
-## 324947     1975.1.2462        False             True
-## 131082       20.186.17        False             True
-## 27784        22.122.45        False             True
-## 4464        62.232a, b        False             True
-## 425620 1986.1250.8(10)        False            False
-## 446136   44.91.783(56)        False            False
-##        Object.ID                             Department
-## 324947    461327               Robert Lehman Collection
-## 131082    220827 European Sculpture and Decorative Arts
-## 27784      32994                         Arms and Armor
-## 4464        4800               American Decorative Arts
-## 425620    704845                    Drawings and Prints
-## 446136    746302                    Drawings and Prints
+<pre><code>##          Object.Number Is.Highlight
+## 324947     1975.1.2462        False
+## 131082       20.186.17        False
+## 27784        22.122.45        False
+## 4464        62.232a, b        False
+## 425620 1986.1250.8(10)        False
+## 446136   44.91.783(56)        False
+##        Is.Public.Domain Object.ID
+## 324947             True    461327
+## 131082             True    220827
+## 27784              True     32994
+## 4464               True      4800
+## 425620            False    704845
+## 446136            False    746302
+##                                    Department
+## 324947               Robert Lehman Collection
+## 131082 European Sculpture and Decorative Arts
+## 27784                          Arms and Armor
+## 4464                 American Decorative Arts
+## 425620                    Drawings and Prints
+## 446136                    Drawings and Prints
 ##                               Object.Name
 ## 324947                             Carpet
 ## 131082                              Strip
@@ -1464,13 +1845,20 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## 4464                                                                                       Lithophane
 ## 425620 Taschenbuch der Reisen, oder unterhaltende Darstellung der Entdeckungen des 18ten Jahrhunderts
 ## 446136          Ornamental designs with semi-abstract patterns and thin bundles of flowers and leaves
-##             Culture Period Dynasty Reign Portfolio
-## 324947 Indo-Persian                               
-## 131082      Italian                               
-## 27784       Russian                               
-## 4464         German                               
-## 425620                                            
-## 446136                                            
+##             Culture Period Dynasty Reign
+## 324947 Indo-Persian                     
+## 131082      Italian                     
+## 27784       Russian                     
+## 4464         German                     
+## 425620                                  
+## 446136                                  
+##        Portfolio
+## 324947          
+## 131082          
+## 27784           
+## 4464            
+## 425620          
+## 446136          
 ##                                                                            Artist.Role
 ## 324947                                                                                
 ## 131082                                                                                
@@ -1534,20 +1922,27 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## 4464                                                                                                      9999      
 ## 425620 0019      |0019      |1524      |1859      |1900      |1774      |1689      |1844      |1753      |1596      
 ## 446136                                                                                         1900      |0019      
-##                            Object.Date Object.Begin.Date
-## 324947 second half of the 17th century              1650
-## 131082                    16th century              1500
-## 27784                             1728              1728
-## 4464                          ca. 1840              1837
-## 425620                         1802–13              1802
-## 446136                    [after 1844]              1844
-##        Object.End.Date                          Medium
-## 324947            1700 Wool pile on cotton foundation.
-## 131082            1599                     Needle lace
-## 27784             1728                          Bronze
-## 4464              1840              Porcelain and wood
-## 425620            1813        Illustrations: engraving
-## 446136            1900                     Lithography
+##                            Object.Date
+## 324947 second half of the 17th century
+## 131082                    16th century
+## 27784                             1728
+## 4464                          ca. 1840
+## 425620                         1802–13
+## 446136                    [after 1844]
+##        Object.Begin.Date Object.End.Date
+## 324947              1650            1700
+## 131082              1500            1599
+## 27784               1728            1728
+## 4464                1837            1840
+## 425620              1802            1813
+## 446136              1844            1900
+##                                 Medium
+## 324947 Wool pile on cotton foundation.
+## 131082                     Needle lace
+## 27784                           Bronze
+## 4464                Porcelain and wood
+## 425620        Illustrations: engraving
+## 446136                     Lithography
 ##                                                                                                     Dimensions
 ## 324947                                                                           Length: 5.5 m.\nWidth: 2.5 m.
 ## 131082                                                              L. 9 1/2 x W. 1 3/4 inches (24.1 x 4.4 cm)
@@ -1562,20 +1957,27 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## 4464                             Gift of Mrs. Cecil J. North, 1962
 ## 425620 Gift of Ica Waldes Busek in Memory of Jindrich Waldes, 1986
 ## 446136                                Gift of Edith P. Blase, 1944
-##        Geography.Type  City State County Country Region
-## 324947                                                 
-## 131082                                                 
-## 27784                                                  
-## 4464          Made in                    Germany       
-## 425620                                                 
-## 446136                Paris                            
-##        Subregion Locale Locus Excavation River
-## 324947                                        
-## 131082                                        
-## 27784                                         
-## 4464                                          
-## 425620                                        
-## 446136                                        
+##        Geography.Type  City State County
+## 324947                                  
+## 131082                                  
+## 27784                                   
+## 4464          Made in                   
+## 425620                                  
+## 446136                Paris             
+##        Country Region Subregion Locale Locus
+## 324947                                      
+## 131082                                      
+## 27784                                       
+## 4464   Germany                              
+## 425620                                      
+## 446136                                      
+##        Excavation River
+## 324947                 
+## 131082                 
+## 27784                  
+## 4464                   
+## 425620                 
+## 446136                 
 ##                              Classification
 ## 324947                        Textiles-Rugs
 ## 131082                       Textiles-Laces
@@ -2152,158 +2554,236 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## 
 ## Contingency table:
 ##             Object.Date
-## Is.Highlight      [1664] [1862] reprinted 1921 [1910]
-##        False * 27    * 1                   * 1    * 1
+## Is.Highlight      [1664]
+##        False * 27    * 1
 ##             Object.Date
-## Is.Highlight [after 1844] 100 BC–100 AD 10th century
-##        False          * 1           * 1          * 1
+## Is.Highlight [1862] reprinted 1921 [1910]
+##        False                   * 1    * 1
 ##             Object.Date
-## Is.Highlight 10th–11th century 10th–15th century
-##        False               * 1               * 1
+## Is.Highlight [after 1844] 100 BC–100 AD
+##        False          * 1           * 1
+##             Object.Date
+## Is.Highlight 10th century 10th–11th century
+##        False          * 1               * 1
+##             Object.Date
+## Is.Highlight 10th–15th century
+##        False               * 1
 ##             Object.Date
 ## Is.Highlight 11th–16th century 12th century
 ##        False               * 1          * 3
 ##             Object.Date
-## Is.Highlight 12th–13th century 12th–15th century
-##        False               * 1               * 1
+## Is.Highlight 12th–13th century
+##        False               * 1
 ##             Object.Date
-## Is.Highlight 13th century 13th–14th century 1493
-##        False          * 3               * 1  * 1
+## Is.Highlight 12th–15th century 13th century
+##        False               * 1          * 3
+##             Object.Date
+## Is.Highlight 13th–14th century 1493
+##        False               * 1  * 1
 ##             Object.Date
 ## Is.Highlight 14th century 14th–15th century
 ##        False          * 1               * 1
 ##             Object.Date
-## Is.Highlight 14th–early 16th century 1508 1512 1517 1527–85
-##        False                     * 1  * 1  * 1  * 1     * 1
+## Is.Highlight 14th–early 16th century 1508
+##        False                     * 1  * 1
 ##             Object.Date
-## Is.Highlight 1540–45 1541 1546 1548 1556 1557 1560 1562 1565
-##        False     * 1  * 1  * 1  * 1  * 1  * 2  * 1  * 2  * 1
+## Is.Highlight 1512 1517 1527–85 1540–45 1541
+##        False  * 1  * 1     * 1     * 1  * 1
 ##             Object.Date
-## Is.Highlight 1567 1572, 1576 1573 1576 1580–1600 1594 1597
-##        False  * 1        * 1  * 1  * 1       * 1  * 1  * 1
+## Is.Highlight 1546 1548 1556 1557 1560 1562
+##        False  * 1  * 1  * 1  * 2  * 1  * 2
 ##             Object.Date
-## Is.Highlight 15th–16th century 1600–1605 1601 1606
-##        False               * 1       * 1  * 1  * 1
+## Is.Highlight 1565 1567 1572, 1576 1573 1576
+##        False  * 1  * 1        * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1609?–?1610  1612 1615–35 1624 1632 1634 1636
-##        False          * 1  * 2     * 1  * 1  * 1  * 1  * 1
+## Is.Highlight 1580–1600 1594 1597
+##        False       * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1640–60 1646 1647 1650–75 1659 1668 1680s 1696
-##        False     * 1  * 1  * 2     * 1  * 2  * 1   * 1  * 1
+## Is.Highlight 15th–16th century 1600–1605 1601
+##        False               * 1       * 1  * 1
 ##             Object.Date
-## Is.Highlight 1696–1770 16th century
-##        False       * 1          * 6
+## Is.Highlight 1606 1609?–?1610  1612 1615–35
+##        False  * 1          * 1  * 2     * 1
 ##             Object.Date
-## Is.Highlight 16th–17th and 20th century 16th–17th century
-##        False                        * 1               * 2
+## Is.Highlight 1624 1632 1634 1636 1640–60 1646
+##        False  * 1  * 1  * 1  * 1     * 1  * 1
 ##             Object.Date
-## Is.Highlight 1719–20 1720–25 1720–27 1728 1734–91 1742
-##        False     * 1     * 1     * 1  * 1     * 1  * 2
+## Is.Highlight 1647 1650–75 1659 1668 1680s
+##        False  * 2     * 1  * 2  * 1   * 1
 ##             Object.Date
-## Is.Highlight 1750–99 1763 1764–1802 1765–1776 1765–85 1772
-##        False     * 1  * 1       * 1         0     * 1  * 1
+## Is.Highlight 1696 1696–1770 16th century
+##        False  * 1       * 1          * 6
 ##             Object.Date
-## Is.Highlight 1773 1775 1777 1778 1780–90 1788–95 1790–1810
-##        False  * 1  * 1  * 1  * 1     * 1     * 1       * 1
+## Is.Highlight 16th–17th and 20th century
+##        False                        * 1
 ##             Object.Date
-## Is.Highlight 1795–1807 1799 17th century
-##        False       * 1  * 1         * 10
+## Is.Highlight 16th–17th century 1719–20
+##        False               * 2     * 1
 ##             Object.Date
-## Is.Highlight 17th century (first half) 17th–18th century
-##        False                       * 1               * 3
+## Is.Highlight 1720–25 1720–27 1728 1734–91
+##        False     * 1     * 1  * 1     * 1
 ##             Object.Date
-## Is.Highlight 1800–1850 1800–1925 1800–1939 1800–1940
-##        False       * 1       * 1       * 1       * 1
+## Is.Highlight 1742 1750–99 1763 1764–1802
+##        False  * 2     * 1  * 1       * 1
 ##             Object.Date
-## Is.Highlight 1800–1960 1801 1802–13 1806 1807 1812–27 1816
-##        False       * 1  * 1     * 1  * 1  * 1     * 1  * 1
+## Is.Highlight 1765–1776 1765–85 1772 1773 1775
+##        False         0     * 1  * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1820–30 1825–40 1830 1830–40 1830–90 1835–1900
-##        False     * 1     * 1  * 1     * 1     * 1       * 1
+## Is.Highlight 1777 1778 1780–90 1788–95
+##        False  * 1  * 1     * 1     * 1
 ##             Object.Date
-## Is.Highlight 1838–55 1839 1841 1843 1843–47 1845 1845–55
-##        False     * 1  * 1  * 1  * 1     * 1  * 1     * 1
+## Is.Highlight 1790–1810 1795–1807 1799
+##        False       * 1       * 1  * 1
 ##             Object.Date
-## Is.Highlight 1847 1848 1849 1850 1850–65 1850–70 1850–74
-##        False  * 1  * 1  * 1  * 3     * 1     * 2     * 1
+## Is.Highlight 17th century
+##        False         * 10
 ##             Object.Date
-## Is.Highlight 1850s 1850s–60s 1853 1854 1854–56, printed 1862
-##        False   * 1       * 1  * 1  * 1                   * 1
+## Is.Highlight 17th century (first half)
+##        False                       * 1
 ##             Object.Date
-## Is.Highlight 1858 1860s 1860s–70s 1861–63 1864 1865
-##        False  * 1   * 2       * 1     * 1  * 2  * 2
+## Is.Highlight 17th–18th century 1800–1850
+##        False               * 3       * 1
 ##             Object.Date
-## Is.Highlight 1865 or later 1865–72 1868 1869 1869 (?) 1872
-##        False           * 1     * 1  * 2  * 1      * 1  * 2
+## Is.Highlight 1800–1925 1800–1939 1800–1940
+##        False       * 1       * 1       * 1
 ##             Object.Date
-## Is.Highlight 1873 1874 1877 1878–93 1880 1880–87 1880–92
-##        False  * 1  * 2  * 1     * 1  * 1     * 2     * 2
+## Is.Highlight 1800–1960 1801 1802–13 1806 1807
+##        False       * 1  * 1     * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1880s 1881 1884 1886 1887 1888 1888–89 1889
-##        False   * 3  * 3  * 1  * 2  * 3  * 6     * 1  * 4
+## Is.Highlight 1812–27 1816 1820–30 1825–40
+##        False     * 1  * 1     * 1     * 1
 ##             Object.Date
-## Is.Highlight 1890 1890–1925 1890–95 1890–99 1891 1892 1893
-##        False  * 4       * 1     * 1     * 1  * 1  * 2  * 1
+## Is.Highlight 1830 1830–40 1830–90 1835–1900
+##        False  * 1     * 1     * 1       * 1
 ##             Object.Date
-## Is.Highlight 1894 1895 1896 1897–99 18th and 20th century
-##        False  * 3  * 1  * 1     * 1                   * 1
+## Is.Highlight 1838–55 1839 1841 1843 1843–47
+##        False     * 1  * 1  * 1  * 1     * 1
 ##             Object.Date
-## Is.Highlight 18th century 18th century (?) 18th–19th century
-##        False         * 25              * 1               * 8
+## Is.Highlight 1845 1845–55 1847 1848 1849 1850
+##        False  * 1     * 1  * 1  * 1  * 1  * 3
 ##             Object.Date
-## Is.Highlight 18th–early 19th century 1900–1915 1900s
-##        False                     * 1       * 1   * 2
+## Is.Highlight 1850–65 1850–70 1850–74 1850s
+##        False     * 1     * 2     * 1   * 1
 ##             Object.Date
-## Is.Highlight 1900s–1930s 1900s–1970s 1902–04 1902–3 1903
-##        False         * 1         * 1     * 1    * 1  * 1
+## Is.Highlight 1850s–60s 1853 1854
+##        False       * 1  * 1  * 1
 ##             Object.Date
-## Is.Highlight 1904 1905 1906 1907 1908 1909 1909–11 1909–1910
-##        False  * 1  * 1  * 1  * 1  * 1  * 1     * 3       * 1
+## Is.Highlight 1854–56, printed 1862 1858 1860s
+##        False                   * 1  * 1   * 2
 ##             Object.Date
-## Is.Highlight 1909–1912 1910 1910–11 1910–14 1911 1912 1913
-##        False       * 1  * 6     * 1     * 1  * 1  * 2  * 2
+## Is.Highlight 1860s–70s 1861–63 1864 1865
+##        False       * 1     * 1  * 2  * 2
 ##             Object.Date
-## Is.Highlight 1914 1914–15 1915–20 1915–41 1915–54 1918 1919
-##        False  * 1     * 2     * 1     * 1     * 1  * 1  * 1
+## Is.Highlight 1865 or later 1865–72 1868 1869
+##        False           * 1     * 1  * 2  * 1
 ##             Object.Date
-## Is.Highlight 1919–21 1920 1920s 1920s–30s 1924 1925 1926
-##        False     * 1    0   * 2       * 1  * 1  * 2  * 1
+## Is.Highlight 1869 (?) 1872 1873 1874 1877
+##        False      * 1  * 2  * 1  * 2  * 1
 ##             Object.Date
-## Is.Highlight 1928 1928–30 1928–48 1929 1929–30 1930 1930–31
-##        False  * 2     * 1     * 1  * 3     * 1  * 2     * 1
+## Is.Highlight 1878–93 1880 1880–87 1880–92
+##        False     * 1  * 1     * 2     * 2
 ##             Object.Date
-## Is.Highlight 1932 1933 1934 1934–36 1935 1936 1938 1939 1940
-##        False  * 2  * 2  * 1     * 1  * 1  * 3  * 2  * 3  * 1
+## Is.Highlight 1880s 1881 1884 1886 1887 1888
+##        False   * 3  * 3  * 1  * 2  * 3  * 6
 ##             Object.Date
-## Is.Highlight 1941 1942–45 1944 1945 1946 1949 1950 1950s
-##        False  * 1     * 1  * 1  * 2  * 3  * 1  * 1   * 1
+## Is.Highlight 1888–89 1889 1890 1890–1925
+##        False     * 1  * 4  * 4       * 1
 ##             Object.Date
-## Is.Highlight 1951 1951, printed 1967 1952 1953 1954 1956
-##        False  * 2                * 1  * 2  * 2  * 2  * 2
+## Is.Highlight 1890–95 1890–99 1891 1892 1893
+##        False     * 1     * 1  * 1  * 2  * 1
 ##             Object.Date
-## Is.Highlight 1957 1958 1959 1960 1960s 1965 1966 1967 1969
-##        False  * 1  * 1  * 1  * 1   * 1  * 1  * 1  * 2  * 1
+## Is.Highlight 1894 1895 1896 1897–99
+##        False  * 3  * 1  * 1     * 1
 ##             Object.Date
-## Is.Highlight 1970 1970–73 1970–89 1970s 1971 1973 1973–74
-##        False  * 1     * 1     * 1   * 1  * 2  * 1     * 1
+## Is.Highlight 18th and 20th century
+##        False                   * 1
 ##             Object.Date
-## Is.Highlight 1974 1975 1976–78 1977 1980 1981
-##        False  * 1  * 1     * 1  * 1  * 2  * 1
+## Is.Highlight 18th century 18th century (?)
+##        False         * 25              * 1
 ##             Object.Date
-## Is.Highlight 1982; printed 1987 1984 1987 1989, printed 1990
-##        False                * 1  * 2  * 1                * 1
+## Is.Highlight 18th–19th century
+##        False               * 8
 ##             Object.Date
-## Is.Highlight 1992 1993 1993, printed 1997 1996 19th century
-##        False  * 1  * 1                * 1  * 1         * 40
+## Is.Highlight 18th–early 19th century
+##        False                     * 1
 ##             Object.Date
-## Is.Highlight 19th century–20th century 19th–20th century
-##        False                       * 1               * 2
+## Is.Highlight 1900–1915 1900s 1900s–1930s
+##        False       * 1   * 2         * 1
 ##             Object.Date
-## Is.Highlight 19th–20th century [bell dated 1473] 1st century
-##        False                                 * 1         * 1
+## Is.Highlight 1900s–1970s 1902–04 1902–3 1903
+##        False         * 1     * 1    * 1  * 1
 ##             Object.Date
-## Is.Highlight 1st century A.D.
-##        False              * 1
+## Is.Highlight 1904 1905 1906 1907 1908 1909
+##        False  * 1  * 1  * 1  * 1  * 1  * 1
+##             Object.Date
+## Is.Highlight 1909–11 1909–1910 1909–1912 1910
+##        False     * 3       * 1       * 1  * 6
+##             Object.Date
+## Is.Highlight 1910–11 1910–14 1911 1912 1913
+##        False     * 1     * 1  * 1  * 2  * 2
+##             Object.Date
+## Is.Highlight 1914 1914–15 1915–20 1915–41
+##        False  * 1     * 2     * 1     * 1
+##             Object.Date
+## Is.Highlight 1915–54 1918 1919 1919–21 1920
+##        False     * 1  * 1  * 1     * 1    0
+##             Object.Date
+## Is.Highlight 1920s 1920s–30s 1924 1925 1926
+##        False   * 2       * 1  * 1  * 2  * 1
+##             Object.Date
+## Is.Highlight 1928 1928–30 1928–48 1929
+##        False  * 2     * 1     * 1  * 3
+##             Object.Date
+## Is.Highlight 1929–30 1930 1930–31 1932 1933
+##        False     * 1  * 2     * 1  * 2  * 2
+##             Object.Date
+## Is.Highlight 1934 1934–36 1935 1936 1938 1939
+##        False  * 1     * 1  * 1  * 3  * 2  * 3
+##             Object.Date
+## Is.Highlight 1940 1941 1942–45 1944 1945 1946
+##        False  * 1  * 1     * 1  * 1  * 2  * 3
+##             Object.Date
+## Is.Highlight 1949 1950 1950s 1951
+##        False  * 1  * 1   * 1  * 2
+##             Object.Date
+## Is.Highlight 1951, printed 1967 1952 1953
+##        False                * 1  * 2  * 2
+##             Object.Date
+## Is.Highlight 1954 1956 1957 1958 1959 1960
+##        False  * 2  * 2  * 1  * 1  * 1  * 1
+##             Object.Date
+## Is.Highlight 1960s 1965 1966 1967 1969 1970
+##        False   * 1  * 1  * 1  * 2  * 1  * 1
+##             Object.Date
+## Is.Highlight 1970–73 1970–89 1970s 1971 1973
+##        False     * 1     * 1   * 1  * 2  * 1
+##             Object.Date
+## Is.Highlight 1973–74 1974 1975 1976–78 1977
+##        False     * 1  * 1  * 1     * 1  * 1
+##             Object.Date
+## Is.Highlight 1980 1981 1982; printed 1987
+##        False  * 2  * 1                * 1
+##             Object.Date
+## Is.Highlight 1984 1987 1989, printed 1990
+##        False  * 2  * 1                * 1
+##             Object.Date
+## Is.Highlight 1992 1993 1993, printed 1997
+##        False  * 1  * 1                * 1
+##             Object.Date
+## Is.Highlight 1996 19th century
+##        False  * 1         * 40
+##             Object.Date
+## Is.Highlight 19th century–20th century
+##        False                       * 1
+##             Object.Date
+## Is.Highlight 19th–20th century
+##        False               * 2
+##             Object.Date
+## Is.Highlight 19th–20th century [bell dated 1473]
+##        False                                 * 1
+##             Object.Date
+## Is.Highlight 1st century 1st century A.D.
+##        False         * 1              * 1
 ##             Object.Date
 ## Is.Highlight 1st century B.C.–1st century A.D.
 ##        False                               * 2
@@ -2311,11 +2791,14 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight 1st century B.C.–3rd century A.D.
 ##        False                               * 2
 ##             Object.Date
-## Is.Highlight 1st half of 1st century A.D. 200 BC–100 AD 2002
-##        False                          * 1           * 1  * 1
+## Is.Highlight 1st half of 1st century A.D.
+##        False                          * 1
 ##             Object.Date
-## Is.Highlight 2003 2006 2013 20th century
-##        False  * 1  * 1  * 1          * 9
+## Is.Highlight 200 BC–100 AD 2002 2003 2006
+##        False           * 1  * 1  * 1  * 1
+##             Object.Date
+## Is.Highlight 2013 20th century
+##        False  * 1          * 9
 ##             Object.Date
 ## Is.Highlight 2nd half of the 5th century B.C.
 ##        False                              * 1
@@ -2323,11 +2806,14 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight 2nd quarter of the 5th century B.C.
 ##        False                                 * 1
 ##             Object.Date
-## Is.Highlight 2nd–1st century B.C. 30 B.C.–A.D. 346
-##        False                  * 2              * 1
+## Is.Highlight 2nd–1st century B.C.
+##        False                  * 2
 ##             Object.Date
-## Is.Highlight 380–30 B.C. 3rd century B.C. 3rd–4th century
-##        False         * 1              * 1             * 1
+## Is.Highlight 30 B.C.–A.D. 346 380–30 B.C.
+##        False              * 1         * 1
+##             Object.Date
+## Is.Highlight 3rd century B.C. 3rd–4th century
+##        False              * 1             * 1
 ##             Object.Date
 ## Is.Highlight 3rd–5th century 3rd–6th century
 ##        False             * 1             * 1
@@ -2335,23 +2821,35 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight 4th century A.D. 4th–5th century
 ##        False              * 1             * 1
 ##             Object.Date
-## Is.Highlight 4th–7th century 525–30 BC 581–906
-##        False             * 1       * 1     * 1
+## Is.Highlight 4th–7th century 525–30 BC
+##        False             * 1       * 1
 ##             Object.Date
-## Is.Highlight 5th century B.C. 5th–4th century B.C.
-##        False              * 1                  * 1
+## Is.Highlight 581–906 5th century B.C.
+##        False     * 1              * 1
+##             Object.Date
+## Is.Highlight 5th–4th century B.C.
+##        False                  * 1
 ##             Object.Date
 ## Is.Highlight 664–332 B.C. 6th century B.C.
 ##        False          * 1              * 1
 ##             Object.Date
-## Is.Highlight 6th–4th century B.C. 6th–5th century B.C.
-##        False                  * 1                  * 1
+## Is.Highlight 6th–4th century B.C.
+##        False                  * 1
 ##             Object.Date
-## Is.Highlight 6th–7th century 6th–early 7th century
-##        False             * 1                   * 1
+## Is.Highlight 6th–5th century B.C.
+##        False                  * 1
 ##             Object.Date
-## Is.Highlight 7th–11th century 8th century B.C.
-##        False              * 1              * 1
+## Is.Highlight 6th–7th century
+##        False             * 1
+##             Object.Date
+## Is.Highlight 6th–early 7th century
+##        False                   * 1
+##             Object.Date
+## Is.Highlight 7th–11th century
+##        False              * 1
+##             Object.Date
+## Is.Highlight 8th century B.C.
+##        False              * 1
 ##             Object.Date
 ## Is.Highlight 8th–12th century 8th–9th century
 ##        False              * 1             * 1
@@ -2359,17 +2857,26 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight A.D. 2nd–3rd century A.D. 50–100
 ##        False                  * 1         * 1
 ##             Object.Date
-## Is.Highlight A.H. 139–48/A.D. 757–66 A.H. 531/ A.D. 1137
-##        False                     * 1                 * 1
+## Is.Highlight A.H. 139–48/A.D. 757–66
+##        False                     * 1
 ##             Object.Date
-## Is.Highlight after 1134–before 1156 after 1847 after 1867
-##        False                    * 1        * 1        * 1
+## Is.Highlight A.H. 531/ A.D. 1137
+##        False                 * 1
 ##             Object.Date
-## Is.Highlight April 1972 April 2, 1938 August 12, 1974
-##        False        * 1           * 1             * 2
+## Is.Highlight after 1134–before 1156
+##        False                    * 1
 ##             Object.Date
-## Is.Highlight August 19, 1851 before 16th century before 1941
-##        False             * 1                 * 1         * 1
+## Is.Highlight after 1847 after 1867 April 1972
+##        False        * 1        * 1        * 1
+##             Object.Date
+## Is.Highlight April 2, 1938 August 12, 1974
+##        False           * 1             * 2
+##             Object.Date
+## Is.Highlight August 19, 1851
+##        False             * 1
+##             Object.Date
+## Is.Highlight before 16th century before 1941
+##        False                 * 1         * 1
 ##             Object.Date
 ## Is.Highlight before 7th century
 ##        False                * 1
@@ -2377,104 +2884,161 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight blade, 19th century; mounting, 19th century
 ##        False                                         * 1
 ##             Object.Date
-## Is.Highlight ca. 1070–343 B.C ca. 1070–945 B.C.
-##        False              * 1               * 1
+## Is.Highlight ca. 1070–343 B.C
+##        False              * 1
 ##             Object.Date
-## Is.Highlight ca. 1153–1147 B.C. ca. 1265 ca. 1279–1213 B.C.
-##        False                * 2      * 1                * 1
+## Is.Highlight ca. 1070–945 B.C.
+##        False               * 1
 ##             Object.Date
-## Is.Highlight ca. 1295–1070 B.C. ca. 1295–1294 B.C.
-##        False                * 2                * 1
+## Is.Highlight ca. 1153–1147 B.C. ca. 1265
+##        False                * 2      * 1
 ##             Object.Date
-## Is.Highlight ca. 1336–1327 B.C. ca. 1353–1336 B.C.
-##        False                * 1                * 2
+## Is.Highlight ca. 1279–1213 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 1435–40 ca. 1475 ca. 1479–1425 B.C.
-##        False         * 1      * 1                * 1
+## Is.Highlight ca. 1295–1070 B.C.
+##        False                * 2
 ##             Object.Date
-## Is.Highlight ca. 1479–1458 B.C. ca. 14th–13th century B.C.
-##        False                * 4                        * 1
+## Is.Highlight ca. 1295–1294 B.C.
+##        False                * 1
+##             Object.Date
+## Is.Highlight ca. 1336–1327 B.C.
+##        False                * 1
+##             Object.Date
+## Is.Highlight ca. 1353–1336 B.C. ca. 1435–40
+##        False                * 2         * 1
+##             Object.Date
+## Is.Highlight ca. 1475 ca. 1479–1425 B.C.
+##        False      * 1                * 1
+##             Object.Date
+## Is.Highlight ca. 1479–1458 B.C.
+##        False                * 4
+##             Object.Date
+## Is.Highlight ca. 14th–13th century B.C.
+##        False                        * 1
 ##             Object.Date
 ## Is.Highlight ca. 1500 ca. 1500–1510 ca. 1510
 ##        False      * 2           * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1525 and later ca. 1545–60 ca. 1545–65
-##        False                * 1         * 1         * 1
+## Is.Highlight ca. 1525 and later ca. 1545–60
+##        False                * 1         * 1
 ##             Object.Date
-## Is.Highlight ca. 1547 ca. 1550 ca. 1570–1600 ca. 1579
-##        False      * 1      * 1           * 1      * 1
+## Is.Highlight ca. 1545–65 ca. 1547 ca. 1550
+##        False         * 1      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1580 ca. 1580–1479 B.C. ca. 1590–1610
-##        False      * 1                * 1           * 1
+## Is.Highlight ca. 1570–1600 ca. 1579 ca. 1580
+##        False           * 1      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1600 ca. 1600–1050 B.C. ca. 1600–1450 B.C.
-##        False      * 1                * 1                * 1
+## Is.Highlight ca. 1580–1479 B.C. ca. 1590–1610
+##        False                * 1           * 1
 ##             Object.Date
-## Is.Highlight ca. 1600–20 ca. 1615–1868 ca. 1635–45
-##        False         * 1           * 4         * 1
+## Is.Highlight ca. 1600 ca. 1600–1050 B.C.
+##        False      * 1                * 1
 ##             Object.Date
-## Is.Highlight ca. 1640–1550 B.C. ca. 1641 ca. 1645
-##        False                * 1      * 1      * 1
+## Is.Highlight ca. 1600–1450 B.C. ca. 1600–20
+##        False                * 1         * 1
 ##             Object.Date
-## Is.Highlight ca. 1645–46 ca. 1647 ca. 1650 ca. 1680–1700
-##        False         * 1      * 1      * 1           * 1
+## Is.Highlight ca. 1615–1868 ca. 1635–45
+##        False           * 4         * 1
 ##             Object.Date
-## Is.Highlight ca. 1690–1740 ca. 1700–1450 B.C. ca. 1720–30
-##        False           * 1                * 1         * 1
+## Is.Highlight ca. 1640–1550 B.C. ca. 1641
+##        False                * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1725–35 ca. 1727–30 ca. 1745 ca. 1749–50
-##        False         * 1         * 1      * 1         * 1
+## Is.Highlight ca. 1645 ca. 1645–46 ca. 1647
+##        False      * 1         * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1750 ca. 1756 ca. 1759 ca. 1760 ca. 1762
-##        False      * 3      * 1      * 1      * 2      * 1
+## Is.Highlight ca. 1650 ca. 1680–1700
+##        False      * 1           * 1
 ##             Object.Date
-## Is.Highlight ca. 1765 ca. 1770 ca. 1775 ca. 1779–84 ca. 1780
-##        False      * 1      * 1      * 1         * 1      * 1
+## Is.Highlight ca. 1690–1740 ca. 1700–1450 B.C.
+##        False           * 1                * 1
 ##             Object.Date
-## Is.Highlight ca. 1780–1800 ca. 1790–1800 ca. 1800
-##        False           * 1           * 1      * 1
+## Is.Highlight ca. 1720–30 ca. 1725–35
+##        False         * 1         * 1
 ##             Object.Date
-## Is.Highlight ca. 1802–1575 B.C. ca. 1811 ca. 1825 ca. 1839
-##        False                * 1      * 1      * 1      * 1
+## Is.Highlight ca. 1727–30 ca. 1745 ca. 1749–50
+##        False         * 1      * 1         * 1
 ##             Object.Date
-## Is.Highlight ca. 1840 ca. 1850 ca. 1850–1640 B.C. ca. 1853
-##        False      * 1      * 1                * 1      * 2
+## Is.Highlight ca. 1750 ca. 1756 ca. 1759
+##        False      * 3      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1856–58 ca. 1864 ca. 1865 ca. 1866 ca. 1867
-##        False         * 1      * 1      * 1      * 2      * 1
+## Is.Highlight ca. 1760 ca. 1762 ca. 1765
+##        False      * 2      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1870 ca. 1875 ca. 1878 ca. 1880
-##        False      * 1      * 2      * 1      * 2
+## Is.Highlight ca. 1770 ca. 1775 ca. 1779–84
+##        False      * 1      * 1         * 1
 ##             Object.Date
-## Is.Highlight ca. 1880–1895 ca. 1880–1910 ca. 1888 ca. 1890
-##        False           * 1           * 1      * 4      * 3
+## Is.Highlight ca. 1780 ca. 1780–1800
+##        False      * 1           * 1
+##             Object.Date
+## Is.Highlight ca. 1790–1800 ca. 1800
+##        False           * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1802–1575 B.C. ca. 1811
+##        False                * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1825 ca. 1839 ca. 1840
+##        False      * 1      * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1850 ca. 1850–1640 B.C.
+##        False      * 1                * 1
+##             Object.Date
+## Is.Highlight ca. 1853 ca. 1856–58 ca. 1864
+##        False      * 2         * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1865 ca. 1866 ca. 1867
+##        False      * 1      * 2      * 1
+##             Object.Date
+## Is.Highlight ca. 1870 ca. 1875 ca. 1878
+##        False      * 1      * 2      * 1
+##             Object.Date
+## Is.Highlight ca. 1880 ca. 1880–1895
+##        False      * 2           * 1
+##             Object.Date
+## Is.Highlight ca. 1880–1910 ca. 1888 ca. 1890
+##        False           * 1      * 4      * 3
 ##             Object.Date
 ## Is.Highlight ca. 1891 ca. 1891–92 ca. 1898
 ##        False      * 2         * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 18th century B.C. ca. 1900 ca. 1900 B.C.
-##        False                   * 1      * 7           * 1
+## Is.Highlight ca. 18th century B.C. ca. 1900
+##        False                   * 1      * 7
 ##             Object.Date
-## Is.Highlight ca. 1900–1910 ca. 1905 ca. 1906–63 ca. 1910
-##        False           * 1      * 1         * 1      * 2
+## Is.Highlight ca. 1900 B.C. ca. 1900–1910
+##        False           * 1           * 1
 ##             Object.Date
-## Is.Highlight ca. 1920 ca. 1929 ca. 1929–1930 ca. 1930
-##        False      * 2      * 1           * 1      * 1
+## Is.Highlight ca. 1905 ca. 1906–63 ca. 1910
+##        False      * 1         * 1      * 2
 ##             Object.Date
-## Is.Highlight ca. 1931 ca. 1934 ca. 1936 ca. 1938–41 ca. 1940
-##        False      * 1      * 1      * 1         * 2      * 3
+## Is.Highlight ca. 1920 ca. 1929 ca. 1929–1930
+##        False      * 2      * 1           * 1
 ##             Object.Date
-## Is.Highlight ca. 1940–1950 ca. 1941 ca. 1943 ca. 1944
-##        False           * 1      * 1      * 1      * 1
+## Is.Highlight ca. 1930 ca. 1931 ca. 1934
+##        False      * 1      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1951 ca. 1954 ca. 1955 ca. 1961–1917 B.C.
-##        False      * 2      * 1      * 1                * 1
+## Is.Highlight ca. 1936 ca. 1938–41 ca. 1940
+##        False      * 1         * 2      * 3
 ##             Object.Date
-## Is.Highlight ca. 1966 ca. 1967 ca. 1968 ca. 1971–1928 B.C.
-##        False      * 1      * 1      * 1                * 1
+## Is.Highlight ca. 1940–1950 ca. 1941 ca. 1943
+##        False           * 1      * 1      * 1
 ##             Object.Date
-## Is.Highlight ca. 1978 ca. 1981–1550 B.C. ca. 1981–1802 B.C.
-##        False      * 1                * 2                * 1
+## Is.Highlight ca. 1944 ca. 1951 ca. 1954
+##        False      * 1      * 2      * 1
+##             Object.Date
+## Is.Highlight ca. 1955 ca. 1961–1917 B.C.
+##        False      * 1                * 1
+##             Object.Date
+## Is.Highlight ca. 1966 ca. 1967 ca. 1968
+##        False      * 1      * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1971–1928 B.C. ca. 1978
+##        False                * 1      * 1
+##             Object.Date
+## Is.Highlight ca. 1981–1550 B.C.
+##        False                * 2
+##             Object.Date
+## Is.Highlight ca. 1981–1802 B.C.
+##        False                * 1
 ##             Object.Date
 ## Is.Highlight ca. 1981–1975 B.C. ca. 1991
 ##        False                * 1      * 1
@@ -2485,32 +3049,50 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight ca. 1st century B.C.–1st century A.D.
 ##        False                                   * 1
 ##             Object.Date
-## Is.Highlight ca. 2030–1640 B.C. ca. 2200–1900 B.C.
-##        False                * 3                * 1
+## Is.Highlight ca. 2030–1640 B.C.
+##        False                * 3
 ##             Object.Date
-## Is.Highlight ca. 2323–2255 B.C. ca. 3100–2900 B.C.
-##        False                * 1                * 1
+## Is.Highlight ca. 2200–1900 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 325–300 B.C. ca. 3850–2100 B.C.
-##        False              * 2                * 1
+## Is.Highlight ca. 2323–2255 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 3850–2960 B.C.\n ca. 400 B.C.
-##        False                  * 1          * 1
+## Is.Highlight ca. 3100–2900 B.C.
+##        False                * 1
 ##             Object.Date
-## Is.Highlight ca. 450–440 B.C. ca. 46 B.C.–A.D. 68
-##        False              * 1                 * 1
+## Is.Highlight ca. 325–300 B.C.
+##        False              * 2
 ##             Object.Date
-## Is.Highlight ca. 470–460 B.C. ca. 50 B.C.–ca. 500 A.D.
-##        False              * 1                      * 1
+## Is.Highlight ca. 3850–2100 B.C.
+##        False                * 1
+##             Object.Date
+## Is.Highlight ca. 3850–2960 B.C.\n
+##        False                  * 1
+##             Object.Date
+## Is.Highlight ca. 400 B.C. ca. 450–440 B.C.
+##        False          * 1              * 1
+##             Object.Date
+## Is.Highlight ca. 46 B.C.–A.D. 68
+##        False                 * 1
+##             Object.Date
+## Is.Highlight ca. 470–460 B.C.
+##        False              * 1
+##             Object.Date
+## Is.Highlight ca. 50 B.C.–ca. 500 A.D.
+##        False                      * 1
 ##             Object.Date
 ## Is.Highlight ca. 500–700 ca. 60 B.C.
 ##        False         * 1           0
 ##             Object.Date
-## Is.Highlight ca. 7th–6th century B.C. ca. 850–900
-##        False                      * 1         * 1
+## Is.Highlight ca. 7th–6th century B.C.
+##        False                      * 1
 ##             Object.Date
-## Is.Highlight ca. 883–859 B.C. ca. 8th–7th century B.C.
-##        False                0                      * 1
+## Is.Highlight ca. 850–900 ca. 883–859 B.C.
+##        False         * 1                0
+##             Object.Date
+## Is.Highlight ca. 8th–7th century B.C.
+##        False                      * 1
 ##             Object.Date
 ## Is.Highlight ca. 946–74 ca. 990–970 B.C.
 ##        False        * 1              * 2
@@ -2524,47 +3106,71 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight ca. second half of the 13th century
 ##        False                                 * 1
 ##             Object.Date
-## Is.Highlight dated  August 1645 dated 1613 dated 1666
-##        False                * 1        * 1        * 1
+## Is.Highlight dated  August 1645 dated 1613
+##        False                * 1        * 1
 ##             Object.Date
-## Is.Highlight dated 1729 dated 1868 dated 689
-##        False        * 1        * 1       * 1
+## Is.Highlight dated 1666 dated 1729 dated 1868
+##        False        * 1        * 1        * 1
+##             Object.Date
+## Is.Highlight dated 689
+##        False       * 1
 ##             Object.Date
 ## Is.Highlight dated A.H. 375/A.D. 985
 ##        False                     * 1
 ##             Object.Date
-## Is.Highlight December 1849–January 1850 early 17th century
-##        False                        * 1                * 1
+## Is.Highlight December 1849–January 1850
+##        False                        * 1
 ##             Object.Date
-## Is.Highlight Early 17th century early 18th century
-##        False                * 1                * 1
+## Is.Highlight early 17th century
+##        False                * 1
 ##             Object.Date
-## Is.Highlight early 1960s early 1980s early 19th century
-##        False         * 1         * 1                * 1
+## Is.Highlight Early 17th century
+##        False                * 1
 ##             Object.Date
-## Is.Highlight early 20th century early to mid-20th century
-##        False                * 1                       * 2
+## Is.Highlight early 18th century early 1960s
+##        False                * 1         * 1
 ##             Object.Date
-## Is.Highlight fall/winter 1963–64 fall/winter 1983–84
-##        False                 * 1                 * 1
+## Is.Highlight early 1980s early 19th century
+##        False         * 1                * 1
 ##             Object.Date
-## Is.Highlight fall/winter 2003–4 fall/winter 2012–13
-##        False                * 1                 * 1
+## Is.Highlight early 20th century
+##        False                * 1
 ##             Object.Date
-## Is.Highlight February 1, 1790 February 13, 1844
-##        False              * 1               * 1
+## Is.Highlight early to mid-20th century
+##        False                       * 2
 ##             Object.Date
-## Is.Highlight February 1935 first half 19th century
-##        False           * 1                     * 2
+## Is.Highlight fall/winter 1963–64
+##        False                 * 1
+##             Object.Date
+## Is.Highlight fall/winter 1983–84
+##        False                 * 1
+##             Object.Date
+## Is.Highlight fall/winter 2003–4
+##        False                * 1
+##             Object.Date
+## Is.Highlight fall/winter 2012–13
+##        False                 * 1
+##             Object.Date
+## Is.Highlight February 1, 1790
+##        False              * 1
+##             Object.Date
+## Is.Highlight February 13, 1844 February 1935
+##        False               * 1           * 1
+##             Object.Date
+## Is.Highlight first half 19th century
+##        False                     * 2
 ##             Object.Date
 ## Is.Highlight first half of the 7th century
 ##        False                           * 1
 ##             Object.Date
-## Is.Highlight fourth quarter 18th century January 1, 1788
-##        False                         * 1             * 1
+## Is.Highlight fourth quarter 18th century
+##        False                         * 1
 ##             Object.Date
-## Is.Highlight January 22, 1974 July 23, 1962
-##        False              * 1           * 1
+## Is.Highlight January 1, 1788 January 22, 1974
+##        False             * 1              * 1
+##             Object.Date
+## Is.Highlight July 23, 1962
+##        False           * 1
 ##             Object.Date
 ## Is.Highlight last quarter 18th century
 ##        False                       * 1
@@ -2572,50 +3178,83 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight late 16th–mid 17th century
 ##        False                        * 1
 ##             Object.Date
-## Is.Highlight late 17th–early 18th century late 1850s–70s
-##        False                          * 1            * 1
+## Is.Highlight late 17th–early 18th century
+##        False                          * 1
 ##             Object.Date
-## Is.Highlight late 1880s late 18th century
+## Is.Highlight late 1850s–70s late 1880s
+##        False            * 1        * 1
+##             Object.Date
+## Is.Highlight late 18th century
+##        False               * 4
+##             Object.Date
+## Is.Highlight late 18th or early 19th century
+##        False                             * 1
+##             Object.Date
+## Is.Highlight late 1960s late 19th century
 ##        False        * 1               * 4
 ##             Object.Date
-## Is.Highlight late 18th or early 19th century late 1960s
-##        False                             * 1        * 1
-##             Object.Date
-## Is.Highlight late 19th century late 19th–early 20th century
-##        False               * 4                          * 6
+## Is.Highlight late 19th–early 20th century
+##        False                          * 6
 ##             Object.Date
 ## Is.Highlight late 1st century B.C.–early 1st century A.D.
 ##        False                                          * 1
 ##             Object.Date
-## Is.Highlight late 2nd–1st century B.C. late 6th century B.C.
-##        False                       * 1                   * 1
+## Is.Highlight late 2nd–1st century B.C.
+##        False                       * 1
 ##             Object.Date
-## Is.Highlight March 1935   mid 1830s (?) mid 6th century B.C.
-##        False          * 2           * 1                  * 1
+## Is.Highlight late 6th century B.C.
+##        False                   * 1
 ##             Object.Date
-## Is.Highlight mid- 1810s mid-16th century mid-17th century
-##        False        * 1              * 1              * 1
+## Is.Highlight March 1935   mid 1830s (?)
+##        False          * 2           * 1
 ##             Object.Date
-## Is.Highlight mid-18th century mid-19th century
-##        False              * 2              * 2
+## Is.Highlight mid 6th century B.C. mid- 1810s
+##        False                  * 1        * 1
 ##             Object.Date
-## Is.Highlight mid-19th–late 19th century mid-20th century
-##        False                        * 1              * 3
+## Is.Highlight mid-16th century
+##        False              * 1
 ##             Object.Date
-## Is.Highlight mid–19th century n.d. November–December 1941
-##        False              * 1 * 10                    * 1
+## Is.Highlight mid-17th century
+##        False              * 1
+##             Object.Date
+## Is.Highlight mid-18th century
+##        False              * 2
+##             Object.Date
+## Is.Highlight mid-19th century
+##        False              * 2
+##             Object.Date
+## Is.Highlight mid-19th–late 19th century
+##        False                        * 1
+##             Object.Date
+## Is.Highlight mid-20th century
+##        False              * 3
+##             Object.Date
+## Is.Highlight mid–19th century n.d.
+##        False              * 1 * 10
+##             Object.Date
+## Is.Highlight November–December 1941
+##        False                    * 1
 ##             Object.Date
 ## Is.Highlight October 1, 1604 October 6, 1844
 ##        False             * 1             * 1
 ##             Object.Date
-## Is.Highlight possibly 17th century possibly ca. 1760
-##        False                   * 1               * 1
+## Is.Highlight possibly 17th century
+##        False                   * 1
 ##             Object.Date
-## Is.Highlight probably 17th century probably 8th–12th century
-##        False                   * 1                       * 1
+## Is.Highlight possibly ca. 1760
+##        False               * 1
 ##             Object.Date
-## Is.Highlight published in 1795 second half 18th century
-##        False               * 1                      * 3
+## Is.Highlight probably 17th century
+##        False                   * 1
+##             Object.Date
+## Is.Highlight probably 8th–12th century
+##        False                       * 1
+##             Object.Date
+## Is.Highlight published in 1795
+##        False               * 1
+##             Object.Date
+## Is.Highlight second half 18th century
+##        False                      * 3
 ##             Object.Date
 ## Is.Highlight second half of the 17th century
 ##        False                             * 1
@@ -2623,8 +3262,11 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Is.Highlight Second half of the 9th–first quarter of the 10th century
 ##        False                                                      * 1
 ##             Object.Date
-## Is.Highlight spring/summer 1963 spring/summer 1986
-##        False                * 1                * 1
+## Is.Highlight spring/summer 1963
+##        False                * 1
+##             Object.Date
+## Is.Highlight spring/summer 1986
+##        False                * 1
 ##             Object.Date
 ## Is.Highlight spring/summer 2016 Sum
 ##        False                * 1 796
@@ -2633,7 +3275,8 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 ## Maximum in each column: &#39;*&#39;
 ## 
 ## Pearson&#39;s Chi-squared test:
-## X-squared = 800, df = 526, p-value = 1.149e-13</code></pre>
+## X-squared = 800, df = 526, p-value =
+## 1.149e-13</code></pre>
 <pre><code>## [1] 0.96625</code></pre>
 <pre><code>## [1] 0.46</code></pre>
 <p>With a dataset of 100,000 randomly selected rows, the model chooses to use the Artist Display Name as the explanatory variable, instead of the ObjectDate variable.</p>

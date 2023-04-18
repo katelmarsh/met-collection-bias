@@ -157,7 +157,7 @@ waffle(artist.begin.date/1000, rows=5, size=0.6,
 The period and culture variables are dominated by empty values. The department is not - something that the Met must use as a catch-all term for all different types of artworks. 
 
 
-# Remove empties and basic cleaning! 
+### Remove empties and basic cleaning! 
 ```{r}
 library(dplyr)
 library(janitor)
@@ -189,7 +189,7 @@ write.csv(df1, "~/Downloads/MetObjects_Cleaned.csv")
 
 ```
 
-#dealing with all the accents! 
+??? dealing with all the accents! 
 not sure if this is worth it ugh 
 
 ```{r}
@@ -236,7 +236,7 @@ mean(predict(mod2, train_dat) == train_dat$is.highlight)
 mean(predict(mod2, test_dat) == test_dat$is.highlight)
 ```
 
-In this model, the One Rule is the title of the artwork Using the art titke, we perform only a little better than random on the dataset and we perform much worse than random on the test set. 
+In this model, the One Rule is the title of the artwork Using the art title, we perform only a little better than random on the dataset and we perform much worse than random on the test set. 
 
 
 
