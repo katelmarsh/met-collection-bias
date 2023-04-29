@@ -8,17 +8,6 @@ library("neuralnet")
 library("dplyr")
 
 
-m <- model.matrix( 
-   ~is.highlight + classification + country + artist.nationality + artist.display.name + object.name + department + is.public.domain + object.begin.date + object.end.date, 
-  data = data_s1) 
-
-m_df <- as.data.frame(m)
-
-m_df <-  m_df %>% subset(., select = which(!duplicated(names(.))))
-
-train <- sample(n, .8*n)
-train_dat <- m_df[train, ]
-test_dat <- m_df[-train, ]
 
 nn=neuralnet(is.highlightTrue ~., 
              data = train_dat, 
@@ -26,6 +15,38 @@ nn=neuralnet(is.highlightTrue ~.,
              act.fct = "logistic", 
              linear.output = FALSE)
 
+plot(nn,rep = "best")
+
+
+```
+
+
+```{r}
+pred <- predict(nn, test_dat)
+labels <- c("0", "1")
+prediction_label <- data.frame(max.col(pred)) %>%     
+mutate(pred=labels[max.col.pred.]) %>%
+select(2) %>%
+unlist()
+
+table(test_dat$is.highlightTrue, prediction_label)
+```
+
+It got everything right! I am confused on why there are exactly 744 samples, but I will figure that out later. 
+
+
+```{r}
+check = test_dat$is.highlightTrue == max.col(pred)-1
+accuracy = (sum(check)/nrow(test_dat))*100
+print(accuracy)
+```
+
+Reference: https://cran.r-project.org/web/packages/shapr/vignettes/understanding_shapr.html
+
+```{r}
+library(shapr)
+
+explainer <- shapr(train_dat, nn)
 
 
 ```

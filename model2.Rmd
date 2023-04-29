@@ -50,7 +50,7 @@ Prune to .14 !
 library(ggplot2)
 library(waffle)
 
-culture <- head(sort(table(df$Culture), decreasing = TRUE), 8) # the culture section could clearly use some cleaning! japan and japanese haha 
+culture <- head(sort(table(df$culture), decreasing = TRUE), 20) # the culture section could clearly use some cleaning! japan and japanese haha 
 
 department <- head(sort(table(df$department), decreasing = TRUE), 8)
 
@@ -73,6 +73,27 @@ waffle(culture, rows=5, size=0.6,
 waffle(artist.begin.date/10, rows=5, size=0.6, 
        title="Art Culture", 
        xlab="1 square = 1000 artworks")
+
+
+ggplot(df, aes(x = n, y = department)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Department") 
+
+
+c_df <- as.data.frame(culture)
+ggplot(c_df, aes(x = Freq, y = Var1)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Culture, Top 20") 
+
+country <- head(sort(table(df$country), decreasing = TRUE), 20) 
+c2_df <- as.data.frame(country)
+ggplot(c2_df, aes(x = Freq, y = Var1)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20") 
+
+highlightT <- df[df$is.highlight == "True",]
+country <- head(sort(table(highlightT$country), decreasing = TRUE), 20) 
+c2_df <- as.data.frame(country)
+ggplot(c2_df, aes(x = Freq, y = Var1)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20, isHighlight = TRUE") 
+
 ```
 
 ```{r}
@@ -147,4 +168,25 @@ The decision tree shows that the model uses classification, department, "is publ
 
 
 
+```{r}
+library(rpart)
+library(rpart.plot)
 
+
+fit <- rpart(is.highlightTrue~., data = train_dat, 
+             method = 'class', 
+             control = rpart.control(cp = .01))
+
+summary(fit)
+
+train_dat$pred <- predict(fit, train_dat, type = "class")
+(accuracy <- mean(train_dat$pred == train_dat$is.highlightTrue))
+
+test_dat$pred <- predict(fit, test_dat, type = "class")
+(accuracy <- mean(test_dat$pred == test_dat$is.highlightTrue))
+
+
+rpart.plot(fit, extra = 106, yesno = 2) 
+
+
+```

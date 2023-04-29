@@ -1,3 +1,125 @@
 # [Model 4]
 
 support vector machine 
+
+```{r}
+str = "Ábcdêãçoàúü"
+str = iconv(str, from = '', to = 'ASCII//TRANSLIT')
+gsub("[[:punct:]]", "", str)
+
+remove_exotic <- function(str){
+  str = iconv(str, from = '', to = 'ASCII//TRANSLIT')
+  return(gsub("[[:punct:]]", "", str))
+}
+```
+
+
+
+```{r}
+library(e1071)
+library(dplyr)
+
+
+train_dat2 <- train_dat %>% select(c(is.highlight, is.public.domain, department, country, region, subregion,state, city, classification)) 
+test_dat2 <- test_dat %>% select(c(is.public.domain, department, country, region, subregion,state, city, classification)) 
+
+train_dat2$is.highlight <- as.factor(train_dat2$is.highlight)
+#test_dat2$is.highlight <- as.factor(test_dat2$is.highlight)
+
+
+td3 <- na.omit(train_dat2)
+testd3 <- na.omit(test_dat2)
+
+td3$city <- sapply(td3$city,remove_exotic)
+testd3$city <- sapply(testd3$city,remove_exotic)
+td3$state <- sapply(td3$state,remove_exotic)
+testd3$state <- sapply(testd3$state,remove_exotic)
+td3$region <- sapply(td3$region,remove_exotic)
+testd3$region <- sapply(testd3$region,remove_exotic)
+td3$subregion <- sapply(td3$subregion,remove_exotic)
+testd3$subregion <- sapply(testd3$subregion,remove_exotic)
+
+td3 <- as.data.frame(td3)
+testd3 <- as.data.frame(testd3)
+
+svm_model<- svm(is.highlight~is.public.domain + department + country +
+                        region + subregion + state + city +
+                        classification, 
+                data = td3, 
+                type = "C-classification",
+                test_datadecision.values=TRUE,
+                kernel = "linear")
+
+pred_train <- predict(svm_model, td3, decision.values = T)
+mean(pred_train == td3$is.highlight)
+
+pred_test <- predict(svm_model, testd3, decision.values = T)
+mean(pred_test == testd3$is.highlight)
+
+```
+
+
+```{r}
+n <- nrow(df)
+
+df$city <- sapply(df$city,remove_exotic)
+df$state <- sapply(df$state,remove_exotic)
+df$region <- sapply(df$region,remove_exotic)
+df$subregion <- sapply(df$subregion,remove_exotic)
+
+dummy <- dummyVars(" ~ .", data=df)
+newdata <- data.frame(predict(dummy, newdata = df))
+
+write.csv(newdata, "dummyvars.csv")
+
+```
+
+
+Reference: https://github.com/SchlossLab/mikRopML/issues/156
+
+```{r}
+library(mikropml)
+
+dat_proc <- preprocess_data(newdata, 'is.highlightTrue')$dat_transformed
+
+#getting rid of columns with near-zero variance 
+
+dat_proc <- dat_proc %>% select(-c(is.highlightFalse_1))
+
+train <- sample(n, .8*n)
+train_dat <- dat_proc[train, ]
+test_dat <- dat_proc[-train, ]
+
+svm_model<- svm(is.highlightTrue~., 
+                data = train_dat, 
+                type = "C-classification",
+                test_datadecision.values=TRUE,
+                kernel = "linear", 
+                scale = FALSE)
+
+pred_train <- predict(svm_model, train_dat, decision.values = T)
+mean(pred_train == train_dat$is.highlightTrue)
+
+pred_test <- predict(svm_model, test_dat, decision.values = T)
+mean(pred_test == test_dat$is.highlightTrue)
+```
+
+
+```{r}
+library(ggplot2)
+
+train_dat$is.highlightTrue <- as.factor(train_dat$is.highlightTrue) 
+scatter_plot <- ggplot(data = train_dat, aes(x = grp1, y = grp2, color = is.highlightTrue)) + 
+    geom_point() + 
+    scale_color_manual(values = c("red", "blue"))
+
+
+# the purple is the support vectors ????
+layered_plot <- 
+    scatter_plot + geom_point(data = train_dat[svm_model$index, ], aes(x = grp1, y = grp2), color = "purple", size = 4, alpha = 0.5)
+
+#display plot
+layered_plot
+
+```
+

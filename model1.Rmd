@@ -27,13 +27,13 @@ Most of the artworks at the Met at Drawings and Prints. This makes sense becuase
 
 ```{r}
 ggplot(df, aes(x = Is.Highlight)) + 
-  geom_bar() + theme_light()
+  geom_bar() + theme_light() + ggtitle(label = "Is the artwork a highlight?")
 
 ```
 
 ```{r}
 ggplot(df, aes(x = Is.Public.Domain)) + 
-  geom_bar() + theme_light()
+  geom_bar() + theme_light() + ggtitle(label = "Is the artwork in public domain?")
 ```
 
 ```{r}
@@ -126,15 +126,15 @@ culture <- head(sort(table(df$Culture), decreasing = TRUE), 8) # the culture sec
 
 department <- head(sort(table(df$Department), decreasing = TRUE), 8)
 
-River <- head(sort(table(df$River), decreasing = TRUE), 8)
+period <- head(sort(table(df$Period), decreasing = TRUE), 8)
 
 artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
 
-waffle(period/1000, rows=5, size=0.6, 
-       title="Art Period", 
+waffle(culture/1000, rows=10, size=0.6, 
+       title="Art Culture", 
        xlab="1 square = 1000 artworks")
 
-waffle(department/1000, rows=5, size=0.6, 
+waffle(department/1000, rows=10, size=0.6, 
        title="Art Department", 
        xlab="1 square = 1000 artworks")
 
@@ -230,6 +230,7 @@ test_dat <- df[-train, ]
 
 mod2 <- OneR(is.highlight ~ ., data = train_dat)
 summary(mod2)
+plot(mod2)
 
 mean(predict(mod2, train_dat) == train_dat$is.highlight)
 
@@ -238,5 +239,24 @@ mean(predict(mod2, test_dat) == test_dat$is.highlight)
 
 In this model, the One Rule is the title of the artwork Using the art title, we perform only a little better than random on the dataset and we perform much worse than random on the test set. 
 
+```{r}
+mod2 <- OneR(is.highlight ~ is.public.domain, data = train_dat)
+summary(mod2)
+plot(mod2)
 
+mean(predict(mod2, train_dat) == train_dat$is.highlight)
+
+mean(predict(mod2, test_dat) == test_dat$is.highlight)
+```
+
+```{r}
+mod2 <- OneR(is.highlightTrue ~ ., data = train_dat)
+summary(mod2)
+plot(mod2)
+
+mean(predict(mod2, train_dat) == train_dat$is.highlight)
+
+mean(predict(mod2, test_dat) == test_dat$is.highlight)
+
+```
 

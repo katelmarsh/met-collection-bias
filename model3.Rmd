@@ -2,3 +2,82 @@
 
 
 random forest
+
+reference: https://www.r-bloggers.com/2021/04/random-forest-in-r/
+https://stats.stackexchange.com/questions/493714/random-forest-variable-importance-plot-discrepancy
+
+
+```{r}
+library(caret)
+library(randomForest)
+
+table(train_dat[,c('is.highlight', 'is.public.domain')])
+table(train_dat[,c('is.highlight', 'department')])
+
+set.seed(51)
+
+train_dat$is.highlight <- as.factor(train_dat$is.highlight)
+test_dat$is.highlight <- as.factor(test_dat$is.highlight)
+
+model <- randomForest(is.highlight~is.public.domain + department + country +
+                        region + subregion + county + state + city +
+                        classification, 
+               data = train_dat, 
+               method = 'rf',
+               trControl = trainControl(method = 'cv',number = 5), 
+               importance = TRUE)
+
+p1 <- predict(model, train_dat)
+caret::confusionMatrix(p1, train_dat$is.highlight)
+
+p2 <- predict(model, test_dat)
+caret::confusionMatrix(p2, test_dat$is.highlight)
+
+plot(model)
+
+```
+
+git filter-branch --tree-filter 'rm -rf ~/Desktop/final-project-2023/dummyvars.csv' -f HEAD
+
+
+```{r}
+#var_imp <- varImpPlot(model,
+#           sort = T,
+#           n.var = 10,
+#           main = "Top 10 - Variable Importance")
+
+var.imp <- as.data.frame(model$importance)
+var.imp$feature <- rownames(var.imp) 
+
+ggplot(var.imp, aes(x = feature, y=MeanDecreaseAccuracy)) + 
+  theme_bw() + geom_point() + 
+  theme(axis.text.x = element_text(angle=-40, hjust=.1)) + coord_flip() +
+  ggtitle("Feature Importance By Mean Decrease in Accuracy")
+
+```
+
+# this doesn't work
+```{r}
+library(pdp)
+library(tidyverse)
+
+pdp <- pdp::partial(model, pred.var="is.highlight")
+head(pdp)
+
+#pdp <- ggplot(pdp, aes(is.highlight, yhat)) + geom_line() + geom_rug(data=train_dat, aes(Department))
+
+library(dplyr)
+  var <- train_dat |>
+    select(-is.highlight) |>
+    select(where(is.numeric)) |>
+    names()
+
+df <- map(var, ~partial(model, pred.var = .x)) |> # list of [var] / yhat
+  map_df(pivot_longer, cols = 1) # dataframe of yhat / name / value
+
+
+df |> ggplot(aes(value, yhat)) +
+  geom_line() +
+  facet_wrap(~name, scales = "free_x")
+```
+

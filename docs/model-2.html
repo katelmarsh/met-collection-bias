@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 [Model 2] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum</title>
-  <meta name="description" content="Chapter 4 [Model 2] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <title>Chapter 3 [Model 2] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum</title>
+  <meta name="description" content="Chapter 3 [Model 2] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 [Model 2] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <meta property="og:title" content="Chapter 3 [Model 2] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 [Model 2] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <meta name="twitter:title" content="Chapter 3 [Model 2] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   
   
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Kate Marsh" />
 
 
-<meta name="date" content="2023-04-18" />
+<meta name="date" content="2023-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="remove-empties-and-basic-cleaning.html"/>
+<link rel="prev" href="model-1.html"/>
 <link rel="next" href="model-3.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -78,10 +78,13 @@
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#the-modeling-goal"><i class="fa fa-check"></i><b>1.2</b> The Modeling Goal</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#models-i-intend-to-use"><i class="fa fa-check"></i><b>1.3</b> Models I Intend To Use</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="model-1.html"><a href="model-1.html"><i class="fa fa-check"></i><b>2</b> [Model 1]</a></li>
-<li class="chapter" data-level="3" data-path="remove-empties-and-basic-cleaning.html"><a href="remove-empties-and-basic-cleaning.html"><i class="fa fa-check"></i><b>3</b> Remove empties and basic cleaning!</a></li>
-<li class="chapter" data-level="4" data-path="model-2.html"><a href="model-2.html"><i class="fa fa-check"></i><b>4</b> [Model 2]</a></li>
-<li class="chapter" data-level="5" data-path="model-3.html"><a href="model-3.html"><i class="fa fa-check"></i><b>5</b> [Model 3]</a></li>
+<li class="chapter" data-level="2" data-path="model-1.html"><a href="model-1.html"><i class="fa fa-check"></i><b>2</b> [Model 1]</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="model-1.html"><a href="model-1.html#remove-empties-and-basic-cleaning"><i class="fa fa-check"></i><b>2.0.1</b> Remove empties and basic cleaning!</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="model-2.html"><a href="model-2.html"><i class="fa fa-check"></i><b>3</b> [Model 2]</a></li>
+<li class="chapter" data-level="4" data-path="model-3.html"><a href="model-3.html"><i class="fa fa-check"></i><b>4</b> [Model 3]</a></li>
+<li class="chapter" data-level="5" data-path="this-doesnt-work.html"><a href="this-doesnt-work.html"><i class="fa fa-check"></i><b>5</b> this doesn’t work</a></li>
 <li class="chapter" data-level="6" data-path="model-4.html"><a href="model-4.html"><i class="fa fa-check"></i><b>6</b> [Model 4]</a></li>
 <li class="chapter" data-level="7" data-path="model-5.html"><a href="model-5.html"><i class="fa fa-check"></i><b>7</b> [Model 5]</a></li>
 <li class="chapter" data-level="8" data-path="reflections.html"><a href="reflections.html"><i class="fa fa-check"></i><b>8</b> Reflections</a></li>
@@ -104,8 +107,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="model-2" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> [Model 2]<a href="model-2.html#model-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="model-2" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> [Model 2]<a href="model-2.html#model-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Going forward, we are going to use the randomly sampled 100,000 art pieces in order to make this project less computationally heavy.</p>
 <pre><code>## 
 ## False  True 
@@ -119,22 +122,14 @@
 ##     control = rpart.control(cp = 0))
 ##   n= 2974 
 ## 
-##             CP nsplit  rel error    xerror
-## 1 0.9455782313      0 1.00000000 1.0000000
-## 2 0.0265306122      1 0.05442177 0.5340136
-## 3 0.0115646259      2 0.02789116 0.5299320
-## 4 0.0047619048      3 0.01632653 0.5360544
-## 5 0.0013605442      4 0.01156463 0.5367347
-## 6 0.0006802721      5 0.01020408 0.5380952
-## 7 0.0000000000      6 0.00952381 0.5374150
-##         xstd
-## 1 0.01854790
-## 2 0.01635196
-## 3 0.01631166
-## 4 0.01637195
-## 5 0.01637859
-## 6 0.01639182
-## 7 0.01638521
+##             CP nsplit  rel error    xerror       xstd
+## 1 0.9455782313      0 1.00000000 1.0000000 0.01854790
+## 2 0.0265306122      1 0.05442177 0.5340136 0.01635196
+## 3 0.0115646259      2 0.02789116 0.5299320 0.01631166
+## 4 0.0047619048      3 0.01632653 0.5360544 0.01637195
+## 5 0.0013605442      4 0.01156463 0.5367347 0.01637859
+## 6 0.0006802721      5 0.01020408 0.5380952 0.01639182
+## 7 0.0000000000      6 0.00952381 0.5374150 0.01638521
 ## 
 ## Variable importance
 ##               title          dimensions 
@@ -288,33 +283,30 @@
 ##   predicted class=True   expected loss=0.001415428  P(node) =0.4751177
 ##     class counts:     2  1411
 ##    probabilities: 0.001 0.999</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<p><img src="finalproj_files/figure-html/unnamed-chunk-99-1.png" width="672" />
 Prune to .14 !</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-19-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-19-3.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-19-4.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-100-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-100-2.png" width="672" /></p>
+<pre><code>## Error in `palette()`:
+## ! Insufficient values in manual scale. 21 needed
+##   but only 9 provided.</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-100-3.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-100-4.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-100-5.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-100-6.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-100-7.png" width="672" /></p>
 <pre><code>## Call:
 ## rpart(formula = is.highlight ~ is.public.domain + department + 
 ##     country + region + subregion + county + state + city + classification, 
 ##     data = train_dat, method = &quot;class&quot;, control = rpart.control(cp = 0.01))
 ##   n= 2974 
 ## 
-##           CP nsplit rel error    xerror
-## 1 0.50612245      0 1.0000000 1.0000000
-## 2 0.03514739      1 0.4938776 0.5741497
-## 3 0.02925170      4 0.3884354 0.5061224
-## 4 0.01000000      5 0.3591837 0.4578231
-##         xstd
-## 1 0.01854790
-## 2 0.01672527
-## 3 0.01606760
-## 4 0.01552308
+##           CP nsplit rel error    xerror       xstd
+## 1 0.50612245      0 1.0000000 1.0000000 0.01854790
+## 2 0.03514739      1 0.4938776 0.5741497 0.01672527
+## 3 0.02925170      4 0.3884354 0.5061224 0.01606760
+## 4 0.01000000      5 0.3591837 0.4578231 0.01552308
 ## 
 ## Variable importance
-##   classification       department 
-##               52               33 
-##             city          country 
-##                5                5 
-## is.public.domain            state 
-##                3                2 
+##   classification       department             city 
+##               52               33                5 
+##          country is.public.domain            state 
+##                5                3                2 
 ##           region 
 ##                1 
 ## 
@@ -435,9 +427,151 @@ Prune to .14 !</p>
 ##   predicted class=True   expected loss=0.3545648  P(node) =0.1583726
 ##     class counts:   167   304
 ##    probabilities: 0.355 0.645</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
 <p>The decision tree shows that the model uses classification, department, “is public domain” and subregion of the world to determine whether the artwork is a highlight of the Metropolitan Museum of Art. Interestingly, 34% of the artworks can be excluded as “not highlights” by merely the type of art it is. If something is calligraphy, metalwork, textiles, daggers, glass, or etc., they are unlikely to be important to the Met. This is a unique finding because it shows that historic arts that were more likely to be done by women, such as textiles or basketry, are not highlighted by the Met. In accordance to what we might expect, preliminary or supporting artwork, such as drawings, stencils or photo negatives, are also deemed not a highlight. Also interesting is that then the decision tree uses departments to decide, indicating that Asian Art, Costumes, Drawings, Photographs, and Egyptian Art are less indicative of a Highlight status. Older artworks, as expected, are more likely to be highlights (according to the public domain variable). In the last two decisions, we learn that jewelry, shells, enamels, and some other classifications are unlikely to indicate being a highlight, as well as the fact that certain subregions indicate that the artwork is not highlighted. Upon investigation, these subregions are all parts of Egypt that are less famous for ruins. Compared to another subregion, such as Saqqara, which is an Ancient burial ground.</p>
+<pre><code>## Error in eval(predvars, data, env): object &#39;is.highlightTrue&#39; not found</code></pre>
+<pre><code>## Call:
+## rpart(formula = is.highlight ~ is.public.domain + department + 
+##     country + region + subregion + county + state + city + classification, 
+##     data = train_dat, method = &quot;class&quot;, control = rpart.control(cp = 0.01))
+##   n= 2974 
+## 
+##           CP nsplit rel error    xerror       xstd
+## 1 0.50612245      0 1.0000000 1.0000000 0.01854790
+## 2 0.03514739      1 0.4938776 0.5741497 0.01672527
+## 3 0.02925170      4 0.3884354 0.5061224 0.01606760
+## 4 0.01000000      5 0.3591837 0.4578231 0.01552308
+## 
+## Variable importance
+##   classification       department             city 
+##               52               33                5 
+##          country is.public.domain            state 
+##                5                3                2 
+##           region 
+##                1 
+## 
+## Node number 1: 2974 observations,    complexity param=0.5061224
+##   predicted class=False  expected loss=0.4942838  P(node) =1
+##     class counts:  1504  1470
+##    probabilities: 0.506 0.494 
+##   left son=2 (900 obs) right son=3 (2074 obs)
+##   Primary splits:
+##       classification   splits as  RLLLRRRRRRRRRRRLLLLLLRRRRRLRLRRLLLLRLRRLLRLRLLRRLRRRLLRRLRLLRLRRRRRRRLLRRRRRRLLRLRLLRLLLRLRLRRRRRLLLLLLLLLRRRLRRRRRRLRLLLRLRRLRLLRLRRRRRRRLLRRLLRRLLRLLRLLLLRLLRRRRLRRRRLLRLLRRRLLRLRRLRRLRRRRLRRRRLRLLRRRRLRRLLLRLRLRRRLLLLLLLLLLLLLRLRRRRRRLRLRRLRRLRRLLLRRLRLRRLRRRLLLLRLRRRRLLRLRLLLLLRLRLLLRRRRRRRRRLRRRRRLLL, improve=469.5210, (0 missing)
+##       department       splits as  RRRLRLLLLRLRRRRRLRRR, improve=307.1849, (0 missing)
+##       is.public.domain splits as  LR, improve=197.9831, (0 missing)
+##       city             splits as  LRRRRLRRRLRLRRRRRRRLLLRRRRLLRRRRRLRLRLRRRRRLRRLRRRRRRRRRRRLRRRRRRRRRLRRLLRRLRRRRRLRRRRRLRRRRRRRRRLLRLLRRRRLRRRRRLRRRRLLRLRRRRRLRRRLLRRRRRLLLLRRRRLRRRRRRLRRRLRRRRRR, improve=113.8974, (0 missing)
+##       country          splits as  LLRRRRRRRRLRLLRLRRRRRLRLLRRRLLRLLLLRRRRRRRRRRRLRLRRRRLRRRRRRLRRRRRLRLRRRLLRRRLLRLLRRRRRRRRRRRRRRLLRRRRRRRLRRRLLRLRLR, improve=111.5846, (0 missing)
+##   Surrogate splits:
+##       department splits as  RRRRRRRLRRLRRRRRRRRR, agree=0.838, adj=0.466, (0 split)
+##       country    splits as  RLRRRRRRRRLRRRRRRRRRRLRRRRRRRRRLRRRRRRRRRRRRRRRRRRLRRRRRRRRRRRRRRRLRRRRRRLRRRRLRLLRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, agree=0.704, adj=0.022, (0 split)
+##       city       splits as  RRRRRLRRRRRRRRRRRRRLRRRRRRRLRRRRRLRLRRRRRRRRRRRRRRRRLRRRRRRRRRRRRRRRLRRRRRRRRRRRRLRRRRRRRRRRRRRRRLRRRLRRRRRRRRRRRRRRRLRRLRRRRRRRRRRRRRRRRLRRLRRRRLRRRRRRRRRRRRRRRRR, agree=0.702, adj=0.017, (0 split)
+##       state      splits as  RRRRRRRRLLRRRRRRRRRRRRLRRRRRRLRRLLRRRLRRRRRRRRRRRLRRRRRLRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, agree=0.701, adj=0.011, (0 split)
+##       subregion  splits as  RRRRRRRRLRRRRRRRRLLLRRRLRRRLRRRRRRRRRRRRRRRRRRLLRRRRRRRRRRRRRRR, agree=0.700, adj=0.009, (0 split)
+## 
+## Node number 2: 900 observations
+##   predicted class=False  expected loss=0.06777778  P(node) =0.3026227
+##     class counts:   839    61
+##    probabilities: 0.932 0.068 
+## 
+## Node number 3: 2074 observations,    complexity param=0.03514739
+##   predicted class=True   expected loss=0.3206365  P(node) =0.6973773
+##     class counts:   665  1409
+##    probabilities: 0.321 0.679 
+##   left son=6 (1222 obs) right son=7 (852 obs)
+##   Primary splits:
+##       classification   splits as  L---RRLRRRRRRRL------RRRRR-L-RL----R-RL--L-R--LL-LRR--LR-R--R-RLRRRRR--RRRRRR--R-R--R---L-L-LLRRR---------RLL-RRRRRR-L---R-RL-R--R-RLRRLRR--RL--RL--R--R----R--RRLR-RRLR--R--LLR--R-RR-LR-RRLR-RRLR-R--RRRL-RL---R-R-LRR-------------L-LRRRRR-R-RL-RR-RR---RR-R-RL-RRR----L-LLRR--L-R-----R-R---RLLRLRRRR-RRLRR---, improve=119.49090, (0 missing)
+##       department       splits as  LRRRRLLLLRLLRRRRLRRR, improve=116.49300, (0 missing)
+##       is.public.domain splits as  LR, improve= 74.01172, (0 missing)
+##       city             splits as  LRRRR-RRRLRLRRRRRRR-RLRRRRL-RRRRR-R-RRRRRRRLRRLRRRRR-RRRRLLRRRRRRRRR-RRLLRRLRRRRR-RRRRRLRRRRRRRRRLLRL-RRRRLRRRRRLRRRR-LRRRRRRRLRRRLLRRRRR-LL-RRRR-RRRRRRLLRRRRRRRRR, improve= 59.30755, (0 missing)
+##       country          splits as  L-RRRLRRRRLRLLRLRRRRR-RLLLRRLLR-LLLRRRRRRRRRRRLRLR-RRLRRRRRRLRRRRR-RLRRRL-RRRL-RL-RRRRRRRRRRRRLRRLRRRRRRRLRRLLLRLRLR, improve= 38.07735, (0 missing)
+##   Surrogate splits:
+##       department splits as  LRRRRRLLLRRLRRRRLRRL, agree=0.792, adj=0.493, (0 split)
+##       country    splits as  L-RRRLLLLRLRLRRRRRRRR-LRLRRRRLL-LLLRRLLRRRRRLRRLLL-RRLRLRLLRLRRRRR-RRLRRR-RRRL-RL-RLRLRRRRRLRRLRLLLRRRLRRLRRRLLRLRLL, agree=0.662, adj=0.176, (0 split)
+##       city       splits as  LRRLL-RRRRRLLRLLRRL-RRRLRLL-LRLRR-R-RRLRLRRLLLLRLLLR-RRRRRRLRRRLRRRL-RRLLLLLLLRLL-LRLLRLRRRRRLRRRLLLR-LRRRLRLLLLRRRLR-LLLRLRRRLLLRRLRRRRL-LL-RLRL-RRLLRRRLLLLLLRLRR, agree=0.645, adj=0.135, (0 split)
+##       region     splits as  LLLRRLRRLRRRLRLRRR--RLLR-LRRLRLRRRRLRRLLRRRRR-LRRLRRLRRLRRLLRLRRRLLLLRLRRLRRRLLLLR, agree=0.623, adj=0.082, (0 split)
+##       state      splits as  LLLRRLRR--LLRLRRRLLLLR-RLRRLR-RR--LRRLLRLRLRLLRLL-RLLLL-RLRRLRLRLLRLRRLLLLRRRRRLRRRRR, agree=0.611, adj=0.053, (0 split)
+## 
+## Node number 6: 1222 observations,    complexity param=0.03514739
+##   predicted class=True   expected loss=0.4623568  P(node) =0.4108944
+##     class counts:   565   657
+##    probabilities: 0.462 0.538 
+##   left son=12 (1057 obs) right son=13 (165 obs)
+##   Primary splits:
+##       department       splits as  LLLLLLLLLLLLLLLLLRLR, improve=69.23336, (0 missing)
+##       city             splits as  L--RR------LR-RR--R--L-R-RL-R-R-------RRRR-LRRL-RRR------R-R-R-R-R-R---LLRRLRR-RR-R-RRRL-----R-R-LLR--RRR-L-RRRRL--R--LRR-R---LRR--L----R-LL--R-R---RR---LRRRRR-R--, improve=57.73461, (0 missing)
+##       is.public.domain splits as  LR, improve=50.75285, (0 missing)
+##       country          splits as  L----RRRR-L-LL---L----R-LL---LR-LLL--RR---L-RRLLLR---L-RRRR-L----L---R-R-----L-RL--RRR-----R--L-RLR---R-LL--LLL-L-LR, improve=28.78204, (0 missing)
+##       subregion        splits as  RRRRRLRR-RRR-L-L-----R----R--RRRLRLRLLLRLLRRLR--R--RLL---RRRRRL, improve=14.86986, (0 missing)
+##   Surrogate splits:
+##       city    splits as  L--RL------LR-RL--L--L-R-LL-R-L-------LLLL-LLLL-RLR------L-R-L-L-L-R---LLLRLRR-RR-L-LLLL-----R-R-LLL--LLL-L-LRRRL--L--LRR-R---LLR--L----R-LL--L-L---LL---LRRLLR-L--, agree=0.926, adj=0.448, (0 split)
+##       country splits as  L----RRLR-L-LL---R----L-LL---LL-LLL--RR---L-LLLLLL---L-LRRR-L----L---R-L-----L-LL--RLL-----L--L-LLL---L-LL--LLL-L-LL, agree=0.899, adj=0.248, (0 split)
+##       state   splits as  LRR--L----LL-L---LRRL---L--L------R--LL-L-L-RL-RR--LLLR--LL-L-L-LL-L--LLRL-----L-----, agree=0.877, adj=0.091, (0 split)
+## 
+## Node number 7: 852 observations
+##   predicted class=True   expected loss=0.1173709  P(node) =0.2864829
+##     class counts:   100   752
+##    probabilities: 0.117 0.883 
+## 
+## Node number 12: 1057 observations,    complexity param=0.03514739
+##   predicted class=False  expected loss=0.4711447  P(node) =0.3554136
+##     class counts:   559   498
+##    probabilities: 0.529 0.471 
+##   left son=24 (431 obs) right son=25 (626 obs)
+##   Primary splits:
+##       is.public.domain splits as  LR, improve=33.16857, (0 missing)
+##       city             splits as  L---R------L---R--R--L---RL---R-------RRRR-LRRL--R-------R---R-R-R-----LLRRL------R-RRRL-------L-LLR--RRR-L-RR--L--R--L-------LR---L------LL--R-R---RR---L--RRR-R--, improve=25.07316, (0 missing)
+##       region           splits as  LRL-LL--R---L-R-----RRR--R--R-R--L-RL-LL-LR---R--L--R--L--RL-R---LLRR-L-LR---LRRL-, improve=14.93733, (0 missing)
+##       country          splits as  L----L-R--L-LL---L----R-LL---LR-LLL--L----L-RRLRLR---L-RL---L----R-----R-----L-RL---RR-----R--L-RLR---R-LL--LLL-L-LR, improve=13.58782, (0 missing)
+##       department       splits as  LRRRRLRLRLLRRRLRR-R-, improve=13.38631, (0 missing)
+##   Surrogate splits:
+##       department     splits as  RRRRRRLRRRRRRRLRL-R-, agree=0.754, adj=0.397, (0 split)
+##       classification splits as  L-----R-------R------------R--L-------R--L----RR-R----R--------R------------------------R-R-RR-------------RR--------R------R-------L--L-----R---R---------------R----R------RR--------R----R----L--------R--R-------L---------------L-R---------R---------------R--------R-RR----R--------------LR-R-------R-----, agree=0.679, adj=0.213, (0 split)
+##       country        splits as  R----R-R--R-RL---R----R-LL---RR-RRR--R----R-RRLRRR---R-RR---L----R-----L-----R-LR---RR-----R--R-RLR---R-RL--RRL-L-LR, agree=0.606, adj=0.035, (0 split)
+##       region         splits as  RRR-RL--L---R-R-----RRR--R--R-R--R-RR-LR-RR---R--R--R--R--RL-L---LRRR-R-RL---RRRL-, agree=0.600, adj=0.019, (0 split)
+##       subregion      splits as  RRRRRLRR-RRR-R-R-----R----R--RRRLRLRRRRRLLRRLR--R--RRR---RRRRRR, agree=0.600, adj=0.019, (0 split)
+## 
+## Node number 13: 165 observations
+##   predicted class=True   expected loss=0.03636364  P(node) =0.05548083
+##     class counts:     6   159
+##    probabilities: 0.036 0.964 
+## 
+## Node number 24: 431 observations
+##   predicted class=False  expected loss=0.3201856  P(node) =0.1449227
+##     class counts:   293   138
+##    probabilities: 0.680 0.320 
+## 
+## Node number 25: 626 observations,    complexity param=0.0292517
+##   predicted class=True   expected loss=0.4249201  P(node) =0.2104909
+##     class counts:   266   360
+##    probabilities: 0.425 0.575 
+##   left son=50 (155 obs) right son=51 (471 obs)
+##   Primary splits:
+##       department     splits as  LRRRRLRLRLLRRRRRR-R-, improve=18.83164, (0 missing)
+##       classification splits as  R-----R-------L------------R----------R--R----RL-R----L--------L------------------------R-L-LL-------------RR--------L------R----------------L---R---------------R----L------LL--------R----L-------------L--L-------R-----------------L---------R---------------L--------R-LR----L---------------R-L-------L-----, improve=16.50396, (0 missing)
+##       city           splits as  L---R------L---R-----L---RR---R-------RRRR-LRRL--R-------R---R-R-R-----LLRRL------R-RRR--------L-LL----RR-L--R--L--R--L--------R---L------LL--R-R---RR---L--RRR-R--, improve=15.43055, (0 missing)
+##       region         splits as  LRL-L-------L-R-----RRR--R--R-R--L-RL--L-LR---R--L--R--R--R-------LRR-R-L----LRR--, improve=11.77779, (0 missing)
+##       subregion      splits as  LRRRRLRR-LRR-L-L-----R----R--RRR-R-RLLLRL-RR-R--R--LLL---RRRRLL, improve=11.37873, (0 missing)
+##   Surrogate splits:
+##       classification splits as  R-----R-------R------------R----------R--R----RL-R----L--------R------------------------L-L-LR-------------RR--------R------R----------------R---R---------------R----R------RR--------R----L-------------R--L-------R-----------------L---------R---------------R--------R-RR----L---------------R-R-------R-----, agree=0.877, adj=0.503, (0 split)
+##       country        splits as  R----R-R--R-R----L----R------RR-RLL--R----R-RR-RRR---R-RR--------L-----R-----R--R---RR-----R--R-R-R---R-R---LL-----R, agree=0.799, adj=0.187, (0 split)
+##       city           splits as  R---R------R---R-----L---LL---R-------RRRR-RRRL--L-------R---R-L-R-----RRLRR------R-LRR--------L-RR----RR-R--R--L--L--L--------L---R------LR--R-R---LR---R--RRR-R--, agree=0.780, adj=0.110, (0 split)
+##       county         splits as  RL-LL, agree=0.759, adj=0.026, (0 split)
+##       state          splits as  R----R----RR-----R--R------R---------RR-R-R--R--R--L-----R--R-L-RR-----L-R-----R-----, agree=0.759, adj=0.026, (0 split)
+## 
+## Node number 50: 155 observations
+##   predicted class=False  expected loss=0.3612903  P(node) =0.05211836
+##     class counts:    99    56
+##    probabilities: 0.639 0.361 
+## 
+## Node number 51: 471 observations
+##   predicted class=True   expected loss=0.3545648  P(node) =0.1583726
+##     class counts:   167   304
+##    probabilities: 0.355 0.645</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<pre><code>## Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = attr(object, : factor country has new levels GuatemalaorMexico, Guyana, LowerAustria, presentdayPakistan, SaudiArabia, SothernTurkmenistan, SyriaYemenorNorthAfrica, TheNetherlands, UnitedStatesofAmerica, WestCentralTurkey</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 
 </div>
             </section>
@@ -445,7 +579,7 @@ Prune to .14 !</p>
           </div>
         </div>
       </div>
-<a href="remove-empties-and-basic-cleaning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="model-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
