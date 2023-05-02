@@ -3,10 +3,13 @@ data
 the-modeling-goal
 models-i-intend-to-use
 model-1
-remove-empties-and-basic-cleaning
+onerule-model
 model-2
+decision-tree
 model-3
-this-doesnt-work
+random-forest
 model-4
+support-vector-machine
 model-5
+neural-network
 reflections

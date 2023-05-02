@@ -1,11 +1,12 @@
 # [Model 4]
 
-support vector machine 
+## support vector machine 
+
 
 ```{r}
 str = "Ábcdêãçoàúü"
 str = iconv(str, from = '', to = 'ASCII//TRANSLIT')
-gsub("[[:punct:]]", "", str)
+#gsub("[[:punct:]]", "", str)
 
 remove_exotic <- function(str){
   str = iconv(str, from = '', to = 'ASCII//TRANSLIT')
@@ -21,14 +22,14 @@ library(dplyr)
 
 
 train_dat2 <- train_dat %>% select(c(is.highlight, is.public.domain, department, country, region, subregion,state, city, classification)) 
-test_dat2 <- test_dat %>% select(c(is.public.domain, department, country, region, subregion,state, city, classification)) 
+test_dat2 <- test_dat %>% select(c(is.highlight, is.public.domain, department, country, region, subregion,state, city, classification)) 
 
 train_dat2$is.highlight <- as.factor(train_dat2$is.highlight)
-#test_dat2$is.highlight <- as.factor(test_dat2$is.highlight)
+test_dat2$is.highlight <- as.factor(test_dat2$is.highlight)
 
 
-td3 <- na.omit(train_dat2)
-testd3 <- na.omit(test_dat2)
+#td3 <- na.omit(train_dat2)
+#testd3 <- na.omit(test_dat2)
 
 td3$city <- sapply(td3$city,remove_exotic)
 testd3$city <- sapply(testd3$city,remove_exotic)
@@ -53,8 +54,8 @@ svm_model<- svm(is.highlight~is.public.domain + department + country +
 pred_train <- predict(svm_model, td3, decision.values = T)
 mean(pred_train == td3$is.highlight)
 
-pred_test <- predict(svm_model, testd3, decision.values = T)
-mean(pred_test == testd3$is.highlight)
+#pred_test <- predict(svm_model, testd3, decision.values = T)
+#mean(pred_test == testd3$is.highlight)
 
 ```
 
@@ -70,7 +71,7 @@ df$subregion <- sapply(df$subregion,remove_exotic)
 dummy <- dummyVars(" ~ .", data=df)
 newdata <- data.frame(predict(dummy, newdata = df))
 
-write.csv(newdata, "dummyvars.csv")
+#write.csv(newdata, "dummyvars.csv")
 
 ```
 
@@ -79,16 +80,36 @@ Reference: https://github.com/SchlossLab/mikRopML/issues/156
 
 ```{r}
 library(mikropml)
+library(dplyr)
 
-dat_proc <- preprocess_data(newdata, 'is.highlightTrue')$dat_transformed
+#newdata <- read.csv("~/Desktop/dummyvars.csv")
+
+#newdata[,"is.highlightFalse"] <- as.character(newdata[,"is.highlightFalse"])
+
+#dat_proc <- preprocess_data(newdata, 'is.highlightTrue')$dat_transformed
 
 #getting rid of columns with near-zero variance 
 
-dat_proc <- dat_proc %>% select(-c(is.highlightFalse_1))
+#data_proc <- write.csv("data_proc.csv", dat_proc)
 
+#dat_proc <- dat_proc %>% select(-c(is.highlightFalse_1))
+
+#write.csv(train_dat, "train_dat_cleaned.csv")
+#write.csv(test_dat, "test_dat_cleaned.csv")
+
+#n <- nrow(dat_proc)
+#train <- sample(n, .8*n)
+#train_dat <- dat_proc[train, ]
+#test_dat <- dat_proc[-train, ]
+
+train_dat <- read.csv("train_dat_cleaned.csv")
+test_dat <- read.csv("test_dat_cleaned.csv")
+  
+total <- rbind(train_dat, test_dat)
+n <- nrow(total)
 train <- sample(n, .8*n)
-train_dat <- dat_proc[train, ]
-test_dat <- dat_proc[-train, ]
+train_dat <- total[train, ]
+test_dat <- total[-train, ]
 
 svm_model<- svm(is.highlightTrue~., 
                 data = train_dat, 

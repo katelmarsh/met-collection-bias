@@ -1,18 +1,8 @@
 # [Model 2]
 
-Going forward, we are going to use the randomly sampled 100,000 art pieces in order to make this project less computationally heavy. 
+## Decision Tree 
+Going forward, I upsampled so the "isHighlight" has an equal number of true and false values. This will make the models less computationally heavy. 
 
-```{r}
-df <- read.csv("met_data_sample_100k")
-
-table(df$Is.Highlight)
-
-table(df$Is.Public.Domain)
-
-```
-
-
-Actually no! Here is a cleaned and manageable dataset. 
 ```{r}
 
 df <- read.csv("~/Downloads/MetObjects_Cleaned_Small.csv")
@@ -31,7 +21,7 @@ train_dat <- df[train, ]
 test_dat <- df[-train, ]
 
 fit <- rpart(is.highlight~., data = train_dat, method = 'class', control = rpart.control(cp = 0))
-summary(fit)
+#summary(fit)
 plotcp(fit)
 
 
@@ -43,41 +33,25 @@ plotcp(fit)
 
 
 ```
-Prune to .14 ! 
+Prune to .16 ! 
 
 
 ```{r}
 library(ggplot2)
 library(waffle)
 
-culture <- head(sort(table(df$culture), decreasing = TRUE), 20) # the culture section could clearly use some cleaning! japan and japanese haha 
-
 department <- head(sort(table(df$department), decreasing = TRUE), 8)
-
-River <- head(sort(table(df$River), decreasing = TRUE), 8)
-
-artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
-
-waffle(River/10, rows=5, size=0.6, 
-       title="Art River", 
-       xlab="1 square = 1000 artworks")
-
 waffle(department/10, rows=5, size=0.6, 
        title="Art Department", 
        xlab="1 square = 1000 artworks")
 
-waffle(culture, rows=5, size=0.6, 
-       title="Art Culture", 
-       xlab="1 square = 1000 artworks")
-
+artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
 waffle(artist.begin.date/10, rows=5, size=0.6, 
        title="Art Culture", 
        xlab="1 square = 1000 artworks")
 
-
 ggplot(df, aes(x = n, y = department)) + 
   geom_col() + theme_light() + ggtitle(label = "Art Department") 
-
 
 c_df <- as.data.frame(culture)
 ggplot(c_df, aes(x = Freq, y = Var1)) + 
@@ -113,7 +87,7 @@ fit <- rpart(is.highlight~is.public.domain + department + country + region + sub
              control = rpart.control(cp = .01))
 fit$xlevels[["object.name"]] <- union(fit$xlevels[["object.name"]], levels(test_dat$object.name))
 
-summary(fit)
+#summary(fit)
 
 #test_dat$pred <- predict(fit, test_dat, type = "class")
 accuracy <- mean(test_dat$pred == test_dat$is.highlight)
@@ -169,24 +143,24 @@ The decision tree shows that the model uses classification, department, "is publ
 
 
 ```{r}
-library(rpart)
-library(rpart.plot)
+#library(rpart)
+#library(rpart.plot)
 
 
-fit <- rpart(is.highlightTrue~., data = train_dat, 
-             method = 'class', 
-             control = rpart.control(cp = .01))
+#fit <- rpart(is.highlightTrue~., data = train_dat, 
+#             method = 'class', 
+#             control = rpart.control(cp = .01))
 
-summary(fit)
+#summary(fit)
 
-train_dat$pred <- predict(fit, train_dat, type = "class")
-(accuracy <- mean(train_dat$pred == train_dat$is.highlightTrue))
+#train_dat$pred <- predict(fit, train_dat, type = "class")
+#(accuracy <- mean(train_dat$pred == train_dat$is.highlightTrue))
 
-test_dat$pred <- predict(fit, test_dat, type = "class")
-(accuracy <- mean(test_dat$pred == test_dat$is.highlightTrue))
+#test_dat$pred <- predict(fit, test_dat, type = "class")
+#(accuracy <- mean(test_dat$pred == test_dat$is.highlightTrue))
 
 
-rpart.plot(fit, extra = 106, yesno = 2) 
+#rpart.plot(fit, extra = 106, yesno = 2) 
 
 
 ```

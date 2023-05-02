@@ -1,14 +1,14 @@
 # [Model 1]
 
-
+## OneRule Model 
 ```{r}
 
 # using https://www.kaggle.com/datasets/metmuseum/the-metropolitan-museum-of-art-open-access
 
 df <- read.csv("~/Downloads/MetObjects.csv")
-summary(df)
+#summary(df)
 
-colSums(is.na(df)) # this dataset has been previously cleaned, no missing values 
+#colSums(is.na(df)) # this dataset has been previously cleaned, no missing values 
 
 highlightT <- df[df$Is.Highlight == TRUE,]
 
@@ -19,7 +19,7 @@ highlightT <- df[df$Is.Highlight == TRUE,]
 library(ggplot2)
 #table(df$Department)
 
-ggplot(highlightT, aes(x = Department)) + 
+ggplot(df, aes(x = Department)) + 
   geom_bar() + theme_light() + theme(axis.text.x = element_text(angle = 45, size = 5, hjust=1))
 
 ```
@@ -75,7 +75,7 @@ train_dat <- data_s1[train, ]
 test_dat <- data_s1[-train, ]
 
 mod <- OneR(Is.Highlight ~ Classification + Country + Artist.Nationality + Artist.Display.Name + Object.Name + Department + Is.Public.Domain + Object.Date, data = train_dat)
-summary(mod)
+#summary(mod)
 
 mean(predict(mod, train_dat) == train_dat$Is.Highlight)
 
@@ -104,14 +104,14 @@ train_dat <- data_s1[train, ]
 test_dat <- data_s1[-train, ]
 
 mod <- OneR(Is.Highlight ~ Classification + Country + Artist.Nationality + Artist.Display.Name + Object.Name + Department + Is.Public.Domain + Object.Date, data = train_dat)
-summary(mod)
+#summary(mod)
 
 mean(predict(mod, train_dat) == train_dat$Is.Highlight)
 
 mean(predict(mod, test_dat) == test_dat$Is.Highlight)
 ```
 
-With a dataset of 100,000 randomly selected rows, the model chooses to use the Artist Display Name as the explanatory variable, instead of the ObjectDate variable. 
+With a dataset of 100,000 randomly selected rows, the model chooses to use the Object.Date as the explanatory variable.  
 
 For this larger sample, we find that it is  able to predict the class from the object data with 96% accuracy on the training set, while it is able to predict the isHighlight variable with a 47% accuracy. 
 
@@ -123,96 +123,77 @@ library(ggplot2)
 library(waffle)
 
 culture <- head(sort(table(df$Culture), decreasing = TRUE), 8) # the culture section could clearly use some cleaning! japan and japanese haha 
-
-department <- head(sort(table(df$Department), decreasing = TRUE), 8)
-
-period <- head(sort(table(df$Period), decreasing = TRUE), 8)
-
-artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
-
 waffle(culture/1000, rows=10, size=0.6, 
        title="Art Culture", 
        xlab="1 square = 1000 artworks")
 
+department <- head(sort(table(df$Department), decreasing = TRUE), 8)
 waffle(department/1000, rows=10, size=0.6, 
        title="Art Department", 
        xlab="1 square = 1000 artworks")
 
-waffle(locus/1000, rows=5, size=0.6, 
-       title="Art Culture", 
-       xlab="1 square = 1000 artworks")
-
+period <- head(sort(table(df$Period), decreasing = TRUE), 8)
 waffle(period/1000, rows=5, size=0.6, 
        title="Art Period", 
        xlab="1 square = 1000 artworks")
 
-waffle(department/1000, rows=5, size=0.6, 
-       title="Art Department", 
-       xlab="1 square = 1000 artworks")
-
+artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
 waffle(artist.begin.date/1000, rows=5, size=0.6, 
        title="Art Culture", 
        xlab="1 square = 1000 artworks")
 ```
-The period and culture variables are dominated by empty values. The department is not - something that the Met must use as a catch-all term for all different types of artworks. 
+The period and culture variables are dominated by empty values. The department is not - something that the Met must use as a catch-all term for all different types of artworks. To fix the empty values, we will engage in basic data cleaning. 
 
 
-### Remove empties and basic cleaning! 
+Basic Data Cleaning 
+* all to lowercase
+* removed punctuation, "possibly" and "probably" 
+* Removed columns with significant NA values: Period, Dynasty, Reign, Portfolio, Artist Prefix, Excavation, River, Repository, etc. 
+
+
 ```{r}
 library(dplyr)
 library(janitor)
 
-df <- read.csv("~/Downloads/MetObjects.csv")
+#df <- read.csv("~/Downloads/MetObjects.csv")
 
-names(which(colSums(is.na(df)) > 0))
+#names(which(colSums(is.na(df)) > 0))
 
 #df <- df[-which(df$Culture == ""),]
 #df <- df[-which(df$Country == ""),]
 
-df1 <- df %>% select(!c(Link.Resource, Repository, Rights.and.Reproduction, Object.Number, Credit.Line, Locus,  
-                        Period, Dynasty, Reign, Portfolio,
-                        Artist.Prefix, Artist.Suffix,
-                        Locale, Excavation, River,
-                        Metadata.Date)) 
+#df1 <- df %>% select(!c(Link.Resource, Repository, Rights.and.Reproduction, Object.Number, Credit.Line, Locus,  
+#                        Period, Dynasty, Reign, Portfolio,
+#                        Artist.Prefix, Artist.Suffix,
+#                        Locale, Excavation, River,
+#                        Metadata.Date)) 
 
-df1 <- df1 %>%
-  rename_all(tolower) %>%
-  mutate(across(everything(), ~gsub("[^[:alnum:]]", "_", .x))) %>%
-  mutate(across(everything(), ~gsub("[[:punct:]]", "", .x))) %>%
-  mutate(across(everything(), ~gsub("&", "and", .x))) %>%
-  mutate(across(everything(), ~gsub("probably", "", .x))) %>%# for all my intents and purposes the "probably" is good enough 
-  mutate(across(everything(), ~gsub("possibly", "", .x))) # for all my intents and purposes the "probably" is good enough 
+#df1 <- df1 %>%
+#  rename_all(tolower) %>%
+#  mutate(across(everything(), ~gsub("[^[:alnum:]]", "_", .x))) %>%
+#  mutate(across(everything(), ~gsub("[[:punct:]]", "", .x))) %>%
+#  mutate(across(everything(), ~gsub("&", "and", .x))) %>%
+#  mutate(across(everything(), ~gsub("probably", "", .x))) %>%# for all my intents and purposes the "probably" is good enough 
+#  mutate(across(everything(), ~gsub("possibly", "", .x))) # for all my intents and purposes the "probably" is good enough 
 
 # cleaner dataset! 
 
-write.csv(df1, "~/Downloads/MetObjects_Cleaned.csv")
+#write.csv(df1, "~/Downloads/MetObjects_Cleaned.csv")
 
-```
-
-??? dealing with all the accents! 
-not sure if this is worth it ugh 
-
-```{r}
-library(janitor)
-
-#df2 <- 
-#df1$city <- make_clean_names(df1$city)
-
-#table(df1$city)
 ```
 
 
 
 ```{r}
-df <- read.csv("~/Downloads/MetObjects_Cleaned.csv")
+#df <- read.csv("~/Downloads/MetObjects_Cleaned.csv")
 
-explore_true <- df[which(df$is.highlight == "True"),]
-explore_false <- df[which(df$is.highlight == "False"),]
-df_small <- explore_false[sample(1:nrow(explore_false), 1859), ]
+#explore_true <- df[which(df$is.highlight == "True"),]
+#explore_false <- df[which(df$is.highlight == "False"),]
+#df_small <- explore_false[sample(1:nrow(explore_false), 1859), ]
 
-df2 <- rbind(explore_true, df_small)
+#df2 <- rbind(explore_true, df_small)
 
-write.csv(df2, "~/Downloads/MetObjects_Cleaned_Small.csv")
+#write.csv(df2, "~/Downloads/MetObjects_Cleaned_Small.csv")
 
 ```
 
@@ -229,8 +210,8 @@ train_dat <- df[train, ]
 test_dat <- df[-train, ]
 
 mod2 <- OneR(is.highlight ~ ., data = train_dat)
-summary(mod2)
-plot(mod2)
+#summary(mod2)
+#plot(mod2)
 
 mean(predict(mod2, train_dat) == train_dat$is.highlight)
 
@@ -247,16 +228,5 @@ plot(mod2)
 mean(predict(mod2, train_dat) == train_dat$is.highlight)
 
 mean(predict(mod2, test_dat) == test_dat$is.highlight)
-```
-
-```{r}
-mod2 <- OneR(is.highlightTrue ~ ., data = train_dat)
-summary(mod2)
-plot(mod2)
-
-mean(predict(mod2, train_dat) == train_dat$is.highlight)
-
-mean(predict(mod2, test_dat) == test_dat$is.highlight)
-
 ```
 

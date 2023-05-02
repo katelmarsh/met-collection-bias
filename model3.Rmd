@@ -1,7 +1,7 @@
 # [Model 3]
 
 
-random forest
+## random forest
 
 reference: https://www.r-bloggers.com/2021/04/random-forest-in-r/
 https://stats.stackexchange.com/questions/493714/random-forest-variable-importance-plot-discrepancy
@@ -54,30 +54,5 @@ ggplot(var.imp, aes(x = feature, y=MeanDecreaseAccuracy)) +
   theme(axis.text.x = element_text(angle=-40, hjust=.1)) + coord_flip() +
   ggtitle("Feature Importance By Mean Decrease in Accuracy")
 
-```
-
-# this doesn't work
-```{r}
-library(pdp)
-library(tidyverse)
-
-pdp <- pdp::partial(model, pred.var="is.highlight")
-head(pdp)
-
-#pdp <- ggplot(pdp, aes(is.highlight, yhat)) + geom_line() + geom_rug(data=train_dat, aes(Department))
-
-library(dplyr)
-  var <- train_dat |>
-    select(-is.highlight) |>
-    select(where(is.numeric)) |>
-    names()
-
-df <- map(var, ~partial(model, pred.var = .x)) |> # list of [var] / yhat
-  map_df(pivot_longer, cols = 1) # dataframe of yhat / name / value
-
-
-df |> ggplot(aes(value, yhat)) +
-  geom_line() +
-  facet_wrap(~name, scales = "free_x")
 ```
 
