@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 
@@ -92,11 +99,19 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="model-4.html"><a href="model-4.html"><i class="fa fa-check"></i><b>5</b> [Model 4]</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> support vector machine</a></li>
+<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> support vector machine</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="model-4.html"><a href="model-4.html#what-is-this-model"><i class="fa fa-check"></i><b>5.1.1</b> What is this model?</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="model-5.html"><a href="model-5.html"><i class="fa fa-check"></i><b>6</b> [Model 5]</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="model-5.html"><a href="model-5.html#neural-network"><i class="fa fa-check"></i><b>6.1</b> neural network</a></li>
+<li class="chapter" data-level="6.1" data-path="model-5.html"><a href="model-5.html#neural-network"><i class="fa fa-check"></i><b>6.1</b> neural network</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="model-5.html"><a href="model-5.html#to-interpret-this-model-we-will-use-shapley-values"><i class="fa fa-check"></i><b>6.1.1</b> To interpret this model, we will use Shapley Values:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="model-5.html"><a href="model-5.html#shapley-values-for-the-first-line-of-the-test-dataset"><i class="fa fa-check"></i><b>6.1.2</b> Shapley Values for the First Line of the Test Dataset</a></li>
+<li class="chapter" data-level="6.1.3" data-path="model-5.html"><a href="model-5.html#shapley-values-for-full-test-set"><i class="fa fa-check"></i><b>6.1.3</b> Shapley Values for full Test Set</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="reflections.html"><a href="reflections.html"><i class="fa fa-check"></i><b>7</b> Reflections</a></li>
 <li class="divider"></li>
@@ -122,376 +137,29 @@
 <h1><span class="header-section-number">Chapter 2</span> [Model 1]<a href="model-1.html#model-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="onerule-model" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> OneRule Model<a href="model-1.html#onerule-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-4-1.png" width="672" />
-Most of the artworks at the Met at Drawings and Prints. This makes sense becuase these are probably the easiest high medium to make! Photographs are also low effort to make and thus they are in high quantity.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-14934bf5a3f214efeb72" style="width:672px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-14934bf5a3f214efeb72">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"y":[12330,5451,6185,13486,12427,36727,33681,154445,27542,2760,42528,17292,15082,7343,13991,5303,36258,2589,2628,155],"text":["count:  12330<br />Department: American Decorative Arts","count:   5451<br />Department: American Paintings and Sculpture","count:   6185<br />Department: Ancient Near Eastern Art","count:  13486<br />Department: Arms and Armor","count:  12427<br />Department: Arts of Africa, Oceania, and the Americas","count:  36727<br />Department: Asian Art","count:  33681<br />Department: Costume Institute","count: 154445<br />Department: Drawings and Prints","count:  27542<br />Department: Egyptian Art","count:   2760<br />Department: European Paintings","count:  42528<br />Department: European Sculpture and Decorative Arts","count:  17292<br />Department: Greek and Roman Art","count:  15082<br />Department: Islamic Art","count:   7343<br />Department: Medieval Art","count:  13991<br />Department: Modern and Contemporary Art","count:   5303<br />Department: Musical Instruments","count:  36258<br />Department: Photographs","count:   2589<br />Department: Robert Lehman Collection","count:   2628<br />Department: The Cloisters","count:    155<br />Department: The Libraries"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":33.0471841704718,"r":7.30593607305936,"b":106.922856327644,"l":60.6392694063927},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,20.6],"tickmode":"array","ticktext":["American Decorative Arts","American Paintings and Sculpture","Ancient Near Eastern Art","Arms and Armor","Arts of Africa, Oceania, and the Americas","Asian Art","Costume Institute","Drawings and Prints","Egyptian Art","European Paintings","European Sculpture and Decorative Arts","Greek and Roman Art","Islamic Art","Medieval Art","Modern and Contemporary Art","Musical Instruments","Photographs","Robert Lehman Collection","The Cloisters","The Libraries"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"categoryorder":"array","categoryarray":["American Decorative Arts","American Paintings and Sculpture","Ancient Near Eastern Art","Arms and Armor","Arts of Africa, Oceania, and the Americas","Asian Art","Costume Institute","Drawings and Prints","Egyptian Art","European Paintings","European Sculpture and Decorative Arts","Greek and Roman Art","Islamic Art","Medieval Art","Modern and Contemporary Art","Musical Instruments","Photographs","Robert Lehman Collection","The Cloisters","The Libraries"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":6.6417600664176},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"Department","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-7722.25,162167.25],"tickmode":"array","ticktext":["0","50000","100000","150000"],"tickvals":[0,50000,100000,150000],"categoryorder":"array","categoryarray":["0","50000","100000","150000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"count","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"30fc149bb982":{"x":{},"type":"bar"}},"cur_data":"30fc149bb982","visdat":{"30fc149bb982":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Most of the artworks at the Met at Drawings and Prints. This makes sense becuase these are probably the easiest high medium to make! Photographs are also low effort to make and thus they are in high quantity.</p>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7ccd5b87741b68e121ed" style="width:672px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-7ccd5b87741b68e121ed">{"x":{"data":[{"orientation":"v","width":[0.9,0.9],"base":[0,0],"x":[1,2],"y":[446344,1859],"text":["count: 446344<br />Is.Highlight: False","count:   1859<br />Is.Highlight: True"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":50.5814307458143,"r":7.30593607305936,"b":47.0015220700152,"l":54.7945205479452},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Is the artwork a highlight?","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,2.6],"tickmode":"array","ticktext":["False","True"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["False","True"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"Is.Highlight","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-22317.2,468661.2],"tickmode":"array","ticktext":["0e+00","1e+05","2e+05","3e+05","4e+05"],"tickvals":[0,100000,200000,300000,400000],"categoryorder":"array","categoryarray":["0e+00","1e+05","2e+05","3e+05","4e+05"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"count","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"30fc549c3d8c":{"x":{},"type":"bar"}},"cur_data":"30fc549c3d8c","visdat":{"30fc549c3d8c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c9de9dbc2f34cdbec959" style="width:672px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-c9de9dbc2f34cdbec959">{"x":{"data":[{"orientation":"v","width":[0.9,0.9],"base":[0,0],"x":[1,2],"y":[246004,202199],"text":["count: 246004<br />Is.Public.Domain: False","count: 202199<br />Is.Public.Domain: True"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":50.5814307458143,"r":7.30593607305936,"b":47.0015220700152,"l":60.6392694063927},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Is the artwork in public domain?","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,2.6],"tickmode":"array","ticktext":["False","True"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["False","True"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"Is.Public.Domain","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-12300.2,258304.2],"tickmode":"array","ticktext":["0","50000","100000","150000","200000","250000"],"tickvals":[0,50000,100000,150000,200000,250000],"categoryorder":"array","categoryarray":["0","50000","100000","150000","200000","250000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"count","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"30fc174f21d5":{"x":{},"type":"bar"}},"cur_data":"30fc174f21d5","visdat":{"30fc174f21d5":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p>The One Rule Model does not work for this task. The summary of the model is incredibly dense, and the “One Rule” chosen is in fact the name of the artist. For a datset of this size, it is almost impossible to interpret the model results because the model results are no better than me walking into the Met with a list of famous artists in my head. Van Gogh = Is.Highlight I would expect, and that is the case.</p>
-<pre><code>##          Object.Number Is.Highlight Is.Public.Domain
-## 324947     1975.1.2462        False             True
-## 131082       20.186.17        False             True
-## 27784        22.122.45        False             True
-## 4464        62.232a, b        False             True
-## 425620 1986.1250.8(10)        False            False
-## 446136   44.91.783(56)        False            False
-##        Object.ID                             Department
-## 324947    461327               Robert Lehman Collection
-## 131082    220827 European Sculpture and Decorative Arts
-## 27784      32994                         Arms and Armor
-## 4464        4800               American Decorative Arts
-## 425620    704845                    Drawings and Prints
-## 446136    746302                    Drawings and Prints
-##                               Object.Name
-## 324947                             Carpet
-## 131082                              Strip
-## 27784                               Medal
-## 4464                           Lithophane
-## 425620                               Book
-## 446136 Book Print Ornament &amp; Architecture
-##                                                                                                 Title
-## 324947                                      Indo-Persian carpet with vine scroll and palmette pattern
-## 131082                                                                                          Strip
-## 27784                                  Medal Commemorating the Coronation of Peter II at Moscow, 1728
-## 4464                                                                                       Lithophane
-## 425620 Taschenbuch der Reisen, oder unterhaltende Darstellung der Entdeckungen des 18ten Jahrhunderts
-## 446136          Ornamental designs with semi-abstract patterns and thin bundles of flowers and leaves
-##             Culture Period Dynasty Reign Portfolio
-## 324947 Indo-Persian                               
-## 131082      Italian                               
-## 27784       Russian                               
-## 4464         German                               
-## 425620                                            
-## 446136                                            
-##                                                                            Artist.Role
-## 324947                                                                                
-## 131082                                                                                
-## 27784                                                                                 
-## 4464                                                                             Maker
-## 425620 Author|Publisher|Sitter|Sitter|Sitter|Artist|Sitter|Sitter|Artist|Sitter|Sitter
-## 446136                                                   Editor|Lithographer|Publisher
-##                                 Artist.Prefix
-## 324947                                       
-## 131082                                       
-## 27784                                        
-## 4464                                         
-## 425620                                       
-## 446136 Edited by|Lithographed by|Published by
-##                                                                                                                                                                                                                          Artist.Display.Name
-## 324947                                                                                                                                                                                                                                      
-## 131082                                                                                                                                                                                                                                      
-## 27784                                                                                                                                                                                                                                       
-## 4464                                                                                                                                                                                                        Koenigliche Porzellan Manufaktur
-## 425620 E. A. W. von Zimmerman|Gerhard Fleischer &amp; D. Jüng|Don Vasco de Gama|Alexander von Humbolt|Micco Chlucco|Carl Frosch|Charles Marie de la Condamine|Johann Baptist Tavernier|Johann Adolph Darnstedt|Sir Hans Sloane|Sir Francis Drake
-## 446136                                                                                                                                                                                             Vasselon|Georges Schlatter|Fleury Chavant
-##                                                                                                                                                                                                                                                                                       Artist.Display.Bio
-## 324947                                                                                                                                                                                                                                                                                                  
-## 131082                                                                                                                                                                                                                                                                                                  
-## 27784                                                                                                                                                                                                                                                                                                   
-## 4464                                                                                                                                                                                                                                                                                German, founded 1763
-## 425620 German, active 19th century|German|Portuguese, Sines, Portugal, ca. 1460–1524|German, Berlin 1769–1859 Berlin|Native American|German, born Halle, 1771|French, Paris 1701–1774 Paris|French, Paris, 1605–1689|German, Auma 1769–1844 Dresden|Irish, Killyeagh 1660–1753 London|British, 1545–1596
-## 446136                                                                                                                                                                                                                                              French (?), 19th Century|French|French, 19th century
-##                            Artist.Suffix
-## 324947                                  
-## 131082                                  
-## 27784                                   
-## 4464                                    
-## 425620 , Leipzig|, King of the Seminoles
-## 446136                                  
-##                                                                                                                                                                                                                                         Artist.Alpha.Sort
-## 324947                                                                                                                                                                                                                                                   
-## 131082                                                                                                                                                                                                                                                   
-## 27784                                                                                                                                                                                                                                                    
-## 4464                                                                                                                                                                                                                                                     
-## 425620 Zimmerman, E. A. W. von|Fleischer, Gerhard &amp;  D. Jüng|Gama, Don  Vasco de|Humbolt, Alexander von|Chlucco, Micco|Frosch, Carl|Condamine, Charles Marie de la|Tavernier, Johann Baptist|Darnstedt, Johann Adolph|Sloane, Hans Sir|Drake, Francis Sir
-## 446136                                                                                                                                                                                                        Vasselon|Schlatter, Georges|Chavant, Fleury
-##        Artist.Nationality
-## 324947                   
-## 131082                   
-## 27784                    
-## 4464                     
-## 425620                   
-## 446136                   
-##                                                                                                               Artist.Begin.Date
-## 324947                                                                                                                         
-## 131082                                                                                                                         
-## 27784                                                                                                                          
-## 4464                                                                                                                 1763      
-## 425620 0019      |0019      |1460      |1769      |1700      |1771      |1701      |1605      |1769      |1660      |1545      
-## 446136                                                                                                    1800      |0019      
-##                                                                                                      Artist.End.Date
-## 324947                                                                                                              
-## 131082                                                                                                              
-## 27784                                                                                                               
-## 4464                                                                                                      9999      
-## 425620 0019      |0019      |1524      |1859      |1900      |1774      |1689      |1844      |1753      |1596      
-## 446136                                                                                         1900      |0019      
-##                            Object.Date Object.Begin.Date
-## 324947 second half of the 17th century              1650
-## 131082                    16th century              1500
-## 27784                             1728              1728
-## 4464                          ca. 1840              1837
-## 425620                         1802–13              1802
-## 446136                    [after 1844]              1844
-##        Object.End.Date                          Medium
-## 324947            1700 Wool pile on cotton foundation.
-## 131082            1599                     Needle lace
-## 27784             1728                          Bronze
-## 4464              1840              Porcelain and wood
-## 425620            1813        Illustrations: engraving
-## 446136            1900                     Lithography
-##                                                                                                     Dimensions
-## 324947                                                                           Length: 5.5 m.\nWidth: 2.5 m.
-## 131082                                                              L. 9 1/2 x W. 1 3/4 inches (24.1 x 4.4 cm)
-## 27784                              Diam. 2 1/2 in. (6.4 cm); thickness 3/16 in. (0.5 cm); Wt. 3.5 oz. (99.2 g)
-## 4464                                                                      22 5/8 x 11 3/4 in. (57.5 x 29.8 cm)
-## 425620                                                            4 3/4 × 3 7/16 × 13/16 in. (12 × 8.7 × 2 cm)
-## 446136 Sheet: 12 3/16 × 9 7/16 in. (31 × 24 cm)\nBook: 12 3/8 in. × 10 in. × 1 5/16 in. (31.5 × 25.4 × 3.3 cm)
-##                                                        Credit.Line
-## 324947                 Robert Lehman Collection, 1975\n1975.1.2462
-## 131082                                           Rogers Fund, 1920
-## 27784                                  Gift of Bashford Dean, 1922
-## 4464                             Gift of Mrs. Cecil J. North, 1962
-## 425620 Gift of Ica Waldes Busek in Memory of Jindrich Waldes, 1986
-## 446136                                Gift of Edith P. Blase, 1944
-##        Geography.Type  City State County Country Region
-## 324947                                                 
-## 131082                                                 
-## 27784                                                  
-## 4464          Made in                    Germany       
-## 425620                                                 
-## 446136                Paris                            
-##        Subregion Locale Locus Excavation River
-## 324947                                        
-## 131082                                        
-## 27784                                         
-## 4464                                          
-## 425620                                        
-## 446136                                        
-##                              Classification
-## 324947                        Textiles-Rugs
-## 131082                       Textiles-Laces
-## 27784        Miscellaneous-Coins and Medals
-## 4464                               Ceramics
-## 425620                                Books
-## 446136 Books|Prints|Ornament &amp; Architecture
-##        Rights.and.Reproduction
-## 324947                        
-## 131082                        
-## 27784                         
-## 4464                          
-## 425620                        
-## 446136                        
-##                                                Link.Resource
-## 324947 http://www.metmuseum.org/art/collection/search/461327
-## 131082 http://www.metmuseum.org/art/collection/search/220827
-## 27784   http://www.metmuseum.org/art/collection/search/32994
-## 4464     http://www.metmuseum.org/art/collection/search/4800
-## 425620 http://www.metmuseum.org/art/collection/search/704845
-## 446136 http://www.metmuseum.org/art/collection/search/746302
-##              Metadata.Date
-## 324947 4/3/2017 8:00:08 AM
-## 131082 4/3/2017 8:00:08 AM
-## 27784  4/3/2017 8:00:08 AM
-## 4464   4/3/2017 8:00:08 AM
-## 425620 4/3/2017 8:00:08 AM
-## 446136 4/3/2017 8:00:08 AM
-##                                      Repository
-## 324947 Metropolitan Museum of Art, New York, NY
-## 131082 Metropolitan Museum of Art, New York, NY
-## 27784  Metropolitan Museum of Art, New York, NY
-## 4464   Metropolitan Museum of Art, New York, NY
-## 425620 Metropolitan Museum of Art, New York, NY
-## 446136 Metropolitan Museum of Art, New York, NY</code></pre>
 <pre><code>## [1] 0.95875</code></pre>
 <pre><code>## [1] 0.465</code></pre>
 <p>With the oneRule model, we are able to find out that the Object.Date column is able to predict the training dataset 96% of the time; however, on the test dataset it is only able to predict 46.5% of the time. This means that the oneRule model is not very accurate, and thus we should try more models.</p>
 <p>It also tells us that 46.5% of the variation in the IsHighlight variable can be explained with the Object.Date variable in this sample. Let’s see if that holds up if we use a larger sample!</p>
-<pre><code>##          Object.Number Is.Highlight Is.Public.Domain
-## 324947     1975.1.2462        False             True
-## 131082       20.186.17        False             True
-## 27784        22.122.45        False             True
-## 4464        62.232a, b        False             True
-## 425620 1986.1250.8(10)        False            False
-## 446136   44.91.783(56)        False            False
-##        Object.ID                             Department
-## 324947    461327               Robert Lehman Collection
-## 131082    220827 European Sculpture and Decorative Arts
-## 27784      32994                         Arms and Armor
-## 4464        4800               American Decorative Arts
-## 425620    704845                    Drawings and Prints
-## 446136    746302                    Drawings and Prints
-##                               Object.Name
-## 324947                             Carpet
-## 131082                              Strip
-## 27784                               Medal
-## 4464                           Lithophane
-## 425620                               Book
-## 446136 Book Print Ornament &amp; Architecture
-##                                                                                                 Title
-## 324947                                      Indo-Persian carpet with vine scroll and palmette pattern
-## 131082                                                                                          Strip
-## 27784                                  Medal Commemorating the Coronation of Peter II at Moscow, 1728
-## 4464                                                                                       Lithophane
-## 425620 Taschenbuch der Reisen, oder unterhaltende Darstellung der Entdeckungen des 18ten Jahrhunderts
-## 446136          Ornamental designs with semi-abstract patterns and thin bundles of flowers and leaves
-##             Culture Period Dynasty Reign Portfolio
-## 324947 Indo-Persian                               
-## 131082      Italian                               
-## 27784       Russian                               
-## 4464         German                               
-## 425620                                            
-## 446136                                            
-##                                                                            Artist.Role
-## 324947                                                                                
-## 131082                                                                                
-## 27784                                                                                 
-## 4464                                                                             Maker
-## 425620 Author|Publisher|Sitter|Sitter|Sitter|Artist|Sitter|Sitter|Artist|Sitter|Sitter
-## 446136                                                   Editor|Lithographer|Publisher
-##                                 Artist.Prefix
-## 324947                                       
-## 131082                                       
-## 27784                                        
-## 4464                                         
-## 425620                                       
-## 446136 Edited by|Lithographed by|Published by
-##                                                                                                                                                                                                                          Artist.Display.Name
-## 324947                                                                                                                                                                                                                                      
-## 131082                                                                                                                                                                                                                                      
-## 27784                                                                                                                                                                                                                                       
-## 4464                                                                                                                                                                                                        Koenigliche Porzellan Manufaktur
-## 425620 E. A. W. von Zimmerman|Gerhard Fleischer &amp; D. Jüng|Don Vasco de Gama|Alexander von Humbolt|Micco Chlucco|Carl Frosch|Charles Marie de la Condamine|Johann Baptist Tavernier|Johann Adolph Darnstedt|Sir Hans Sloane|Sir Francis Drake
-## 446136                                                                                                                                                                                             Vasselon|Georges Schlatter|Fleury Chavant
-##                                                                                                                                                                                                                                                                                       Artist.Display.Bio
-## 324947                                                                                                                                                                                                                                                                                                  
-## 131082                                                                                                                                                                                                                                                                                                  
-## 27784                                                                                                                                                                                                                                                                                                   
-## 4464                                                                                                                                                                                                                                                                                German, founded 1763
-## 425620 German, active 19th century|German|Portuguese, Sines, Portugal, ca. 1460–1524|German, Berlin 1769–1859 Berlin|Native American|German, born Halle, 1771|French, Paris 1701–1774 Paris|French, Paris, 1605–1689|German, Auma 1769–1844 Dresden|Irish, Killyeagh 1660–1753 London|British, 1545–1596
-## 446136                                                                                                                                                                                                                                              French (?), 19th Century|French|French, 19th century
-##                            Artist.Suffix
-## 324947                                  
-## 131082                                  
-## 27784                                   
-## 4464                                    
-## 425620 , Leipzig|, King of the Seminoles
-## 446136                                  
-##                                                                                                                                                                                                                                         Artist.Alpha.Sort
-## 324947                                                                                                                                                                                                                                                   
-## 131082                                                                                                                                                                                                                                                   
-## 27784                                                                                                                                                                                                                                                    
-## 4464                                                                                                                                                                                                                                                     
-## 425620 Zimmerman, E. A. W. von|Fleischer, Gerhard &amp;  D. Jüng|Gama, Don  Vasco de|Humbolt, Alexander von|Chlucco, Micco|Frosch, Carl|Condamine, Charles Marie de la|Tavernier, Johann Baptist|Darnstedt, Johann Adolph|Sloane, Hans Sir|Drake, Francis Sir
-## 446136                                                                                                                                                                                                        Vasselon|Schlatter, Georges|Chavant, Fleury
-##        Artist.Nationality
-## 324947                   
-## 131082                   
-## 27784                    
-## 4464                     
-## 425620                   
-## 446136                   
-##                                                                                                               Artist.Begin.Date
-## 324947                                                                                                                         
-## 131082                                                                                                                         
-## 27784                                                                                                                          
-## 4464                                                                                                                 1763      
-## 425620 0019      |0019      |1460      |1769      |1700      |1771      |1701      |1605      |1769      |1660      |1545      
-## 446136                                                                                                    1800      |0019      
-##                                                                                                      Artist.End.Date
-## 324947                                                                                                              
-## 131082                                                                                                              
-## 27784                                                                                                               
-## 4464                                                                                                      9999      
-## 425620 0019      |0019      |1524      |1859      |1900      |1774      |1689      |1844      |1753      |1596      
-## 446136                                                                                         1900      |0019      
-##                            Object.Date Object.Begin.Date
-## 324947 second half of the 17th century              1650
-## 131082                    16th century              1500
-## 27784                             1728              1728
-## 4464                          ca. 1840              1837
-## 425620                         1802–13              1802
-## 446136                    [after 1844]              1844
-##        Object.End.Date                          Medium
-## 324947            1700 Wool pile on cotton foundation.
-## 131082            1599                     Needle lace
-## 27784             1728                          Bronze
-## 4464              1840              Porcelain and wood
-## 425620            1813        Illustrations: engraving
-## 446136            1900                     Lithography
-##                                                                                                     Dimensions
-## 324947                                                                           Length: 5.5 m.\nWidth: 2.5 m.
-## 131082                                                              L. 9 1/2 x W. 1 3/4 inches (24.1 x 4.4 cm)
-## 27784                              Diam. 2 1/2 in. (6.4 cm); thickness 3/16 in. (0.5 cm); Wt. 3.5 oz. (99.2 g)
-## 4464                                                                      22 5/8 x 11 3/4 in. (57.5 x 29.8 cm)
-## 425620                                                            4 3/4 × 3 7/16 × 13/16 in. (12 × 8.7 × 2 cm)
-## 446136 Sheet: 12 3/16 × 9 7/16 in. (31 × 24 cm)\nBook: 12 3/8 in. × 10 in. × 1 5/16 in. (31.5 × 25.4 × 3.3 cm)
-##                                                        Credit.Line
-## 324947                 Robert Lehman Collection, 1975\n1975.1.2462
-## 131082                                           Rogers Fund, 1920
-## 27784                                  Gift of Bashford Dean, 1922
-## 4464                             Gift of Mrs. Cecil J. North, 1962
-## 425620 Gift of Ica Waldes Busek in Memory of Jindrich Waldes, 1986
-## 446136                                Gift of Edith P. Blase, 1944
-##        Geography.Type  City State County Country Region
-## 324947                                                 
-## 131082                                                 
-## 27784                                                  
-## 4464          Made in                    Germany       
-## 425620                                                 
-## 446136                Paris                            
-##        Subregion Locale Locus Excavation River
-## 324947                                        
-## 131082                                        
-## 27784                                         
-## 4464                                          
-## 425620                                        
-## 446136                                        
-##                              Classification
-## 324947                        Textiles-Rugs
-## 131082                       Textiles-Laces
-## 27784        Miscellaneous-Coins and Medals
-## 4464                               Ceramics
-## 425620                                Books
-## 446136 Books|Prints|Ornament &amp; Architecture
-##        Rights.and.Reproduction
-## 324947                        
-## 131082                        
-## 27784                         
-## 4464                          
-## 425620                        
-## 446136                        
-##                                                Link.Resource
-## 324947 http://www.metmuseum.org/art/collection/search/461327
-## 131082 http://www.metmuseum.org/art/collection/search/220827
-## 27784   http://www.metmuseum.org/art/collection/search/32994
-## 4464     http://www.metmuseum.org/art/collection/search/4800
-## 425620 http://www.metmuseum.org/art/collection/search/704845
-## 446136 http://www.metmuseum.org/art/collection/search/746302
-##              Metadata.Date
-## 324947 4/3/2017 8:00:08 AM
-## 131082 4/3/2017 8:00:08 AM
-## 27784  4/3/2017 8:00:08 AM
-## 4464   4/3/2017 8:00:08 AM
-## 425620 4/3/2017 8:00:08 AM
-## 446136 4/3/2017 8:00:08 AM
-##                                      Repository
-## 324947 Metropolitan Museum of Art, New York, NY
-## 131082 Metropolitan Museum of Art, New York, NY
-## 27784  Metropolitan Museum of Art, New York, NY
-## 4464   Metropolitan Museum of Art, New York, NY
-## 425620 Metropolitan Museum of Art, New York, NY
-## 446136 Metropolitan Museum of Art, New York, NY</code></pre>
 <pre><code>## [1] 0.96625</code></pre>
 <pre><code>## [1] 0.46</code></pre>
 <p>With a dataset of 100,000 randomly selected rows, the model chooses to use the Object.Date as the explanatory variable.</p>
 <p>For this larger sample, we find that it is able to predict the class from the object data with 96% accuracy on the training set, while it is able to predict the isHighlight variable with a 47% accuracy.</p>
 <p>While this project focuses on interpretability, it is clear that the model does not capture the nuances of the isHighlight variable and thus it is hard to trust the results. Thus, we will move onto the next option.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-10-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-10-3.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-10-4.png" width="672" />
-The period and culture variables are dominated by empty values. The department is not - something that the Met must use as a catch-all term for all different types of artworks. To fix the empty values, we will engage in basic data cleaning.</p>
-<p>Basic Data Cleaning
-* all to lowercase
-* removed punctuation, “possibly” and “probably”
-* Removed columns with significant NA values: Period, Dynasty, Reign, Portfolio, Artist Prefix, Excavation, River, Repository, etc.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-10-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-10-3.png" width="672" /></p>
+<p>The period and culture variables are dominated by empty values. The department is not - something that the Met must use as a catch-all term for all different types of artworks. To fix the empty values, we will engage in basic data cleaning.</p>
+<p>Basic Data Cleaning:<br />
+- all to lowercase
+- removed punctuation, “possibly” and “probably”
+- Removed columns with significant NA values: Period, Dynasty, Reign, Portfolio, Artist Prefix, Excavation, River, Repository, etc.</p>
 <pre><code>## [1] 0.5205111</code></pre>
 <pre><code>## [1] 0.06451613</code></pre>
 <p>In this model, the One Rule is the title of the artwork Using the art title, we perform only a little better than random on the dataset and we perform much worse than random on the test set.</p>
@@ -518,8 +186,8 @@ The period and culture variables are dominated by empty values. The department i
 ## Pearson&#39;s Chi-squared test:
 ## X-squared = 438.12, df = 1, p-value &lt; 2.2e-16</code></pre>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<pre><code>## [1] 0.6872898</code></pre>
-<pre><code>## [1] 0.6545699</code></pre>
+<pre><code>## [1] &quot;The accuracy on the training dataset is: 0.68728984532616&quot;</code></pre>
+<pre><code>## [1] &quot;The accuracy on the testing dataset is: 0.654569892473118&quot;</code></pre>
 
 </div>
 </div>

@@ -14,6 +14,8 @@ df <- read.csv("~/Downloads/MetObjects_Cleaned_Small.csv")
 library(rpart)
 library(rpart.plot)
 
+set.seed(151)
+
 n <- nrow(df)
 
 train <- sample(n, .8*n)
@@ -33,7 +35,7 @@ plotcp(fit)
 
 
 ```
-Prune to .16 ! 
+Prune to .17 ! 
 
 
 ```{r}
@@ -90,7 +92,7 @@ fit$xlevels[["object.name"]] <- union(fit$xlevels[["object.name"]], levels(test_
 #summary(fit)
 
 #test_dat$pred <- predict(fit, test_dat, type = "class")
-accuracy <- mean(test_dat$pred == test_dat$is.highlight)
+print(paste0("The accuracy on the testing dataset is: ",accuracy <- mean(test_dat$pred == test_dat$is.highlight)))
 
 
 rpart.plot(fit, extra = 106, yesno = 2) 

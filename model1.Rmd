@@ -13,27 +13,34 @@ df <- read.csv("~/Downloads/MetObjects.csv")
 highlightT <- df[df$Is.Highlight == TRUE,]
 
 ```
-
+      
 
 ```{r}
 library(ggplot2)
+library(plotly)
 #table(df$Department)
 
-ggplot(df, aes(x = Department)) + 
+p1 <- ggplot(df, aes(x = Department)) + 
   geom_bar() + theme_light() + theme(axis.text.x = element_text(angle = 45, size = 5, hjust=1))
+ggplotly(p1)
 
 ```
+      
 Most of the artworks at the Met at Drawings and Prints. This makes sense becuase these are probably the easiest high medium to make! Photographs are also low effort to make and thus they are in high quantity. 
 
 ```{r}
-ggplot(df, aes(x = Is.Highlight)) + 
+p2 <- ggplot(df, aes(x = Is.Highlight)) + 
   geom_bar() + theme_light() + ggtitle(label = "Is the artwork a highlight?")
+
+ggplotly(p2)
 
 ```
 
 ```{r}
-ggplot(df, aes(x = Is.Public.Domain)) + 
+p3 <- ggplot(df, aes(x = Is.Public.Domain)) + 
   geom_bar() + theme_light() + ggtitle(label = "Is the artwork in public domain?")
+
+ggplotly(p3)
 ```
 
 ```{r}
@@ -55,7 +62,7 @@ mod <- OneR(Is.Highlight ~ Classification + Country + Artist.Nationality + Artis
 
 
 ```
-
+      
 The One Rule Model does not work for this task. The summary of the model is incredibly dense, and the "One Rule" chosen is in fact the name of the artist. For a datset of this size, it is almost impossible to interpret the model results because the model results are no better than me walking into the Met with a list of famous artists in my head. Van Gogh = Is.Highlight I would expect, and that is the case. 
 
 
@@ -67,7 +74,7 @@ The One Rule Model does not work for this task. The summary of the model is incr
 set.seed(5293)
 
 data_s1 <- df[sample(1:nrow(df), 1000), ]
-head(data_s1)   
+#head(data_s1)   
 
 n <- nrow(data_s1)
 train <- sample(n, .8*n)
@@ -83,9 +90,9 @@ mean(predict(mod, test_dat) == test_dat$Is.Highlight)
 
 ```
 
-
+      
 With the oneRule model, we are able to find out that the Object.Date column is able to predict the training dataset 96% of the time; however, on the test dataset it is only able to predict 46.5% of the time. This means that the oneRule model is not very accurate, and thus we should try more models. 
-
+      
 It also tells us that 46.5% of the variation in the IsHighlight variable can be explained with the Object.Date variable in this sample. Let's see if that holds up if we use a larger sample!
 
 ```{r}
@@ -95,7 +102,7 @@ It also tells us that 46.5% of the variation in the IsHighlight variable can be 
 set.seed(5293)
 
 data_s2 <- df[sample(1:nrow(df), 100000), ]
-head(data_s2)   
+#head(data_s2)   
 write.csv(data_s2, "met_data_sample_100k")
 
 n <- nrow(data_s1)
@@ -112,20 +119,15 @@ mean(predict(mod, test_dat) == test_dat$Is.Highlight)
 ```
 
 With a dataset of 100,000 randomly selected rows, the model chooses to use the Object.Date as the explanatory variable.  
-
+      
 For this larger sample, we find that it is  able to predict the class from the object data with 96% accuracy on the training set, while it is able to predict the isHighlight variable with a 47% accuracy. 
-
+      
 While this project focuses on interpretability, it is clear that the model does not capture the nuances of the isHighlight variable and thus it is hard to trust the results. Thus, we will move onto the next option. 
 
 
 ```{r}
 library(ggplot2)
 library(waffle)
-
-culture <- head(sort(table(df$Culture), decreasing = TRUE), 8) # the culture section could clearly use some cleaning! japan and japanese haha 
-waffle(culture/1000, rows=10, size=0.6, 
-       title="Art Culture", 
-       xlab="1 square = 1000 artworks")
 
 department <- head(sort(table(df$Department), decreasing = TRUE), 8)
 waffle(department/1000, rows=10, size=0.6, 
@@ -142,13 +144,15 @@ waffle(artist.begin.date/1000, rows=5, size=0.6,
        title="Art Culture", 
        xlab="1 square = 1000 artworks")
 ```
+      
+
 The period and culture variables are dominated by empty values. The department is not - something that the Met must use as a catch-all term for all different types of artworks. To fix the empty values, we will engage in basic data cleaning. 
 
-
-Basic Data Cleaning 
-* all to lowercase
-* removed punctuation, "possibly" and "probably" 
-* Removed columns with significant NA values: Period, Dynasty, Reign, Portfolio, Artist Prefix, Excavation, River, Repository, etc. 
+      
+Basic Data Cleaning:       
+- all to lowercase
+- removed punctuation, "possibly" and "probably" 
+- Removed columns with significant NA values: Period, Dynasty, Reign, Portfolio, Artist Prefix, Excavation, River, Repository, etc. 
 
 
 ```{r}
@@ -225,8 +229,8 @@ mod2 <- OneR(is.highlight ~ is.public.domain, data = train_dat)
 summary(mod2)
 plot(mod2)
 
-mean(predict(mod2, train_dat) == train_dat$is.highlight)
+print(paste0("The accuracy on the training dataset is: ",mean(predict(mod2, train_dat) == train_dat$is.highlight)))
 
-mean(predict(mod2, test_dat) == test_dat$is.highlight)
+print(paste0("The accuracy on the testing dataset is: ",mean(predict(mod2, test_dat) == test_dat$is.highlight)))
 ```
 

@@ -2,6 +2,9 @@
 
 ## support vector machine 
 
+### What is this model? 
+
+
 
 ```{r}
 str = "Ábcdêãçoàúü"
@@ -82,13 +85,10 @@ Reference: https://github.com/SchlossLab/mikRopML/issues/156
 library(mikropml)
 library(dplyr)
 
-#newdata <- read.csv("~/Desktop/dummyvars.csv")
-
-#newdata[,"is.highlightFalse"] <- as.character(newdata[,"is.highlightFalse"])
-
-#dat_proc <- preprocess_data(newdata, 'is.highlightTrue')$dat_transformed
-
 #getting rid of columns with near-zero variance 
+#newdata <- read.csv("~/Desktop/dummyvars.csv")
+#newdata[,"is.highlightFalse"] <- as.character(newdata[,"is.highlightFalse"])
+#dat_proc <- preprocess_data(newdata, 'is.highlightTrue')$dat_transformed
 
 #data_proc <- write.csv("data_proc.csv", dat_proc)
 
@@ -115,32 +115,62 @@ svm_model<- svm(is.highlightTrue~.,
                 data = train_dat, 
                 type = "C-classification",
                 test_datadecision.values=TRUE,
-                kernel = "linear", 
+                kernel = "polynomial", 
                 scale = FALSE)
 
 pred_train <- predict(svm_model, train_dat, decision.values = T)
-mean(pred_train == train_dat$is.highlightTrue)
+print(paste0("The accuracy on the training dataset is: ",mean(pred_train == train_dat$is.highlightTrue)))
 
 pred_test <- predict(svm_model, test_dat, decision.values = T)
-mean(pred_test == test_dat$is.highlightTrue)
+print(paste0("The accuracy on the testing dataset is: ",mean(pred_test == test_dat$is.highlightTrue)))
 ```
-
+artist.nationalityAmerican_1
 
 ```{r}
 library(ggplot2)
 
 train_dat$is.highlightTrue <- as.factor(train_dat$is.highlightTrue) 
-scatter_plot <- ggplot(data = train_dat, aes(x = grp1, y = grp2, color = is.highlightTrue)) + 
-    geom_point() + 
-    scale_color_manual(values = c("red", "blue"))
+scatter_plot <- ggplot(data = train_dat, 
+                       aes(x = object.begin.date, y = artist.roleArtist_1, color = is.highlightTrue))+ 
+  geom_point() + 
+  scale_color_manual(values = c("red", "blue"))
 
 
 # the purple is the support vectors ????
 layered_plot <- 
-    scatter_plot + geom_point(data = train_dat[svm_model$index, ], aes(x = grp1, y = grp2), color = "purple", size = 4, alpha = 0.5)
+    scatter_plot + geom_point(data = train_dat[svm_model$index, ], 
+                              aes(x = object.begin.date, y = artist.roleArtist_1), color = "purple", 
+                              size = 4, alpha = 0.5)
 
 #display plot
-layered_plot
+
+library(plotly)
+
+ggplotly(layered_plot)
+
+```
+      
+What are grp1, grp2, and grp 3? 
+      
+The pre-processing package I used collapses perfectly correlated features. 
+
+
+
+```{r}
+newdata <- read.csv("~/Desktop/dummyvars.csv")
+
+newdata[,"is.highlightFalse"] <- as.character(newdata[,"is.highlightFalse"])
+
+dat_proc <- preprocess_data(newdata, 'is.highlightTrue')
+
+dat_proc$grp_feats$grp1 
+
+dat_proc$grp_feats$grp2 
+
+dat_proc$grp_feats$grp3
+
+
+dat_proc$removed_feats
 
 ```
 

@@ -51,13 +51,13 @@ cat("Test accuracy:", metrics["accuracy"], "\n")
 It got every label in the test set right after 10 epochs. 
 
 
-###To interpret this model, we will use Shapley Values: 
+### To interpret this model, we will use Shapley Values: 
 
 According to "9.6 SHAP (SHapley Additive exPlanations)" from our IML textbook (https://christophm.github.io/interpretable-ml-book/shap.html): 
     Shapley values are "The Shapley value, coined by Shapley (1953), is a method for assigning payouts to players depending on their contribution to the total payout. Players cooperate in a coalition and receive a certain profit from this cooperation". The math for SHAP is as follows: g(z')=\phi_0+\sum_{j=1}^M\phi_jz_j' where where g is the explanation model, z'\in\{0,1\}^M is the coalition vector, M is the maximum coalition size and \phi_j\in\mathbb{R} is the feature attribution for a feature j, the Shapley values. 
 
 
-###Shapley Values for the First Line of the Test Dataset 
+### Shapley Values for the First Line of the Test Dataset 
 In this graph, we can see what is most imporrtnat 
 
 
@@ -77,7 +77,7 @@ plot(shapley)
 ```
         
         
-###Shapley Values for full Test Set 
+### Shapley Values for full Test Set 
 
 ```{r}
 library(iml)
@@ -85,7 +85,9 @@ library(iml)
 mod <- Predictor$new(model, data = shap_train)
 x.interest <- shap_test[c(1:744),]
 shapley <- Shapley$new(mod, x.interest = x.interest)
-plot(shapley)
+shap_plot <- plot(shapley)
+
+ggplotly(shap_plot)
 
 ```
           
@@ -95,8 +97,12 @@ The value of a shapley value is the average contribution of a feature value to t
 madein <- df[which(df$geography.type == "Madein"),]
 country <- head(sort(table(madein$country), decreasing = TRUE), 20) 
 c5_df <- as.data.frame(country)
-ggplot(c5_df, aes(x = Freq, y = Var1)) + 
-  geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20, MadeIn Geography") 
+madein_plot <- ggplot(c5_df, aes(x = Freq, y = Var1)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20, MadeIn Geography") + ylab(label = "Country")
+
+library(plotly)
+
+ggplotly(madein_plot)
 
 ```
 

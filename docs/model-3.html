@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 
@@ -92,11 +99,19 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="model-4.html"><a href="model-4.html"><i class="fa fa-check"></i><b>5</b> [Model 4]</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> support vector machine</a></li>
+<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> support vector machine</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="model-4.html"><a href="model-4.html#what-is-this-model"><i class="fa fa-check"></i><b>5.1.1</b> What is this model?</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="model-5.html"><a href="model-5.html"><i class="fa fa-check"></i><b>6</b> [Model 5]</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="model-5.html"><a href="model-5.html#neural-network"><i class="fa fa-check"></i><b>6.1</b> neural network</a></li>
+<li class="chapter" data-level="6.1" data-path="model-5.html"><a href="model-5.html#neural-network"><i class="fa fa-check"></i><b>6.1</b> neural network</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="model-5.html"><a href="model-5.html#to-interpret-this-model-we-will-use-shapley-values"><i class="fa fa-check"></i><b>6.1.1</b> To interpret this model, we will use Shapley Values:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="model-5.html"><a href="model-5.html#shapley-values-for-the-first-line-of-the-test-dataset"><i class="fa fa-check"></i><b>6.1.2</b> Shapley Values for the First Line of the Test Dataset</a></li>
+<li class="chapter" data-level="6.1.3" data-path="model-5.html"><a href="model-5.html#shapley-values-for-full-test-set"><i class="fa fa-check"></i><b>6.1.3</b> Shapley Values for full Test Set</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="reflections.html"><a href="reflections.html"><i class="fa fa-check"></i><b>7</b> Reflections</a></li>
 <li class="divider"></li>
@@ -126,76 +141,32 @@
 <a href="https://stats.stackexchange.com/questions/493714/random-forest-variable-importance-plot-discrepancy" class="uri">https://stats.stackexchange.com/questions/493714/random-forest-variable-importance-plot-discrepancy</a></p>
 <pre><code>##             is.public.domain
 ## is.highlight False True
-##        False   836  664
-##        True    305 1169</code></pre>
-<pre><code>##             department
-## is.highlight AmericanDecorativeArts
-##        False                     34
-##        True                      56
-##             department
-## is.highlight AmericanPaintingsandSculpture
-##        False                            14
-##        True                             77
-##             department
-## is.highlight AncientNearEasternArt ArmsandArmor
-##        False                    15           49
-##        True                     61           47
-##             department
-## is.highlight ArtsofAfricaOceaniaandtheAmericas AsianArt
-##        False                                55      132
-##        True                                 81       44
-##             department
-## is.highlight CostumeInstitute DrawingsandPrints EgyptianArt
-##        False               92               514          96
-##        True                89                54          92
-##             department
-## is.highlight EuropeanPaintings
-##        False                10
-##        True                 80
-##             department
-## is.highlight EuropeanSculptureandDecorativeArts
-##        False                                147
-##        True                                  66
-##             department
-## is.highlight GreekandRomanArt IslamicArt MedievalArt
-##        False               64         51          23
-##        True                87         90          36
-##             department
-## is.highlight ModernandContemporaryArt MusicalInstruments
-##        False                       46                 20
-##        True                        94                 83
-##             department
-## is.highlight Photographs RobertLehmanCollection TheCloisters
-##        False         120                      9            9
-##        True           94                     72           41
-##             department
-## is.highlight TheLibraries
-##        False            0
-##        True           130</code></pre>
+##        False   843  648
+##        True    303 1180</code></pre>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           Reference
 ## Prediction False True
-##      False  1291  274
-##      True    209 1200
+##      False  1273  271
+##      True    218 1212
 ##                                           
-##                Accuracy : 0.8376          
-##                  95% CI : (0.8238, 0.8507)
-##     No Information Rate : 0.5044          
-##     P-Value [Acc &gt; NIR] : &lt; 2e-16         
+##                Accuracy : 0.8356          
+##                  95% CI : (0.8218, 0.8487)
+##     No Information Rate : 0.5013          
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
 ##                                           
-##                   Kappa : 0.675           
+##                   Kappa : 0.6711          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 0.00359         
+##  Mcnemar&#39;s Test P-Value : 0.0187          
 ##                                           
-##             Sensitivity : 0.8607          
-##             Specificity : 0.8141          
-##          Pos Pred Value : 0.8249          
-##          Neg Pred Value : 0.8517          
-##              Prevalence : 0.5044          
-##          Detection Rate : 0.4341          
-##    Detection Prevalence : 0.5262          
-##       Balanced Accuracy : 0.8374          
+##             Sensitivity : 0.8538          
+##             Specificity : 0.8173          
+##          Pos Pred Value : 0.8245          
+##          Neg Pred Value : 0.8476          
+##              Prevalence : 0.5013          
+##          Detection Rate : 0.4280          
+##    Detection Prevalence : 0.5192          
+##       Balanced Accuracy : 0.8355          
 ##                                           
 ##        &#39;Positive&#39; Class : False           
 ## </code></pre>
@@ -203,32 +174,34 @@
 ## 
 ##           Reference
 ## Prediction False True
-##      False   301  144
-##      True     58  241
-##                                          
-##                Accuracy : 0.7285         
-##                  95% CI : (0.695, 0.7602)
-##     No Information Rate : 0.5175         
-##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
-##                                          
-##                   Kappa : 0.4607         
-##                                          
-##  Mcnemar&#39;s Test P-Value : 2.223e-09      
-##                                          
-##             Sensitivity : 0.8384         
-##             Specificity : 0.6260         
-##          Pos Pred Value : 0.6764         
-##          Neg Pred Value : 0.8060         
-##              Prevalence : 0.4825         
-##          Detection Rate : 0.4046         
-##    Detection Prevalence : 0.5981         
-##       Balanced Accuracy : 0.7322         
-##                                          
-##        &#39;Positive&#39; Class : False          
+##      False   303  145
+##      True     65  231
+##                                           
+##                Accuracy : 0.7177          
+##                  95% CI : (0.6839, 0.7498)
+##     No Information Rate : 0.5054          
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+##                                           
+##                   Kappa : 0.4367          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 4.994e-08       
+##                                           
+##             Sensitivity : 0.8234          
+##             Specificity : 0.6144          
+##          Pos Pred Value : 0.6763          
+##          Neg Pred Value : 0.7804          
+##              Prevalence : 0.4946          
+##          Detection Rate : 0.4073          
+##    Detection Prevalence : 0.6022          
+##       Balanced Accuracy : 0.7189          
+##                                           
+##        &#39;Positive&#39; Class : False           
 ## </code></pre>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
-<p>git filter-branch –tree-filter ‘rm -rf ~/Desktop/final-project-2023/dummyvars.csv’ -f HEAD</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<pre><code>## [1] &quot;The accuracy on the training dataset is: 0.835238735709482&quot;</code></pre>
+<pre><code>## [1] &quot;The accuracy on the testing dataset is: 0.719086021505376&quot;</code></pre>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3f9e966c04f51074b458" style="width:672px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-3f9e966c04f51074b458">{"x":{"data":[{"x":[0.0744697941562716,0.110898315546556,0.0332163134171526,0.00661670110277002,0.000728643947534786,8.00464161533889e-05,0.00116299266004729,0.0204595203729552,0.0728939608572477],"y":[6,5,3,7,9,4,8,1,2],"text":["feature: is.public.domain<br />MeanDecreaseAccuracy: 7.446979e-02","feature: department<br />MeanDecreaseAccuracy: 1.108983e-01","feature: country<br />MeanDecreaseAccuracy: 3.321631e-02","feature: region<br />MeanDecreaseAccuracy: 6.616701e-03","feature: subregion<br />MeanDecreaseAccuracy: 7.286439e-04","feature: county<br />MeanDecreaseAccuracy: 8.004642e-05","feature: state<br />MeanDecreaseAccuracy: 1.162993e-03","feature: city<br />MeanDecreaseAccuracy: 2.045952e-02","feature: classification<br />MeanDecreaseAccuracy: 7.289396e-02"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":50.5814307458143,"r":7.30593607305936,"b":60.5348000031526,"l":119.086757990868},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Feature Importance By Mean Decrease in Accuracy","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.00546086704036675,0.116439229003076],"tickmode":"array","ticktext":["0.00","0.03","0.06","0.09"],"tickvals":[0,0.03,0.06,0.09],"categoryorder":"array","categoryarray":["0.00","0.03","0.06","0.09"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"MeanDecreaseAccuracy","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,9.6],"tickmode":"array","ticktext":["city","classification","country","county","department","is.public.domain","region","state","subregion"],"tickvals":[1,2,3,4,5,6,7,8,9],"categoryorder":"array","categoryarray":["city","classification","country","county","department","is.public.domain","region","state","subregion"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"feature","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"30fc72fa1668":{"x":{},"y":{},"type":"scatter"}},"cur_data":"30fc72fa1668","visdat":{"30fc72fa1668":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
 </div>
 </div>

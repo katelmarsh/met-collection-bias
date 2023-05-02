@@ -12,7 +12,7 @@ library(caret)
 library(randomForest)
 
 table(train_dat[,c('is.highlight', 'is.public.domain')])
-table(train_dat[,c('is.highlight', 'department')])
+#table(train_dat[,c('is.highlight', 'department')])
 
 set.seed(51)
 
@@ -35,9 +35,10 @@ caret::confusionMatrix(p2, test_dat$is.highlight)
 
 plot(model)
 
+print(paste0("The accuracy on the training dataset is: ",mean(predict(model, train_dat) == train_dat$is.highlight)))
+print(paste0("The accuracy on the testing dataset is: ",mean(predict(model, test_dat) == test_dat$is.highlight)))
 ```
 
-git filter-branch --tree-filter 'rm -rf ~/Desktop/final-project-2023/dummyvars.csv' -f HEAD
 
 
 ```{r}
@@ -49,10 +50,14 @@ git filter-branch --tree-filter 'rm -rf ~/Desktop/final-project-2023/dummyvars.c
 var.imp <- as.data.frame(model$importance)
 var.imp$feature <- rownames(var.imp) 
 
-ggplot(var.imp, aes(x = feature, y=MeanDecreaseAccuracy)) + 
+g <- ggplot(var.imp, aes(x = feature, y=MeanDecreaseAccuracy)) + 
   theme_bw() + geom_point() + 
   theme(axis.text.x = element_text(angle=-40, hjust=.1)) + coord_flip() +
   ggtitle("Feature Importance By Mean Decrease in Accuracy")
+
+library(plotly)
+
+ggplotly(g)
 
 ```
 

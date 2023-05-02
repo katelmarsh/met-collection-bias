@@ -10,6 +10,10 @@ model-3
 random-forest
 model-4
 support-vector-machine
+what-is-this-model
 model-5
 neural-network
+to-interpret-this-model-we-will-use-shapley-values
+shapley-values-for-the-first-line-of-the-test-dataset
+shapley-values-for-full-test-set
 reflections
