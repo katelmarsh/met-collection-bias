@@ -43,6 +43,8 @@ p3 <- ggplot(df, aes(x = Is.Public.Domain)) +
 ggplotly(p3)
 ```
 
+## Model 1
+
 ```{r}
 library(OneR)
 
@@ -64,8 +66,6 @@ mod <- OneR(Is.Highlight ~ Classification + Country + Artist.Nationality + Artis
 ```
       
 The One Rule Model does not work for this task. The summary of the model is incredibly dense, and the "One Rule" chosen is in fact the name of the artist. For a datset of this size, it is almost impossible to interpret the model results because the model results are no better than me walking into the Met with a list of famous artists in my head. Van Gogh = Is.Highlight I would expect, and that is the case. 
-
-## The Model
 
 ```{r}
 
@@ -235,7 +235,7 @@ print(paste0("The accuracy on the training dataset is: ",mean(predict(mod2, trai
 print(paste0("The accuracy on the testing dataset is: ",mean(predict(mod2, test_dat) == test_dat$is.highlight)))
 ```
       
-This model is based only on the is.public.domain variable. From this, we can tell that a large majority of artworks in the public domain are highlights (66%), compared to the large amounts of works that are not in the public domain and are not highlights (~75%). 
+This model is based only on the is.public.domain variable. From this, we can tell that a large majority of artworks in the public domain are highlights (66%), compared to the large amounts of works that are not in the public domain and are not highlights (~75%).
      
 As a baseline, this means that with only one variable "is.public.domain", we can achieve an accuracy of .68 on the training and test set. This is a great example where the model has not over or under-fit because they are at the same accuracy. 
      
