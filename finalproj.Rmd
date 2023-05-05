@@ -1190,7 +1190,7 @@ After decision trees, I modeled the data with random forest. From the feature im
              
 Our last interpretable method was the neural network. For this model, I used both shapley values and LIME to determine why the model was making its decisions. From that I was able to find the following biases.  
                
-These are all features that make something more likely to be a highlight: 
+These are all features that make something more likely to be a highlight:      
 - not being in the Asian Art or Drawings and Prints department        
 - being in the following departments: Egyptian Art, Greek and Roman Art, Costume Institute, European Sculptural/Decorative Arts, and Photographs        
 - not being made by a French or American person.        
