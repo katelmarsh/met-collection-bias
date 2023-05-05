@@ -154,10 +154,8 @@
 <pre><code>## Error in `select()`:
 ## ! Can&#39;t subset columns that don&#39;t exist.
 ## ✖ Column `grp1` doesn&#39;t exist.</code></pre>
-<pre><code>## Error in as.matrix(train_dat2[, -which(names(train_dat2) == &quot;is.highlightTrue&quot;)]): object &#39;train_dat2&#39; not found</code></pre>
-<pre><code>## Error in as.matrix(train_dat2$is.highlightTrue): object &#39;train_dat2&#39; not found</code></pre>
-<pre><code>## Error in as.matrix(test_dat2[, -which(names(test_dat2) == &quot;is.highlightTrue&quot;)]): object &#39;test_dat2&#39; not found</code></pre>
-<pre><code>## Error in as.matrix(test_dat2$is.highlightTrue): object &#39;test_dat2&#39; not found</code></pre>
+<pre><code>## Error in array(x, c(length(x), 1L), if (!is.null(names(x))) list(names(x), : &#39;data&#39; must be of a vector type, was &#39;NULL&#39;</code></pre>
+<pre><code>## Error in array(x, c(length(x), 1L), if (!is.null(names(x))) list(names(x), : &#39;data&#39; must be of a vector type, was &#39;NULL&#39;</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): AttributeError: &#39;list&#39; object has no attribute &#39;dtype&#39;</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): AttributeError: &#39;list&#39; object has no attribute &#39;dtype&#39;</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): AttributeError: &#39;list&#39; object has no attribute &#39;dtype&#39;</code></pre>
@@ -173,11 +171,8 @@ Shapley values are “The Shapley value, coined by Shapley (1953), is a method f
 <div id="shapley-values-for-one-artwork" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Shapley Values for One Artwork<a href="neural-network.html#shapley-values-for-one-artwork" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this graph, we can see what is most important to the first artwork.</p>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;train_dat2&#39; not found</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;test_dat2&#39; not found</code></pre>
-<pre><code>## Error in initialize(...): object &#39;shap_train&#39; not found</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;shap_test&#39; not found</code></pre>
-<pre><code>## Error in isTRUE(lhs): object &#39;x.interest&#39; not found</code></pre>
+<pre><code>## Error in get.feature.type(unlist(lapply(self$X, function(x) {: Assertion on &#39;feature.class&#39; failed: Must be of type &#39;character&#39;, not &#39;NULL&#39;.</code></pre>
+<pre><code>## Error in super$initialize(predictor = predictor): Assertion on &#39;predictor&#39; failed: Must inherit from class &#39;Predictor&#39;, but has class &#39;OneR&#39;.</code></pre>
 <pre><code>## Error in plot(shapley, sort = TRUE): object &#39;shapley&#39; not found</code></pre>
 <p>The value of a shapley value is the average contribution of a feature value to the prediction in different coalitions.</p>
 <p>From this graph, we can tell the most important features in the determination of whether the first artwork in the test set is a highlight or not. This feature had a country, city, and dimensions. All of these factors helped the model determine the outcome. It did not have an artist bio, but it did not have geography.type. These factors contradicted the outcome.</p>
@@ -186,9 +181,8 @@ Shapley values are “The Shapley value, coined by Shapley (1953), is a method f
 </div>
 <div id="full-test-set" class="section level3 hasAnchor" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Full Test Set<a href="neural-network.html#full-test-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>## Error in initialize(...): object &#39;shap_train&#39; not found</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;shap_test&#39; not found</code></pre>
-<pre><code>## Error in isTRUE(lhs): object &#39;x.interest&#39; not found</code></pre>
+<pre><code>## Error in get.feature.type(unlist(lapply(self$X, function(x) {: Assertion on &#39;feature.class&#39; failed: Must be of type &#39;character&#39;, not &#39;NULL&#39;.</code></pre>
+<pre><code>## Error in super$initialize(predictor = predictor): Assertion on &#39;predictor&#39; failed: Must inherit from class &#39;Predictor&#39;, but has class &#39;OneR&#39;.</code></pre>
 <pre><code>## Error in plot(shapley): object &#39;shapley&#39; not found</code></pre>
 <pre><code>## Error in ggplotly(shap_plot): object &#39;shap_plot&#39; not found</code></pre>
 <p>This graph shows an average of the shapley values for all of the test set.</p>
@@ -209,24 +203,24 @@ In summary, it is more likely to be a highlight if it is not in the Asian Art de
 <pre><code>## # A tibble: 744 × 2
 ##    Positive Negative
 ##       &lt;dbl&gt;    &lt;dbl&gt;
-##  1        1        0
-##  2        1        0
-##  3        1        0
-##  4        1        0
-##  5        1        0
-##  6        1        0
-##  7        1        0
-##  8        1        0
-##  9        1        0
-## 10        1        0
+##  1      0.5      0.5
+##  2      0.5      0.5
+##  3      0.5      0.5
+##  4      0.5      0.5
+##  5      0.5      0.5
+##  6      0.5      0.5
+##  7      0.5      0.5
+##  8      0.5      0.5
+##  9      0.5      0.5
+## 10      0.5      0.5
 ## # … with 734 more rows</code></pre>
-<pre><code>## Error: Response is constant across permutations. Please check your model</code></pre>
+<pre><code>## Error: All permutations have no similarity to the original observation. Try setting bin_continuous to TRUE and/or increase kernel_size</code></pre>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-43-1.png" width="672" />
 In this LIME plot, we can inspect the ways that certain columns can impact the label of “positive” or “negative.” For the first plot, we look at the first artwork in the test set. We can tell lack of the classification “Drawings and Prints” supports that it is a highlight. We actually already knew this from the Decision Tree. Having dimensions which this artwork does have, contradicts the fact that it is a highlight. Some objects, such as clothing pieces, do not have dimensions.</p>
 <p>Secondly, we see that a classification is a major feature in its importance. This makes sense because the Met probably has clean data for Van Goghs and Rembrandts and easily classified wroks might have made the category of work that it belongs in.</p>
 <p>Interestingly, the feature of Asian Art and Egyptian Art, as departments, did not support this label. Possibly because it is biased against Asian Art and towards Egyptian art. For case 2, we also found that “Drawings and prints” has a major effect, followed by dimensions, classification, photographs, drawings, Asian Art, and artist role.</p>
 <p>It feels wrong to talk about these art pieces without looking at them. So what artwork is the first one in the left lime explanation?</p>
-<pre><code>## NULL</code></pre>
+<pre><code>## [1] 802</code></pre>
 <pre><code>##    X.1    X is.highlight is.public.domain object.id
 ## 8 1002 1002         True             True      1083
 ##               department object.name   title  culture
@@ -248,7 +242,7 @@ In this LIME plot, we can inspect the ways that certain columns can impact the l
 <p><img src="object.id1083.jpeg" width="380" />
 Yes, that’s right! Daniel Pabst’s cabinet.<br />
 For reference, the website description continues as follows: “This Modern Gothic cabinet superbly demonstrates the influence of British reform theory on American design in the late nineteenth century. In form and decoration, it is indebted to the British architect Bruce J. Talbert, whose book”Gothic Forms Applied to Furniture, Metal Work, and Decoration for Domestic Purposes” (Birmingham, 1867; Boston, 1873) was influential in this country. A kinship with the work of the Philadelphia architect Frank Furness is also evident in the overall form of the cabinet, the verticality and shingled “roof” of which somewhat resemble Furness’s bank buildings of the 1870s. The reverse-painted ribbed-glass panels are of a type Furness began to use on buildings as architectural decoration in 1876. Their stylized floral motif recalls the geometric plant forms of Christopher Dresser, a leading English ornamentist of the period who visited the Centennial Exhibition in Philadelphia in 1876 and whose published designs were well known in this country. Daniel Pabst, a leading manufacturer of artistic furniture in Philadelphia, probably executed the cabinet. A related cabinet, now in the Brooklyn Museum of Art, is documented to Pabst.”</p>
-<pre><code>## NULL</code></pre>
+<pre><code>## [1] 28554</code></pre>
 <pre><code>##         X.1      X is.highlight is.public.domain
 ## 1869 292629 292629        False             True
 ##      object.id        department object.name
@@ -275,7 +269,7 @@ For reference, the website description continues as follows: “This Modern Goth
 ## 1869           PrintsEphemera</code></pre>
 <p><img src="object.id420178.jpeg" width="600" />
 This object, which is not a highlight is a “Trade card from the”Fish from American Waters” series (N39), issued in 1889 in a set of 50 cards to promote Allen &amp; Ginter brand cigarettes,” according to the Met description. The first thing in the LIME explanation that contributes to its correct “non-highlight” classification is the fact that it is a drawing/print.</p>
-<pre><code>## Error: Response is constant across permutations. Please check your model</code></pre>
+<pre><code>## Error: All permutations have no similarity to the original observation. Try setting bin_continuous to TRUE and/or increase kernel_size</code></pre>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-46-1.png" width="672" />
 As a reminder, blue in the above graph means that the feature supports the above classification, while red means it contradicts the classification.</p>
 <p>From this explanations graph, we can see a combination of important of features based on feature weights from 20 random cases from the test set.

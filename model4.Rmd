@@ -4,6 +4,9 @@ In order to do the next two models, the data needed to be processed differently 
             
       
 ```{r}
+library(e1071)
+library(dplyr)
+library(caret)
 str = "Ábcdêãçoàúü"
 str = iconv(str, from = '', to = 'ASCII//TRANSLIT')
 #gsub("[[:punct:]]", "", str)
@@ -16,9 +19,8 @@ remove_exotic <- function(str){
 
 ## The Model
 
-```{r}
-library(e1071)
-library(dplyr)
+```{r include = FALSE, eval = FALSE}
+
 df <- read.csv("~/Downloads/MetObjects_Cleaned_Small.csv")
 
 n <- nrow(df)
@@ -34,8 +36,8 @@ train_dat2$is.highlight <- as.factor(train_dat2$is.highlight)
 test_dat2$is.highlight <- as.factor(test_dat2$is.highlight)
 
 
-#td3 <- na.omit(train_dat2)
-#testd3 <- na.omit(test_dat2)
+td3 <- na.omit(train_dat2)
+testd3 <- na.omit(test_dat2)
 
 td3$city <- sapply(td3$city,remove_exotic)
 testd3$city <- sapply(testd3$city,remove_exotic)
@@ -66,7 +68,7 @@ svm_model<- svm(is.highlight~is.public.domain + department + country +
 ```
 
 
-```{r}
+```{r include = FALSE, eval = FALSE}
 n <- nrow(df)
 
 df$city <- sapply(df$city,remove_exotic)
@@ -74,8 +76,8 @@ df$state <- sapply(df$state,remove_exotic)
 df$region <- sapply(df$region,remove_exotic)
 df$subregion <- sapply(df$subregion,remove_exotic)
 
-dummy <- dummyVars(" ~ .", data=df)
-newdata <- data.frame(predict(dummy, newdata = df))
+#dummy <- dummyVars(" ~ .", data=df)
+#newdata <- data.frame(predict(dummy, newdata = df))
 
 #write.csv(newdata, "dummyvars.csv")
 
@@ -85,6 +87,8 @@ newdata <- data.frame(predict(dummy, newdata = df))
 library(mikropml)
 library(dplyr)
 
+#df <- read.csv("~/Downloads/MetObjects_Cleaned_Small.csv")
+
 #getting rid of columns with near-zero variance 
 #newdata <- read.csv("~/Desktop/dummyvars.csv")
 #newdata[,"is.highlightFalse"] <- as.character(newdata[,"is.highlightFalse"])
@@ -93,16 +97,16 @@ library(dplyr)
 #dat_proc <- dat_proc %>% select(-c(is.highlightFalse_1))
 #dat_proc$object.id = df$object.id #adding ID column back into dataset after processing
 
-n <- nrow(dat_proc)
-train <- sample(n, .8*n)
-train_dat <- dat_proc[train, ]
-test_dat <- dat_proc[-train, ]
+#n <- nrow(dat_proc)
+#train <- sample(n, .8*n)
+#train_dat_proc <- dat_proc[train, ]
+#test_dat_proc <- dat_proc[-train, ]
 
-write.csv(train_dat, "train_dat_cleaned2.csv")
-write.csv(test_dat, "test_dat_cleaned2.csv")
+#write.csv(train_dat_proc, "train_dat_cleaned2.csv")
+#write.csv(test_dat_proc, "test_dat_cleaned2.csv")
 
-#train_dat <- read.csv("train_dat_cleaned.csv")
-#test_dat <- read.csv("test_dat_cleaned.csv")
+train_dat <- read.csv("train_dat_cleaned2.csv")
+test_dat <- read.csv("test_dat_cleaned2.csv")
   
 total <- rbind(train_dat, test_dat)
 n <- nrow(total)
@@ -110,7 +114,7 @@ train <- sample(n, .8*n)
 train_dat <- total[train, ]
 test_dat <- total[-train, ]
 
-svm_model<- svm(is.highlightTrue~. - object.id, 
+svm_model<- svm(is.highlightTrue~. -object.id, 
                 data = train_dat, 
                 type = "C-classification",
                 test_datadecision.values=TRUE,
@@ -130,10 +134,10 @@ The support vector machine is a major improvement on the accuracy of the model. 
 ```{r}
 library(ggplot2)
 
-train_dat$is.highlightTrue <- as.factor(train_dat$is.highlightTrue) 
+train_dat$is.highlight <- as.factor(train_dat$is.highlight) 
 scatter_plot <- ggplot(data = train_dat, 
                        aes(x = object.end.date, 
-                           y = object.begin.date, color = is.highlightTrue))+   
+                           y = object.begin.date, color = is.highlight))+   
   geom_point() +   
   scale_color_manual(values = c("red", "blue"))
 

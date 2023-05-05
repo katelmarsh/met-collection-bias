@@ -147,14 +147,6 @@
 <p>In order to do the next two models, the data needed to be processed differently to account for the categories that appear in the training set and not the test set, or vice versa.</p>
 <div id="the-model-1" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> The Model<a href="support-vector-machine.html#the-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<pre><code>## Error in `select()`:
-## ! Can&#39;t subset columns that don&#39;t exist.
-## ✖ Column `is.highlight` doesn&#39;t exist.</code></pre>
-<pre><code>## Error in `select()`:
-## ! Can&#39;t subset columns that don&#39;t exist.
-## ✖ Column `is.highlight` doesn&#39;t exist.</code></pre>
-<pre><code>## Error in is.factor(x): object &#39;train_dat2&#39; not found</code></pre>
-<pre><code>## Error in is.factor(x): object &#39;test_dat2&#39; not found</code></pre>
 <pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;td3&#39; not found</code></pre>
 <pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;testd3&#39; not found</code></pre>
 <pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;td3&#39; not found</code></pre>
@@ -169,7 +161,7 @@
 <pre><code>## Error in nrow(dat_proc): object &#39;dat_proc&#39; not found</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;dat_proc&#39; not found</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;dat_proc&#39; not found</code></pre>
-<pre><code>## Error in eval(predvars, data, env): object &#39;object.id&#39; not found</code></pre>
+<pre><code>## Error in eval(predvars, data, env): object &#39;is.highlightTrue&#39; not found</code></pre>
 <pre><code>## Error in predict(svm_model, train_dat, decision.values = T): object &#39;svm_model&#39; not found</code></pre>
 <pre><code>## Error in mean(pred_train == train_dat$is.highlightTrue): object &#39;pred_train&#39; not found</code></pre>
 <pre><code>## Error in predict(svm_model, test_dat, decision.values = T): object &#39;svm_model&#39; not found</code></pre>
@@ -178,6 +170,7 @@
 </div>
 <div id="visualization" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Visualization<a href="support-vector-machine.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>## Error in `$&lt;-.data.frame`(`*tmp*`, is.highlightTrue, value = structure(integer(0), levels = character(0), class = &quot;factor&quot;)): replacement has 0 rows, data has 2974</code></pre>
 <pre><code>## Error in `[.data.frame`(train_dat, svm_model$index, ): object &#39;svm_model&#39; not found</code></pre>
 <pre><code>## Error in ggplotly(layered_plot): object &#39;layered_plot&#39; not found</code></pre>
 <p>While SVM is the most accurate model by far, it is very difficult to conduct interpretable ML methods on this model. Even the basic visualizations that are suggested in a lot of tutorials are not easy to do with this dataset, as can be seen in the graph above (you cannot see any information with two binary variables graphs in this manner)! SVM uses hyperplanes and thus visualizations are inherently difficult because it is unclear how one would visualize a multi-dimensional space greater than 3 dimensions. The above graph shows the “decision boundary” that the SVM uses in purple, yet it is difficult to understand what that decision boundary means in two dimensions, because the graph does not appear to truly be split by the line the purple dots create. In simpler terms, the red and blue dots are on both sides.</p>
