@@ -19,7 +19,13 @@ remove_exotic <- function(str){
 ```{r}
 library(e1071)
 library(dplyr)
+df <- read.csv("~/Downloads/MetObjects_Cleaned_Small.csv")
 
+n <- nrow(df)
+
+train <- sample(n, .8*n)
+train_dat <- df[train, ]
+test_dat <- df[-train, ]
 
 train_dat2 <- train_dat %>% select(c(is.highlight, is.public.domain, department, country, region, subregion,state, city, classification)) 
 test_dat2 <- test_dat %>% select(c(is.highlight, is.public.domain, department, country, region, subregion,state, city, classification)) 
