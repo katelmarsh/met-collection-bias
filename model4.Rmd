@@ -1,11 +1,10 @@
 # [Model 4]
 
-## support vector machine 
+## Support Vector Machine 
 
-### What is this model? 
-
-
-
+In order to do the next two models, the data needed to be processed differently to account for the categories that appear in the training set and not the test set, or vice versa.        
+            
+      
 ```{r}
 str = "Ábcdêãçoàúü"
 str = iconv(str, from = '', to = 'ASCII//TRANSLIT')
@@ -54,8 +53,8 @@ svm_model<- svm(is.highlight~is.public.domain + department + country +
                 test_datadecision.values=TRUE,
                 kernel = "linear")
 
-pred_train <- predict(svm_model, td3, decision.values = T)
-mean(pred_train == td3$is.highlight)
+#pred_train <- predict(svm_model, td3, decision.values = T)
+#mean(pred_train == td3$is.highlight)
 
 #pred_test <- predict(svm_model, testd3, decision.values = T)
 #mean(pred_test == testd3$is.highlight)
@@ -78,9 +77,6 @@ newdata <- data.frame(predict(dummy, newdata = df))
 
 ```
 
-
-Reference: https://github.com/SchlossLab/mikRopML/issues/156
-
 ```{r}
 library(mikropml)
 library(dplyr)
@@ -90,20 +86,19 @@ library(dplyr)
 #newdata[,"is.highlightFalse"] <- as.character(newdata[,"is.highlightFalse"])
 #dat_proc <- preprocess_data(newdata, 'is.highlightTrue')$dat_transformed
 
-#data_proc <- write.csv("data_proc.csv", dat_proc)
-
 #dat_proc <- dat_proc %>% select(-c(is.highlightFalse_1))
+#dat_proc$object.id = df$object.id #adding ID column back into dataset after processing
 
-#write.csv(train_dat, "train_dat_cleaned.csv")
-#write.csv(test_dat, "test_dat_cleaned.csv")
+n <- nrow(dat_proc)
+train <- sample(n, .8*n)
+train_dat <- dat_proc[train, ]
+test_dat <- dat_proc[-train, ]
 
-#n <- nrow(dat_proc)
-#train <- sample(n, .8*n)
-#train_dat <- dat_proc[train, ]
-#test_dat <- dat_proc[-train, ]
+write.csv(train_dat, "train_dat_cleaned2.csv")
+write.csv(test_dat, "test_dat_cleaned2.csv")
 
-train_dat <- read.csv("train_dat_cleaned.csv")
-test_dat <- read.csv("test_dat_cleaned.csv")
+#train_dat <- read.csv("train_dat_cleaned.csv")
+#test_dat <- read.csv("test_dat_cleaned.csv")
   
 total <- rbind(train_dat, test_dat)
 n <- nrow(total)
@@ -111,7 +106,7 @@ train <- sample(n, .8*n)
 train_dat <- total[train, ]
 test_dat <- total[-train, ]
 
-svm_model<- svm(is.highlightTrue~., 
+svm_model<- svm(is.highlightTrue~. - object.id, 
                 data = train_dat, 
                 type = "C-classification",
                 test_datadecision.values=TRUE,
@@ -124,22 +119,22 @@ print(paste0("The accuracy on the training dataset is: ",mean(pred_train == trai
 pred_test <- predict(svm_model, test_dat, decision.values = T)
 print(paste0("The accuracy on the testing dataset is: ",mean(pred_test == test_dat$is.highlightTrue)))
 ```
-artist.nationalityAmerican_1
+The support vector machine is a major improvement on the accuracy of the model. This model has an accuracy of .94 on the training set and .92 on the test set. This shows that the model is probably not over or underfitting very heavily and has a high accuracy. 
 
 ```{r}
 library(ggplot2)
 
 train_dat$is.highlightTrue <- as.factor(train_dat$is.highlightTrue) 
 scatter_plot <- ggplot(data = train_dat, 
-                       aes(x = object.begin.date, y = artist.roleArtist_1, color = is.highlightTrue))+ 
-  geom_point() + 
+                       aes(x = object.end.date, 
+                           y = object.begin.date, color = is.highlightTrue))+   
+  geom_point() +   
   scale_color_manual(values = c("red", "blue"))
 
-
-# the purple is the support vectors ????
 layered_plot <- 
     scatter_plot + geom_point(data = train_dat[svm_model$index, ], 
-                              aes(x = object.begin.date, y = artist.roleArtist_1), color = "purple", 
+                              aes(x = object.end.date, y = object.begin.date), 
+                              color = "purple", 
                               size = 4, alpha = 0.5)
 
 #display plot
@@ -150,27 +145,29 @@ ggplotly(layered_plot)
 
 ```
       
-What are grp1, grp2, and grp 3? 
-      
-The pre-processing package I used collapses perfectly correlated features. 
+While SVM is the most accurate model by far, it is very difficult to conduct interpretable ML methods on this model. Even the basic visualizations that are suggested in a lot of tutorials are not easy to do with this dataset, as can be seen in the graph above (you cannot see any information with two binary variables graphs in this manner)! SVM uses hyperplanes and thus visualizations are inherently difficult because it is unclear how one would visualize a multi-dimensional space greater than 3 dimensions. The above graph shows the "decision boundary" that the SVM uses in purple, yet it is difficult to understand what that decision boundary means in two dimensions, because the graph does not appear to truly be split by the line the purple dots create. In simpler terms, the red and blue dots are on both sides.     
 
-
+     
+Through using the SVM, I aim to demonstrate that accuracy, as a metric can often be misleading. It is unclear how good this model is if we are unable to figure out why it is making the decisions it is making. For the purposes of this project, which aims to determine the decision-making process that goes into the selection of the IsHighlight variable, this model is useless. It does not tell us which features contributed to the predictions it made or the the importance of those features. 
 
 ```{r}
-newdata <- read.csv("~/Desktop/dummyvars.csv")
-
-newdata[,"is.highlightFalse"] <- as.character(newdata[,"is.highlightFalse"])
-
-dat_proc <- preprocess_data(newdata, 'is.highlightTrue')
-
-dat_proc$grp_feats$grp1 
-
-dat_proc$grp_feats$grp2 
-
-dat_proc$grp_feats$grp3
-
-
-dat_proc$removed_feats
+#newdata <- read.csv("~/Desktop/dummyvars.csv")
+#newdata[,"is.highlightFalse"] <- as.character(newdata[,"is.highlightFalse"])
+#dat_proc <- preprocess_data(newdata, 'is.highlightTrue')
+#dat_proc$grp_feats$grp1 
+#dat_proc$grp_feats$grp2 
+#dat_proc$grp_feats$grp3
+#dat_proc$removed_feats
 
 ```
-
+     
+Note: 
+    
+What are grp1, grp2, and grp 3? 
+       
+The pre-processing package I used collapses perfectly correlated features. These groups are sets of perfectly correlated features. grp1 is the index column and the object number. grp2 is the title of the artist and their name. grp3 is whether the public domain is true and whether it is false. All of these columns are removed and placed into these groups. For all intents and purposes, I deemed these columns un-necessary and removed them. 
+     
+Reference: 
+- https://rpubs.com/cliex159/865583
+- https://web.mit.edu/6.034/wwwbob/svm.pdf 
+- https://github.com/SchlossLab/mikRopML/issues/156

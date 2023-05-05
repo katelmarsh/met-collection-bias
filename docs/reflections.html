@@ -23,7 +23,7 @@
 <meta name="author" content="Kate Marsh" />
 
 
-<meta name="date" content="2023-05-02" />
+<meta name="date" content="2023-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="model-5.html"/>
-
+<link rel="next" href="conclusion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -92,17 +92,15 @@
 <li class="chapter" data-level="3" data-path="model-2.html"><a href="model-2.html"><i class="fa fa-check"></i><b>3</b> [Model 2]</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="model-2.html"><a href="model-2.html#decision-tree"><i class="fa fa-check"></i><b>3.1</b> Decision Tree</a></li>
+<li class="chapter" data-level="3.2" data-path="model-2.html"><a href="model-2.html#the-model"><i class="fa fa-check"></i><b>3.2</b> The Model</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="model-3.html"><a href="model-3.html"><i class="fa fa-check"></i><b>4</b> [Model 3]</a>
+<li class="chapter" data-level="4" data-path="random-forest.html"><a href="random-forest.html"><i class="fa fa-check"></i><b>4</b> Random Forest</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="model-3.html"><a href="model-3.html#random-forest"><i class="fa fa-check"></i><b>4.1</b> random forest</a></li>
+<li class="chapter" data-level="4.1" data-path="random-forest.html"><a href="random-forest.html#random-forest-1"><i class="fa fa-check"></i><b>4.1</b> Random Forest</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="model-4.html"><a href="model-4.html"><i class="fa fa-check"></i><b>5</b> [Model 4]</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> support vector machine</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="model-4.html"><a href="model-4.html#what-is-this-model"><i class="fa fa-check"></i><b>5.1.1</b> What is this model?</a></li>
-</ul></li>
+<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> Support Vector Machine</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="model-5.html"><a href="model-5.html"><i class="fa fa-check"></i><b>6</b> [Model 5]</a>
 <ul>
@@ -114,6 +112,7 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="reflections.html"><a href="reflections.html"><i class="fa fa-check"></i><b>7</b> Reflections</a></li>
+<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -135,15 +134,28 @@
             <section class="normal" id="section-">
 <div id="reflections" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Reflections<a href="reflections.html#reflections" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-
+<p>In conclusion, I found that different models, especially SVM could predict whether something was a highlight with .96 accuracy on both the training and test set based on only 40 characteristics.</p>
+<p>Unfortunately, as our least interpretable model, SVM did not show us what we truly wanted to know. What characteristics of an artwork does the Met use to characterize whether something is a highlight of the collection or not?</p>
+<p>To answer this question, I began with the OneRule model. The oneRule model showed us that part of the answer to this question is whether the artwork is in the public domain. If the artwork is in the public domain, it is more likely to be a highlight. This variable is likely a proxy for age, which was not otherwise in the dataset due to data cleaning challenges.</p>
+<p>Next, I explored the data with a decision tree. From the decision tree, we were able to understand that classification is important in the decision making process. Items classified as jade, daggers, negatives, basketry, and more are just simply less likely to be a highlight than the other options. Unfortunately, after pruning, the model did not tell us really any more information.</p>
+<p>After decision trees, I modeled the data with random forest. From the feature importance function, we were able to find that the department was the most important feature, followed by the public domain, classification, and country. This gave us more understanding of how the features affect the outcome. In addition, we used LIME to compare two different artworks, one from the United States and one from Cote d’Ivoire. These artworks, while similar in characteristics, age, and make, had very different ranges in time-frame. The LIME explanation showed that how big the range in between these two dates are (the guesses for beginning object date and ending object date) was the most important feature to help the model predict if the artworks were a highlight. I theorized that artworks from Western cultures might be more likely to have a specific date, or a smaller range of dates, attached to that artwork and thus that might be a proxy for Western art.</p>
+<p>Our last interpretable method was the neural network. For this model, I used both shapley values and LIME to determine why the model was making its decisions. From that I was able to find the following biases.</p>
+<p>These are all features that make something more likely to be a highlight:
+- not being in the Asian Art or Drawings and Prints department
+- being in the following departments: Egyptian Art, Greek and Roman Art, Costume Institute, European Sculptural/Decorative Arts, and Photographs
+- not being made by a French or American person.
+- having no listed country of origin, nationality, classification, or city
+- being a photograph or a painting
+- being oil on canvas
+- not being a print</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="model-5.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="model-5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

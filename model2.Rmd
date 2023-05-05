@@ -9,6 +9,46 @@ df <- read.csv("~/Downloads/MetObjects_Cleaned_Small.csv")
 ```
 
 
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = n, y = department)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Department") 
+
+c_df <- as.data.frame(culture)
+ggplot(c_df, aes(x = Freq, y = Var1)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Culture, Top 8") 
+
+```
+
+From these plots, you can tell that the most common department in the Met Collection is Drawings and Prints, followed by Greek and Roman art, photographs, and Egyptian art. 
+      
+Additionally, you can tell from the second plot that the most common culture is "NA", which just means that the culture is missing. Next is American, French, and Japan. From this graph, you can also tell the data cleaning issues with the Met's data because it includes "Japan" and "Japanese" as different categories. 
+
+```{r}
+library(ggplot2)
+
+country <- head(sort(table(df$country), decreasing = TRUE), 20) 
+c2_df <- as.data.frame(country)
+ggplot(c2_df, aes(x = Freq, y = Var1)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20") 
+
+highlightT <- df[df$is.highlight == "True",]
+country <- head(sort(table(highlightT$country), decreasing = TRUE), 20) 
+c2_df <- as.data.frame(country)
+ggplot(c2_df, aes(x = Freq, y = Var1)) + 
+  geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20, isHighlight = TRUE") 
+
+```
+In these plots, we compare the frequencies of country based on whether it the artwork is a highlight or not. In both the highlight and all types graph, the most frequent country is NA, followed by Egypt. In the following countries, we can tell that the United States is under-represented in the is.Highlight = TRUE dataset, compared to the overall population. Canada and Peru are examples of other countries that follow this pattern. 
+
+     
+The opposite is true of France, which is over-represented in the highlights. Spain, Italy, and Turkey also follow the pattern of over-representation in the Highlights. 
+     
+
+## The Model 
+     
+To attempt to explain why some artworks are highlights and some are not, without actually looking at the painting, we are going to use a few different models. We will look at decision trees first. 
 
 ```{r}
 library(rpart)
@@ -35,42 +75,7 @@ plotcp(fit)
 
 
 ```
-Prune to .17 ! 
-
-
-```{r}
-library(ggplot2)
-library(waffle)
-
-department <- head(sort(table(df$department), decreasing = TRUE), 8)
-waffle(department/10, rows=5, size=0.6, 
-       title="Art Department", 
-       xlab="1 square = 1000 artworks")
-
-artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
-waffle(artist.begin.date/10, rows=5, size=0.6, 
-       title="Art Culture", 
-       xlab="1 square = 1000 artworks")
-
-ggplot(df, aes(x = n, y = department)) + 
-  geom_col() + theme_light() + ggtitle(label = "Art Department") 
-
-c_df <- as.data.frame(culture)
-ggplot(c_df, aes(x = Freq, y = Var1)) + 
-  geom_col() + theme_light() + ggtitle(label = "Art Culture, Top 20") 
-
-country <- head(sort(table(df$country), decreasing = TRUE), 20) 
-c2_df <- as.data.frame(country)
-ggplot(c2_df, aes(x = Freq, y = Var1)) + 
-  geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20") 
-
-highlightT <- df[df$is.highlight == "True",]
-country <- head(sort(table(highlightT$country), decreasing = TRUE), 20) 
-c2_df <- as.data.frame(country)
-ggplot(c2_df, aes(x = Freq, y = Var1)) + 
-  geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20, isHighlight = TRUE") 
-
-```
+Prune to .17 ! This plot shows how one should prune the decision tree to have the best set of cost-complexity prunings. 
 
 ```{r}
 #predict_unseen <-predict(fit, test_dat, type = 'class')
@@ -78,6 +83,7 @@ ggplot(c2_df, aes(x = Freq, y = Var1)) +
 
 ```
 
+First we will fit a model that has as many decisions as we want, with very little of the pruning. 
 ```{r}
 library(rpart)
 library(rpart.plot)
@@ -92,14 +98,14 @@ fit$xlevels[["object.name"]] <- union(fit$xlevels[["object.name"]], levels(test_
 #summary(fit)
 
 #test_dat$pred <- predict(fit, test_dat, type = "class")
-print(paste0("The accuracy on the testing dataset is: ",accuracy <- mean(test_dat$pred == test_dat$is.highlight)))
+#print(paste0("The accuracy on the testing dataset is: ",mean(test_dat$pred == test_dat$is.highlight)))
 
 
 rpart.plot(fit, extra = 106, yesno = 2) 
 
 
 ```
-
+Here is another visualization of the same decision tree. 
 ```{r}
 
 split.fun <- function(x, labs, digits, varlen, faclen)
@@ -145,24 +151,63 @@ The decision tree shows that the model uses classification, department, "is publ
 
 
 ```{r}
-#library(rpart)
-#library(rpart.plot)
+library(rpart)
+library(rpart.plot)
 
 
-#fit <- rpart(is.highlightTrue~., data = train_dat, 
-#             method = 'class', 
-#             control = rpart.control(cp = .01))
+fit <- rpart(is.highlight~is.public.domain + department + country + region + subregion
+             + county + state + city + classification, data = train_dat, 
+             method = 'class', 
+             control = rpart.control(cp = .17))
+fit$xlevels[["object.name"]] <- union(fit$xlevels[["object.name"]], levels(test_dat$object.name))
 
 #summary(fit)
 
-#train_dat$pred <- predict(fit, train_dat, type = "class")
-#(accuracy <- mean(train_dat$pred == train_dat$is.highlightTrue))
-
 #test_dat$pred <- predict(fit, test_dat, type = "class")
-#(accuracy <- mean(test_dat$pred == test_dat$is.highlightTrue))
+#print(paste0("The accuracy on the testing dataset is: ",mean(test_dat$pred == test_dat$is.highlight)))
 
 
-#rpart.plot(fit, extra = 106, yesno = 2) 
-
+rpart.plot(fit, extra = 106, yesno = 2) 
 
 ```
+```{r}
+
+split.fun <- function(x, labs, digits, varlen, faclen)
+{
+    # replace commas with spaces (needed for strwrap)
+    labs <- gsub(",", " ", labs)
+    for(i in 1:length(labs)) {
+        # split labs[i] into multiple lines
+        labs[i] <- paste(strwrap(labs[i], width=80), collapse="\n")
+    }
+    labs
+}
+
+rpart.plot::prp(fit,
+    split.fun=split.fun,
+    type = 2,
+    yesno=2,
+    clip.right.labs = FALSE,
+    extra = 105, 
+    under = FALSE, 
+    split.cex = 2,
+    under.cex = 3, 
+    box.palette = "RdYlGn",
+    digits = 2,
+    fallen.leaves = TRUE, 
+    uniform = FALSE,
+    #round = 0, 
+    #leaf.round= 0, 
+    main = "isHighlight Type Decision Tree", 
+    #cex.main = 1, 
+    branch.col = "gray", 
+    branch.lwd = 4, 
+    faclen = 8, 
+    #facsep = ",  ", 
+    compress = TRUE, 
+    branch.tweak = 1)
+```
+       
+Unfortunately, after pruning, the only decision that remains is based on the classification of the artwork. Basically, the model can tell most of the time that if it is not one of these categories, such as prints, plates, or books, that it will not be a highlight. It is able to have a .71 accuracy on the training set, which is a slight improvement from the previous OneR model, yet not a large enough improvement. 
+           
+Thus far, our interpretable ML has shown us that we believe that the Met is more likley to deem an artwork a highlight if it is in the public domain, and it is not one of the above categories. 

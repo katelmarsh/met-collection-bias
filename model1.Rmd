@@ -138,11 +138,6 @@ period <- head(sort(table(df$Period), decreasing = TRUE), 8)
 waffle(period/1000, rows=5, size=0.6, 
        title="Art Period", 
        xlab="1 square = 1000 artworks")
-
-artist.begin.date <- head(sort(table(df$artist.begin.date), decreasing = TRUE), 8)
-waffle(artist.begin.date/1000, rows=5, size=0.6, 
-       title="Art Culture", 
-       xlab="1 square = 1000 artworks")
 ```
       
 
@@ -217,12 +212,13 @@ mod2 <- OneR(is.highlight ~ ., data = train_dat)
 #summary(mod2)
 #plot(mod2)
 
-mean(predict(mod2, train_dat) == train_dat$is.highlight)
+print(paste0("The accuracy on the training dataset is: ",mean(predict(mod2, train_dat) == train_dat$is.highlight)))
 
-mean(predict(mod2, test_dat) == test_dat$is.highlight)
+print(paste0("The accuracy on the testing dataset is: ",mean(predict(mod2, test_dat) == test_dat$is.highlight)))
+
 ```
 
-In this model, the One Rule is the title of the artwork Using the art title, we perform only a little better than random on the dataset and we perform much worse than random on the test set. 
+In this model, the One Rule is the title of the artwork, chosen from all of the possible variables in the dataset. Using the art title, we perform only a little better than random on the dataset and we perform much worse than random on the test set. This is a great example of overfitting, because the model performs significantly better on the training set than on the test set. 
 
 ```{r}
 mod2 <- OneR(is.highlight ~ is.public.domain, data = train_dat)
@@ -234,3 +230,8 @@ print(paste0("The accuracy on the training dataset is: ",mean(predict(mod2, trai
 print(paste0("The accuracy on the testing dataset is: ",mean(predict(mod2, test_dat) == test_dat$is.highlight)))
 ```
 
+This model is based only on the is.public.domain variable. From this, we can tell that a large majority of artworks in the public domain are highlights (66%), compared to the large amounts of works that are not in the public domain and are not highlights (~75%). 
+
+As a baseline, this means that with only one variable "is.public.domain", we can achieve an accuracy of .68 on the training and test set. This is a great example where the model has not over or under-fit because they are at the same accuracy. 
+
+This baseline will help us understand if the more complicated models are making a large improvement on the data or not. 

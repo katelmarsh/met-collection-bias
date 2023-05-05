@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 [Model 4] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum</title>
-  <meta name="description" content="Chapter 5 [Model 4] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <title>Chapter 8 Conclusion | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum</title>
+  <meta name="description" content="Chapter 8 Conclusion | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 [Model 4] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <meta property="og:title" content="Chapter 8 Conclusion | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 [Model 4] | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <meta name="twitter:title" content="Chapter 8 Conclusion | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="random-forest.html"/>
-<link rel="next" href="model-5.html"/>
+<link rel="prev" href="reflections.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -132,60 +132,21 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="model-4" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> [Model 4]<a href="model-4.html#model-4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="support-vector-machine" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Support Vector Machine<a href="model-4.html#support-vector-machine" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In order to do the next two models, the data needed to be processed differently to account for the categories that appear in the training set and not the test set, or vice versa.</p>
-<pre><code>## Error in `select()`:
-## ! Can&#39;t subset columns that don&#39;t exist.
-## ✖ Column `is.highlight` doesn&#39;t exist.</code></pre>
-<pre><code>## Error in `select()`:
-## ! Can&#39;t subset columns that don&#39;t exist.
-## ✖ Column `is.highlight` doesn&#39;t exist.</code></pre>
-<pre><code>## Error in is.factor(x): object &#39;train_dat2&#39; not found</code></pre>
-<pre><code>## Error in is.factor(x): object &#39;test_dat2&#39; not found</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;td3&#39; not found</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;testd3&#39; not found</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;td3&#39; not found</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;testd3&#39; not found</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;td3&#39; not found</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;testd3&#39; not found</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;td3&#39; not found</code></pre>
-<pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;testd3&#39; not found</code></pre>
-<pre><code>## Error in as.data.frame(td3): object &#39;td3&#39; not found</code></pre>
-<pre><code>## Error in as.data.frame(testd3): object &#39;testd3&#39; not found</code></pre>
-<pre><code>## Error in eval(expr, p): object &#39;td3&#39; not found</code></pre>
-<pre><code>## Error in nrow(dat_proc): object &#39;dat_proc&#39; not found</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;dat_proc&#39; not found</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;dat_proc&#39; not found</code></pre>
-<pre><code>## Error in eval(predvars, data, env): object &#39;object.id&#39; not found</code></pre>
-<pre><code>## Error in predict(svm_model, train_dat, decision.values = T): object &#39;svm_model&#39; not found</code></pre>
-<pre><code>## Error in mean(pred_train == train_dat$is.highlightTrue): object &#39;pred_train&#39; not found</code></pre>
-<pre><code>## Error in predict(svm_model, test_dat, decision.values = T): object &#39;svm_model&#39; not found</code></pre>
-<pre><code>## Error in mean(pred_test == test_dat$is.highlightTrue): object &#39;pred_test&#39; not found</code></pre>
-<p>The support vector machine is a major improvement on the accuracy of the model. This model has an accuracy of .94 on the training set and .92 on the test set. This shows that the model is probably not over or underfitting very heavily and has a high accuracy.</p>
-<pre><code>## Error in `[.data.frame`(train_dat, svm_model$index, ): object &#39;svm_model&#39; not found</code></pre>
-<pre><code>## Error in ggplotly(layered_plot): object &#39;layered_plot&#39; not found</code></pre>
-<p>While SVM is the most accurate model by far, it is very difficult to conduct interpretable ML methods on this model. Even the basic visualizations that are suggested in a lot of tutorials are not easy to do with this dataset, as can be seen in the graph above (you cannot see any information with two binary variables graphs in this manner)! SVM uses hyperplanes and thus visualizations are inherently difficult because it is unclear how one would visualize a multi-dimensional space greater than 3 dimensions. The above graph shows the “decision boundary” that the SVM uses in purple, yet it is difficult to understand what that decision boundary means in two dimensions, because the graph does not appear to truly be split by the line the purple dots create. In simpler terms, the red and blue dots are on both sides.</p>
-<p>Through using the SVM, I aim to demonstrate that accuracy, as a metric can often be misleading. It is unclear how good this model is if we are unable to figure out why it is making the decisions it is making. For the purposes of this project, which aims to determine the decision-making process that goes into the selection of the IsHighlight variable, this model is useless. It does not tell us which features contributed to the predictions it made or the the importance of those features.</p>
-<p>Note:</p>
-<p>What are grp1, grp2, and grp 3?</p>
-<p>The pre-processing package I used collapses perfectly correlated features. These groups are sets of perfectly correlated features. grp1 is the index column and the object number. grp2 is the title of the artist and their name. grp3 is whether the public domain is true and whether it is false. All of these columns are removed and placed into these groups. For all intents and purposes, I deemed these columns un-necessary and removed them.</p>
-<p>Reference:
-- <a href="https://rpubs.com/cliex159/865583" class="uri">https://rpubs.com/cliex159/865583</a>
-- <a href="https://web.mit.edu/6.034/wwwbob/svm.pdf" class="uri">https://web.mit.edu/6.034/wwwbob/svm.pdf</a>
-- <a href="https://github.com/SchlossLab/mikRopML/issues/156" class="uri">https://github.com/SchlossLab/mikRopML/issues/156</a></p>
+<div id="conclusion" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Conclusion<a href="conclusion.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>From the interpretation of these models, I found that the Met collection has a few characteristics that it looks for when it determines a highlight. In contrast to the Met’s highlight variable being purely about the quality of the artwork and its value or aesthetics, I was able to find a non-quality variables that have a large influence on how the Met decides its highlights.</p>
+<p>It appears from this analysis, that the Met is biased towards art that upholds the myth of Western civilization. In popular culture, the “West” begins with the Greek and Romans, following with the Egyptians, then European neo-classicism and the United States. The United States’s neoclassical architecture in the U.S. Capitol and on university campuses as a signal of greatness is a good example of the continuing myth of the West and its lasting impact on American society. Columbia University’s campus, with its Butler library inscribed with Greek and European authors, is a project in symbolizing greatness by its proximity to Western civilization.</p>
+<p>We can see this myth of greatness appear again in the “highlights” of the Met collection. We have shown biases towards certain departments, especially Egyptian art, Greek and Roman art, and European Sculptural/Decorative arts. We have shown biases against Asian art. We have shown biases towards Western art mediums, such as oil on canvas. We found that more accurate years can signify being a highlight. The legacy of colonization, which often resulted in destroyed records, affects the ability of the Met and even the places where the art is from to track the exact year of an artwork.</p>
+<p>One specific counter to this argument is that the Met biases against paintings made by French and American artists for the highlight label, but it is important to note that these are the largest categories of artists and make up 20% of the collection and 22% of the highlights, so any bias is likely negligible.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="random-forest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="model-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reflections.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -216,7 +177,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/katelmarsh/final-project-2023/edit/main/model4.Rmd",
+"link": "https://github.com/katelmarsh/final-project-2023/edit/main/reflections.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -224,7 +185,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/katelmarsh/final-project-2023/blob/main/model4.Rmd",
+"link": "https://github.com/katelmarsh/final-project-2023/blob/main/reflections.Rmd",
 "text": null
 },
 "download": null,

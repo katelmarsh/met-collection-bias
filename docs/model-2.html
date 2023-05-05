@@ -23,7 +23,7 @@
 <meta name="author" content="Kate Marsh" />
 
 
-<meta name="date" content="2023-05-02" />
+<meta name="date" content="2023-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="model-1.html"/>
-<link rel="next" href="model-3.html"/>
+<link rel="next" href="random-forest.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -92,17 +92,15 @@
 <li class="chapter" data-level="3" data-path="model-2.html"><a href="model-2.html"><i class="fa fa-check"></i><b>3</b> [Model 2]</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="model-2.html"><a href="model-2.html#decision-tree"><i class="fa fa-check"></i><b>3.1</b> Decision Tree</a></li>
+<li class="chapter" data-level="3.2" data-path="model-2.html"><a href="model-2.html#the-model"><i class="fa fa-check"></i><b>3.2</b> The Model</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="model-3.html"><a href="model-3.html"><i class="fa fa-check"></i><b>4</b> [Model 3]</a>
+<li class="chapter" data-level="4" data-path="random-forest.html"><a href="random-forest.html"><i class="fa fa-check"></i><b>4</b> Random Forest</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="model-3.html"><a href="model-3.html#random-forest"><i class="fa fa-check"></i><b>4.1</b> random forest</a></li>
+<li class="chapter" data-level="4.1" data-path="random-forest.html"><a href="random-forest.html#random-forest-1"><i class="fa fa-check"></i><b>4.1</b> Random Forest</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="model-4.html"><a href="model-4.html"><i class="fa fa-check"></i><b>5</b> [Model 4]</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> support vector machine</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="model-4.html"><a href="model-4.html#what-is-this-model"><i class="fa fa-check"></i><b>5.1.1</b> What is this model?</a></li>
-</ul></li>
+<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> Support Vector Machine</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="model-5.html"><a href="model-5.html"><i class="fa fa-check"></i><b>6</b> [Model 5]</a>
 <ul>
@@ -114,6 +112,7 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="reflections.html"><a href="reflections.html"><i class="fa fa-check"></i><b>7</b> Reflections</a></li>
+<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -138,13 +137,29 @@
 <div id="decision-tree" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Decision Tree<a href="model-2.html#decision-tree" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Going forward, I upsampled so the “isHighlight” has an equal number of true and false values. This will make the models less computationally heavy.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" />
-Prune to .17 !</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-18-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-18-3.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-18-4.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-18-5.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-18-6.png" width="672" /></p>
-<pre><code>## [1] &quot;The accuracy on the testing dataset is: NaN&quot;</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre><code>## Error in as.data.frame(culture): object &#39;culture&#39; not found</code></pre>
+<pre><code>## Error in ggplot(c_df, aes(x = Freq, y = Var1)): object &#39;c_df&#39; not found</code></pre>
+<p>From these plots, you can tell that the most common department in the Met Collection is Drawings and Prints, followed by Greek and Roman art, photographs, and Egyptian art.</p>
+<p>Additionally, you can tell from the second plot that the most common culture is “NA”, which just means that the culture is missing. Next is American, French, and Japan. From this graph, you can also tell the data cleaning issues with the Met’s data because it includes “Japan” and “Japanese” as different categories.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-18-2.png" width="672" />
+In these plots, we compare the frequencies of country based on whether it the artwork is a highlight or not. In both the highlight and all types graph, the most frequent country is NA, followed by Egypt. In the following countries, we can tell that the United States is under-represented in the is.Highlight = TRUE dataset, compared to the overall population. Canada and Peru are examples of other countries that follow this pattern.</p>
+<p>The opposite is true of France, which is over-represented in the highlights. Spain, Italy, and Turkey also follow the pattern of over-representation in the Highlights.</p>
+</div>
+<div id="the-model" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> The Model<a href="model-2.html#the-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To attempt to explain why some artworks are highlights and some are not, without actually looking at the painting, we are going to use a few different models. We will look at decision trees first.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+Prune to .17 ! This plot shows how one should prune the decision tree to have the best set of cost-complexity prunings.</p>
+<p>First we will fit a model that has as many decisions as we want, with very little of the pruning.
+<img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+Here is another visualization of the same decision tree.
+<img src="finalproj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>The decision tree shows that the model uses classification, department, “is public domain” and subregion of the world to determine whether the artwork is a highlight of the Metropolitan Museum of Art. Interestingly, 34% of the artworks can be excluded as “not highlights” by merely the type of art it is. If something is calligraphy, metalwork, textiles, daggers, glass, or etc., they are unlikely to be important to the Met. This is a unique finding because it shows that historic arts that were more likely to be done by women, such as textiles or basketry, are not highlighted by the Met. In accordance to what we might expect, preliminary or supporting artwork, such as drawings, stencils or photo negatives, are also deemed not a highlight. Also interesting is that then the decision tree uses departments to decide, indicating that Asian Art, Costumes, Drawings, Photographs, and Egyptian Art are less indicative of a Highlight status. Older artworks, as expected, are more likely to be highlights (according to the public domain variable). In the last two decisions, we learn that jewelry, shells, enamels, and some other classifications are unlikely to indicate being a highlight, as well as the fact that certain subregions indicate that the artwork is not highlighted. Upon investigation, these subregions are all parts of Egypt that are less famous for ruins. Compared to another subregion, such as Saqqara, which is an Ancient burial ground.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<img src="finalproj_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>Unfortunately, after pruning, the only decision that remains is based on the classification of the artwork. Basically, the model can tell most of the time that if it is not one of these categories, such as prints, plates, or books, that it will not be a highlight. It is able to have a .71 accuracy on the training set, which is a slight improvement from the previous OneR model, yet not a large enough improvement.</p>
+<p>Thus far, our interpretable ML has shown us that we believe that the Met is more likley to deem an artwork a highlight if it is in the public domain, and it is not one of the above categories.</p>
 
 </div>
 </div>
@@ -154,7 +169,7 @@ Prune to .17 !</p>
         </div>
       </div>
 <a href="model-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="model-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="random-forest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Random Forest | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum</title>
+  <meta name="description" content="Chapter 4 Random Forest | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Random Forest | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Random Forest | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  
+  
+  
+
+<meta name="author" content="Kate Marsh" />
+
+
+<meta name="date" content="2023-05-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="model-2.html"/>
+<link rel="next" href="model-4.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">How Biased Is the Met?</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Proposal</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#data"><i class="fa fa-check"></i><b>1.1</b> Data</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#the-modeling-goal"><i class="fa fa-check"></i><b>1.2</b> The Modeling Goal</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#models-i-intend-to-use"><i class="fa fa-check"></i><b>1.3</b> Models I Intend To Use</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="model-1.html"><a href="model-1.html"><i class="fa fa-check"></i><b>2</b> [Model 1]</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="model-1.html"><a href="model-1.html#onerule-model"><i class="fa fa-check"></i><b>2.1</b> OneRule Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="model-2.html"><a href="model-2.html"><i class="fa fa-check"></i><b>3</b> [Model 2]</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="model-2.html"><a href="model-2.html#decision-tree"><i class="fa fa-check"></i><b>3.1</b> Decision Tree</a></li>
+<li class="chapter" data-level="3.2" data-path="model-2.html"><a href="model-2.html#the-model"><i class="fa fa-check"></i><b>3.2</b> The Model</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="random-forest.html"><a href="random-forest.html"><i class="fa fa-check"></i><b>4</b> Random Forest</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="random-forest.html"><a href="random-forest.html#random-forest-1"><i class="fa fa-check"></i><b>4.1</b> Random Forest</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="model-4.html"><a href="model-4.html"><i class="fa fa-check"></i><b>5</b> [Model 4]</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="model-4.html"><a href="model-4.html#support-vector-machine"><i class="fa fa-check"></i><b>5.1</b> Support Vector Machine</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="model-5.html"><a href="model-5.html"><i class="fa fa-check"></i><b>6</b> [Model 5]</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="model-5.html"><a href="model-5.html#neural-network"><i class="fa fa-check"></i><b>6.1</b> neural network</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="model-5.html"><a href="model-5.html#to-interpret-this-model-we-will-use-shapley-values"><i class="fa fa-check"></i><b>6.1.1</b> To interpret this model, we will use Shapley Values:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="model-5.html"><a href="model-5.html#shapley-values-for-the-first-line-of-the-test-dataset"><i class="fa fa-check"></i><b>6.1.2</b> Shapley Values for the First Line of the Test Dataset</a></li>
+<li class="chapter" data-level="6.1.3" data-path="model-5.html"><a href="model-5.html#shapley-values-for-full-test-set"><i class="fa fa-check"></i><b>6.1.3</b> Shapley Values for full Test Set</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="reflections.html"><a href="reflections.html"><i class="fa fa-check"></i><b>7</b> Reflections</a></li>
+<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="random-forest" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> <a href="random-forest.html#random-forest-1">Random Forest</a><a href="random-forest.html#random-forest" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="random-forest-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Random Forest<a href="random-forest.html#random-forest-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The third model is Random Forest. This model takes decision trees and averages the outcomes of a lot of different decision trees to make the model.</p>
+<pre><code>##             is.public.domain
+## is.highlight False True
+##        False  843   648
+##        True   303  1180</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<pre><code>## [1] &quot;The accuracy on the training dataset is: 0.835238735709482&quot;</code></pre>
+<pre><code>## [1] &quot;The accuracy on the testing dataset is: 0.719086021505376&quot;</code></pre>
+<p>The random forest model improves on the accuracy of both the decision tree and the OneR model. This model has an accuracy of .83 on the training set, and .73 on the test set.</p>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-08ce723182ba50499bc5" style="width:672px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-08ce723182ba50499bc5">{"x":{"data":[{"x":[0.0744697941562716,0.110898315546556,0.0332163134171526,0.00661670110277002,0.000728643947534786,8.00464161533889e-05,0.00116299266004729,0.0204595203729552,0.0728939608572477],"y":[6,5,3,7,9,4,8,1,2],"text":["feature: is.public.domain<br />MeanDecreaseAccuracy: 7.446979e-02","feature: department<br />MeanDecreaseAccuracy: 1.108983e-01","feature: country<br />MeanDecreaseAccuracy: 3.321631e-02","feature: region<br />MeanDecreaseAccuracy: 6.616701e-03","feature: subregion<br />MeanDecreaseAccuracy: 7.286439e-04","feature: county<br />MeanDecreaseAccuracy: 8.004642e-05","feature: state<br />MeanDecreaseAccuracy: 1.162993e-03","feature: city<br />MeanDecreaseAccuracy: 2.045952e-02","feature: classification<br />MeanDecreaseAccuracy: 7.289396e-02"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":50.5814307458143,"r":7.30593607305936,"b":60.5348000031526,"l":119.086757990868},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Feature Importance By Mean Decrease in Accuracy","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.00546086704036675,0.116439229003076],"tickmode":"array","ticktext":["0.00","0.03","0.06","0.09"],"tickvals":[0,0.03,0.06,0.09],"categoryorder":"array","categoryarray":["0.00","0.03","0.06","0.09"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"MeanDecreaseAccuracy","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,9.6],"tickmode":"array","ticktext":["city","classification","country","county","department","is.public.domain","region","state","subregion"],"tickvals":[1,2,3,4,5,6,7,8,9],"categoryorder":"array","categoryarray":["city","classification","country","county","department","is.public.domain","region","state","subregion"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"feature","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"68094ae3eae3":{"x":{},"y":{},"type":"scatter"}},"cur_data":"68094ae3eae3","visdat":{"68094ae3eae3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>How is random forest making these decisions?</p>
+<p>Using the feature importance function, which calculates the mean decrease in accuracy when a feature is permuted (randomly scrambled), we find that the department is the most important factor in whether an artwork is a highlight, followed by classification and public domain. This is different from our previous models, because they focused on public domain and classification as the major decisions up until this point.</p>
+<p>Random Forest - Smaller, Cleaned Dataset</p>
+<pre><code>## [1] &quot;The accuracy on the training dataset is: 0.824142568930733&quot;</code></pre>
+<pre><code>## [1] &quot;The accuracy on the testing dataset is: 0.795698924731183&quot;</code></pre>
+<pre><code>## Error in which(names(train_dat2) == &quot;is.highlightTrue&quot;): object &#39;train_dat2&#39; not found</code></pre>
+<pre><code>## Error in which(names(test_dat2) == &quot;is.highlightTrue&quot;): object &#39;test_dat2&#39; not found</code></pre>
+<pre><code>## Error in DALEX::explain(model = model, data = x_train, y = y_train, label = &quot;Random Forest&quot;, : object &#39;x_train&#39; not found</code></pre>
+<pre><code>## Error in predict_surrogate_lime(explainer, new_observation, ...): object &#39;rf_exp&#39; not found</code></pre>
+<pre><code>## Error in plot(rf_lime): object &#39;rf_lime&#39; not found</code></pre>
+<pre><code>## NULL</code></pre>
+<pre><code>##     X.1    X is.highlight is.public.domain object.id
+## 17 2232 2232         True             True      2408
+##                department object.name    title  culture
+## 17 AmericanDecorativeArts    Sugarpot Sugarpot American
+##    artist.role artist.display.name artist.display.bio
+## 17                                                   
+##    artist.alpha.sort artist.nationality artist.begin.date
+## 17                                                     NA
+##    artist.end.date object.date object.begin.date object.end.date
+## 17              NA      182040              1820            1840
+##                           medium                dimensions
+## 17 Earthenwarewithslipdecoration H1234in324cmDiam10in254cm
+##    geography.type city    state   county      country region
+## 17         Madein      Alamance Alamance UnitedStates       
+##    subregion classification
+## 17                 Ceramics</code></pre>
+<p><img src="object.id2408.jpeg" width="466" />
+The description of this artpiece is as follows: This is one of a small group of distinctive vessels from the Central Piedmont region of North Carolina. With its exuberant slip decoration and ample size, it is one of the finest of the known surviving pots from that area</p>
+<pre><code>## NULL</code></pre>
+<pre><code>##         X.1      X is.highlight is.public.domain object.id
+## 3508 196802 196802        False            False    314397
+##                             department  object.name
+## 3508 ArtsofAfricaOceaniaandtheAmericas Heddlepulley
+##                            title      culture artist.role
+## 3508 HeddlePulleywithJanusFigure Baulepeoples            
+##      artist.display.name artist.display.bio artist.alpha.sort
+## 3508                                                         
+##      artist.nationality artist.begin.date artist.end.date
+## 3508                                   NA              NA
+##          object.date object.begin.date object.end.date    medium
+## 3508 19th20thcentury              1800            2000 Woodmetal
+##                         dimensions geography.type city state
+## 3508 HxWxD712x214x318in191x57x79cm                          
+##      county     country             region subregion
+## 3508        CôtedIvoire centralCôtedIvoire          
+##      classification
+## 3508 WoodImplements</code></pre>
+<p><img src="object.id314397.png" width="262" /></p>
+<p>The description of this artwork is as follows: Baule peoples and their neighbors to the West, the Guro, are famous as weavers, and are known for their fine indigo-and-white cotton fabrics. Used on the traditional narrow-band loom, heddle pulleys are functional objects used to ease the movements of the heddles while separating the warp threads and allowing the shuttle to seamlessly pass through the layers of thread. Like many other carved objects used in everyday activities among the Baule, these pulleys were often embellished for the weaver’s delight. Scholars have suggested that the prominent display of pulleys, hanging over the weaver’s loom in the public place, afforded artists their best opportunity to showcase their carving skills, in the hope to attract commissions for figures and masks. This example, distinctive for its Janus representation and conical hairdos, demonstrates the efforts put by Baule carvers into beautifying the simplest functional object.</p>
+<p>It is interesting to compare these two artworks. The first, the American sugarpot, is a highlight, while the second, the Baule sculpture are both old, sculpted works in the Met collection. Both of these artworks do not have a value for the city and unknown artists. The major aspect of the classification that differs between these works, as we can tell from the LIME graphs, is the age. The first artwork is made in the 1820s-1840s, yet the second has a much larger range of time it could’ve been made in: from 1800 to 2000.</p>
+<p>While this does not directly show a discrimination based on region, such as American art vs African art, it definitely shows a discrimination based on perceived age and range of age. This is interesting because societies with less specific record-keeping of art age or where the Met cannot tell the age might be a predictor of the artwork not being a highlight.</p>
+<p>References:
+- <a href="https://www.r-bloggers.com/2021/04/random-forest-in-r/" class="uri">https://www.r-bloggers.com/2021/04/random-forest-in-r/</a>
+- <a href="https://stats.stackexchange.com/questions/493714/random-forest-variable-importance-plot-discrepancy" class="uri">https://stats.stackexchange.com/questions/493714/random-forest-variable-importance-plot-discrepancy</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="model-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/katelmarsh/final-project-2023/edit/main/model3.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/katelmarsh/final-project-2023/blob/main/model3.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,2 +1,35 @@
 # Reflections
+       
+In conclusion, I found that different models, especially SVM could predict whether something was a highlight with .96 accuracy on both the training and test set based on only 40 characteristics. 
+     
+Unfortunately, as our least interpretable model, SVM did not show us what we truly wanted to know. What characteristics of an artwork does the Met use to characterize whether something is a highlight of the collection or not? 
+     
+To answer this question, I began with the OneRule model. The oneRule model showed us that part of the answer to this question is whether the artwork is in the public domain. If the artwork is in the public domain, it is more likely to be a highlight. This variable is likely a proxy for age, which was not otherwise in the dataset due to data cleaning challenges. 
+     
+Next, I explored the data with a decision tree. From the decision tree, we were able to understand that classification is important in the decision making process. Items classified as jade, daggers, negatives, basketry, and more are just simply less likely to be a highlight than the other options. Unfortunately, after pruning, the model did not tell us really any more information. 
+       
+After decision trees, I modeled the data with random forest. From the feature importance function, we were able to find that the department was the most important feature, followed by the public domain, classification, and country. This gave us more understanding of how the features affect the outcome. In addition, we used LIME to compare two different artworks, one from the United States and one from Cote d'Ivoire. These artworks, while similar in characteristics, age, and make, had very different ranges in time-frame. The LIME explanation showed that how big the range in between these two dates are (the guesses for beginning object date and ending object date) was the most important feature to help the model predict if the artworks were a highlight. I theorized that artworks from Western cultures might be more likely to have a specific date, or a smaller range of dates, attached to that artwork and thus that might be a proxy for Western art. 
+      
+Our last interpretable method was the neural network. For this model, I used both shapley values and LIME to determine why the model was making its decisions. From that I was able to find the following biases.  
+        
+These are all features that make something more likely to be a highlight: 
+- not being in the Asian Art or Drawings and Prints department 
+- being in the following departments: Egyptian Art, Greek and Roman Art, Costume Institute, European Sculptural/Decorative Arts, and Photographs 
+- not being made by a French or American person. 
+- having no listed country of origin, nationality, classification, or city
+- being a photograph or a painting 
+- being oil on canvas
+- not being a print
+    
+    
+# Conclusion
+From the interpretation of these models, I found that the Met collection has a few characteristics that it looks for when it determines a highlight. In contrast to the Met's highlight variable being purely about the quality of the artwork and its value or aesthetics, I was able to find a non-quality variables that have a large influence on how the Met decides its highlights. 
+        
+It appears from this analysis, that the Met is biased towards art that upholds the myth of Western civilization. In popular culture, the "West" begins with the Greek and Romans, following with the Egyptians, then European neo-classicism and the United States. The United States's neoclassical architecture in the U.S. Capitol and on university campuses as a signal of greatness is a good example of the continuing myth of the West and its lasting impact on American society. Columbia University's campus, with its Butler library inscribed with Greek and European authors, is a project in symbolizing greatness by its proximity to Western civilization. 
+      
+We can see this myth of greatness appear again in the "highlights" of the Met collection. We have shown biases towards certain departments, especially Egyptian art, Greek and Roman art, and European Sculptural/Decorative arts. We have shown biases against Asian art. We have shown biases towards Western art mediums, such as oil on canvas. We found that more accurate years can signify being a highlight. The legacy of colonization, which often resulted in destroyed records, affects the ability of the Met and even the places where the art is from to track the exact year of an artwork. 
+     
+One specific counter to this argument is that the Met biases against paintings made by French and American artists for the highlight label, but it is important to note that these are the largest categories of artists and make up 20% of the collection and 22% of the highlights, so any bias is likely negligible. 
+
+
 

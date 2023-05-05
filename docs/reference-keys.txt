@@ -6,14 +6,15 @@ model-1
 onerule-model
 model-2
 decision-tree
-model-3
+the-model
 random-forest
+random-forest-1
 model-4
 support-vector-machine
-what-is-this-model
 model-5
 neural-network
 to-interpret-this-model-we-will-use-shapley-values
 shapley-values-for-the-first-line-of-the-test-dataset
 shapley-values-for-full-test-set
 reflections
+conclusion
