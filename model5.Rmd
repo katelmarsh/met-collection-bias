@@ -138,7 +138,7 @@ predict_model.keras.engine.sequential.Sequential <- function (x, newdata, type, 
   pred <- predict(object = x, x = as.matrix(newdata))
   data.frame (Positive = pred, Negative = 1 - pred) }
 
-predict_model(x = model, 
+predict <- predict_model(x = model, 
                newdata = x_test, 
                type = 'raw') %>%
   tibble::as_tibble()
@@ -160,29 +160,32 @@ plot_features (explanation) +
         subtitle = "Hold Out (Test) Set, Object 200 and Object 322890")
 
 ```
+      
 In this LIME plot, we can inspect the ways that certain columns can impact the label of "positive" or "negative." For the first plot, we look at the first artwork in the test set. We can tell lack of the classification "Drawings and Prints" supports that it is a highlight. We actually already knew this from the Decision Tree. Having dimensions which this artwork does have, contradicts the fact that it is a highlight. Some objects, such as clothing pieces, do not have dimensions. 
     
 Secondly, we see that a classification is a major feature in its importance. This makes sense because the Met probably has clean data for Van Goghs and Rembrandts and easily classified wroks might have made the category of work that it belongs in. 
       
 Interestingly, the feature of Asian Art and Egyptian Art, as departments, did not support this label. Possibly because it is biased against Asian Art and towards Egyptian art. For case 2, we also found that "Drawings and prints" has a major effect, followed by dimensions, classification, photographs, drawings, Asian Art, and artist role. 
-
+      
       
 It feels wrong to talk about these art pieces without looking at them. So what artwork is the first one in the left lime explanation?        
 ```{r message=FALSE}
-test_dat[2,]$object.id
-df[which(df$object.id == "1083"),]
+#test_dat[2,]$object.id
+#df[which(df$object.id == "1083"),]
 knitr::include_graphics("object.id1083.jpeg")
 ```
+      
 Yes, that's right! Daniel Pabst's cabinet.       
 For reference, the website description continues as follows: "This Modern Gothic cabinet superbly demonstrates the influence of British reform theory on American design in the late nineteenth century. In form and decoration, it is indebted to the British architect Bruce J. Talbert, whose book "Gothic Forms Applied to Furniture, Metal Work, and Decoration for Domestic Purposes" (Birmingham, 1867; Boston, 1873) was influential in this country. A kinship with the work of the Philadelphia architect Frank Furness is also evident in the overall form of the cabinet, the verticality and shingled "roof" of which somewhat resemble Furness's bank buildings of the 1870s. The reverse-painted ribbed-glass panels are of a type Furness began to use on buildings as architectural decoration in 1876. Their stylized floral motif recalls the geometric plant forms of Christopher Dresser, a leading English ornamentist of the period who visited the Centennial Exhibition in Philadelphia in 1876 and whose published designs were well known in this country. Daniel Pabst, a leading manufacturer of artistic furniture in Philadelphia, probably executed the cabinet. A related cabinet, now in the Brooklyn Museum of Art, is documented to Pabst." 
         
 
 ```{r message=FALSE}
-test_dat[366,]$object.id
-df[which(df$object.id == "420178"),]
+#test_dat[366,]$object.id
+#df[which(df$object.id == "420178"),]
 knitr::include_graphics("object.id420178.jpeg")
 
 ```
+      
 This object, which is not a highlight is a "Trade card from the "Fish from American Waters" series (N39), issued in 1889 in a set of 50 cards to promote Allen & Ginter brand cigarettes," according to the Met description. The first thing in the LIME explanation that contributes to its correct "non-highlight" classification is the fact that it is a drawing/print. 
 
 
