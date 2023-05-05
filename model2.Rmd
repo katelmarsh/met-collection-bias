@@ -48,7 +48,7 @@ In these plots, we compare the frequencies of country based on whether it the ar
 The opposite is true of France, which is over-represented in the highlights. Spain, Italy, and Turkey also follow the pattern of over-representation in the Highlights. 
      
 
-### The Model 
+## The Model 
      
 To attempt to explain why some artworks are highlights and some are not, without actually looking at the painting, we are going to use a few different models. We will look at decision trees first. 
 
