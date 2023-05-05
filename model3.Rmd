@@ -1,6 +1,6 @@
 # Random Forest
 
-
+## Model 1
 
 The third model is Random Forest. This model takes decision trees and averages the outcomes of a lot of different decision trees to make the model. 
 
@@ -46,8 +46,12 @@ plot(model)
 print(paste0("The accuracy on the training dataset is: ",mean(predict(model, train_dat) == train_dat$is.highlight)))
 print(paste0("The accuracy on the testing dataset is: ",mean(predict(model, test_dat) == test_dat$is.highlight)))
 ```
-
+      
 The random forest model improves on the accuracy of both the decision tree and the OneR model. This model has an accuracy of .83 on the training set, and .73 on the test set. 
+     
+This plot shows the bounds of the MSE or error rate on the prediction for all 500 calculated trees. The red is for the lower bound, while the green is for the upper bound. 
+       
+## Feature Importance
 
 ```{r}
 #var_imp <- varImpPlot(model,
@@ -68,10 +72,12 @@ library(plotly)
 ggplotly(g)
 
 ```
+       
 How is random forest making these decisions? 
 
 Using the feature importance function, which calculates the mean decrease in accuracy when a feature is permuted (randomly scrambled), we find that the department is the most important factor in whether an artwork is a highlight, followed by classification and public domain. This is different from our previous models, because they focused on public domain and classification as the major decisions up until this point. 
 
+## Model 2
 
 Random Forest - Smaller, Cleaned Dataset
 
@@ -87,8 +93,8 @@ test_dat <- total[-train, ]
 
 set.seed(51)
 
-train_dat <- train_dat %>% select(-c(X.2, grp1, grp2, grp3, X, object.id))
-test_dat <- test_dat %>% select(-c(X.2, grp1, grp2, grp3, X, object.id))
+train_dat <- train_dat %>% select(-c(X.2, X))
+test_dat <- test_dat %>% select(-c(X.2, X))
 train_dat$is.highlightTrue <- as.factor(train_dat$is.highlightTrue)
 test_dat$is.highlightTrue <- as.factor(test_dat$is.highlightTrue)
 
@@ -109,7 +115,7 @@ print(paste0("The accuracy on the testing dataset is: ",mean(predict(model, test
 
 ```
 
-
+## LIME
 ```{r message=FALSE}
 library("DALEXtra")
 library("lime")
@@ -149,8 +155,8 @@ plot(rf_lime)
 
 
 ```{r}
-test_dat[4,]$object.id
-df[which(df$object.id == "2408"),]
+#test_dat[4,]$object.id
+#df[which(df$object.id == "2408"),]
 knitr::include_graphics("object.id2408.jpeg")
 ```
       
@@ -158,8 +164,8 @@ The description of this artpiece is as follows: This is one of a small group of 
 
 
 ```{r}
-test_dat[5,]$object.id
-df[which(df$object.id == "314397"),]
+#test_dat[5,]$object.id
+#df[which(df$object.id == "314397"),]
 knitr::include_graphics("object.id314397.png")
 ```
             
@@ -173,6 +179,6 @@ It is interesting to compare these two artworks. The first, the American sugarpo
 While this does not directly show a discrimination based on region, such as American art vs African art, it definitely shows a discrimination based on perceived age and range of age. This is interesting because societies with less specific record-keeping of art age or where the Met cannot tell the age might be a predictor of the artwork not being a highlight. 
 
       
-References: 
-- https://www.r-bloggers.com/2021/04/random-forest-in-r/
+References:     
+- https://www.r-bloggers.com/2021/04/random-forest-in-r/    
 - https://stats.stackexchange.com/questions/493714/random-forest-variable-importance-plot-discrepancy

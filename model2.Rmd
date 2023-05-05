@@ -1,5 +1,7 @@
 # Decision Tree 
 
+
+## Exploratory Analysis 
 Going forward, I upsampled so the "isHighlight" has an equal number of true and false values. This will make the models less computationally heavy. 
 
 ```{r}
@@ -14,8 +16,9 @@ library(ggplot2)
 ggplot(df, aes(x = n, y = department)) + 
   geom_col() + theme_light() + ggtitle(label = "Art Department") 
 
-c_df <- as.data.frame(culture)
-ggplot(c_df, aes(x = Freq, y = Var1)) + 
+culture <- head(sort(table(df$culture), decreasing = TRUE), 8) 
+c_df3 <- as.data.frame(culture)
+ggplot(c_df3, aes(x = Freq, y = Var1)) + 
   geom_col() + theme_light() + ggtitle(label = "Art Culture, Top 8") 
 
 ```
@@ -28,24 +31,24 @@ Additionally, you can tell from the second plot that the most common culture is 
 library(ggplot2)
 
 country <- head(sort(table(df$country), decreasing = TRUE), 20) 
-c2_df <- as.data.frame(country)
-ggplot(c2_df, aes(x = Freq, y = Var1)) + 
+c2_df1 <- as.data.frame(country)
+ggplot(c2_df1, aes(x = Freq, y = Var1)) + 
   geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20") 
 
 highlightT <- df[df$is.highlight == "True",]
 country <- head(sort(table(highlightT$country), decreasing = TRUE), 20) 
-c2_df <- as.data.frame(country)
-ggplot(c2_df, aes(x = Freq, y = Var1)) + 
+c2_df2 <- as.data.frame(country)
+ggplot(c2_df2, aes(x = Freq, y = Var1)) + 
   geom_col() + theme_light() + ggtitle(label = "Art Country, Top 20, isHighlight = TRUE") 
 
 ```
+    
 In these plots, we compare the frequencies of country based on whether it the artwork is a highlight or not. In both the highlight and all types graph, the most frequent country is NA, followed by Egypt. In the following countries, we can tell that the United States is under-represented in the is.Highlight = TRUE dataset, compared to the overall population. Canada and Peru are examples of other countries that follow this pattern. 
-
-     
+    
 The opposite is true of France, which is over-represented in the highlights. Spain, Italy, and Turkey also follow the pattern of over-representation in the Highlights. 
      
 
-## The Model 
+### The Model 
      
 To attempt to explain why some artworks are highlights and some are not, without actually looking at the painting, we are going to use a few different models. We will look at decision trees first. 
 
@@ -74,6 +77,7 @@ plotcp(fit)
 
 
 ```
+     
 Prune to .17 ! This plot shows how one should prune the decision tree to have the best set of cost-complexity prunings. 
 
 ```{r}

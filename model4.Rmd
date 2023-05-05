@@ -1,5 +1,5 @@
 # Support Vector Machine 
-
+      
 In order to do the next two models, the data needed to be processed differently to account for the categories that appear in the training set and not the test set, or vice versa.        
             
       
@@ -14,7 +14,7 @@ remove_exotic <- function(str){
 }
 ```
 
-
+## The Model
 
 ```{r}
 library(e1071)
@@ -119,6 +119,8 @@ print(paste0("The accuracy on the testing dataset is: ",mean(pred_test == test_d
 ```
 The support vector machine is a major improvement on the accuracy of the model. This model has an accuracy of .94 on the training set and .92 on the test set. This shows that the model is probably not over or underfitting very heavily and has a high accuracy. 
 
+## Visualization
+
 ```{r}
 library(ggplot2)
 
@@ -159,13 +161,13 @@ Through using the SVM, I aim to demonstrate that accuracy, as a metric can often
 
 ```
      
-Note: 
+Note:       
     
-What are grp1, grp2, and grp 3? 
+What are grp1, grp2, and grp 3?       
        
 The pre-processing package I used collapses perfectly correlated features. These groups are sets of perfectly correlated features. grp1 is the index column and the object number. grp2 is the title of the artist and their name. grp3 is whether the public domain is true and whether it is false. All of these columns are removed and placed into these groups. For all intents and purposes, I deemed these columns un-necessary and removed them. 
      
-Reference: 
-- https://rpubs.com/cliex159/865583
-- https://web.mit.edu/6.034/wwwbob/svm.pdf 
-- https://github.com/SchlossLab/mikRopML/issues/156
+Reference:       
+- https://rpubs.com/cliex159/865583      
+- https://web.mit.edu/6.034/wwwbob/svm.pdf       
+- https://github.com/SchlossLab/mikRopML/issues/156      

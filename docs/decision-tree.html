@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Reflections | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum</title>
-  <meta name="description" content="Chapter 7 Reflections | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <title>Chapter 3 Decision Tree | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum</title>
+  <meta name="description" content="Chapter 3 Decision Tree | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Reflections | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <meta property="og:title" content="Chapter 3 Decision Tree | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Reflections | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
+  <meta name="twitter:title" content="Chapter 3 Decision Tree | Analyzing the Highlighted Art Pieces and Possible Biases at the Metropolitan Art Museum" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="neural-network.html"/>
-<link rel="next" href="conclusion.html"/>
+<link rel="prev" href="onerule.html"/>
+<link rel="next" href="random-forest.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -119,30 +119,41 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reflections" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Reflections<a href="reflections.html#reflections" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In conclusion, I found that different models, especially SVM could predict whether something was a highlight with .96 accuracy on both the training and test set based on only 40 characteristics.</p>
-<p>Unfortunately, as our least interpretable model, SVM did not show us what we truly wanted to know. What characteristics of an artwork does the Met use to characterize whether something is a highlight of the collection or not?</p>
-<p>To answer this question, I began with the OneRule model. The oneRule model showed us that part of the answer to this question is whether the artwork is in the public domain. If the artwork is in the public domain, it is more likely to be a highlight. This variable is likely a proxy for age, which was not otherwise in the dataset due to data cleaning challenges.</p>
-<p>Next, I explored the data with a decision tree. From the decision tree, we were able to understand that classification is important in the decision making process. Items classified as jade, daggers, negatives, basketry, and more are just simply less likely to be a highlight than the other options. Unfortunately, after pruning, the model did not tell us really any more information.</p>
-<p>After decision trees, I modeled the data with random forest. From the feature importance function, we were able to find that the department was the most important feature, followed by the public domain, classification, and country. This gave us more understanding of how the features affect the outcome. In addition, we used LIME to compare two different artworks, one from the United States and one from Cote d’Ivoire. These artworks, while similar in characteristics, age, and make, had very different ranges in time-frame. The LIME explanation showed that how big the range in between these two dates are (the guesses for beginning object date and ending object date) was the most important feature to help the model predict if the artworks were a highlight. I theorized that artworks from Western cultures might be more likely to have a specific date, or a smaller range of dates, attached to that artwork and thus that might be a proxy for Western art.</p>
-<p>Our last interpretable method was the neural network. For this model, I used both shapley values and LIME to determine why the model was making its decisions. From that I was able to find the following biases.</p>
-<p>These are all features that make something more likely to be a highlight:
-- not being in the Asian Art or Drawings and Prints department
-- being in the following departments: Egyptian Art, Greek and Roman Art, Costume Institute, European Sculptural/Decorative Arts, and Photographs
-- not being made by a French or American person.
-- having no listed country of origin, nationality, classification, or city
-- being a photograph or a painting
-- being oil on canvas
-- not being a print</p>
+<div id="decision-tree" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Decision Tree<a href="decision-tree.html#decision-tree" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Going forward, I upsampled so the “isHighlight” has an equal number of true and false values. This will make the models less computationally heavy.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre><code>## Error in as.data.frame(culture): object &#39;culture&#39; not found</code></pre>
+<pre><code>## Error in ggplot(c_df, aes(x = Freq, y = Var1)): object &#39;c_df&#39; not found</code></pre>
+<p>From these plots, you can tell that the most common department in the Met Collection is Drawings and Prints, followed by Greek and Roman art, photographs, and Egyptian art.</p>
+<p>Additionally, you can tell from the second plot that the most common culture is “NA”, which just means that the culture is missing. Next is American, French, and Japan. From this graph, you can also tell the data cleaning issues with the Met’s data because it includes “Japan” and “Japanese” as different categories.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-18-2.png" width="672" />
+In these plots, we compare the frequencies of country based on whether it the artwork is a highlight or not. In both the highlight and all types graph, the most frequent country is NA, followed by Egypt. In the following countries, we can tell that the United States is under-represented in the is.Highlight = TRUE dataset, compared to the overall population. Canada and Peru are examples of other countries that follow this pattern.</p>
+<p>The opposite is true of France, which is over-represented in the highlights. Spain, Italy, and Turkey also follow the pattern of over-representation in the Highlights.</p>
+<div id="the-model" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> The Model<a href="decision-tree.html#the-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To attempt to explain why some artworks are highlights and some are not, without actually looking at the painting, we are going to use a few different models. We will look at decision trees first.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+Prune to .17 ! This plot shows how one should prune the decision tree to have the best set of cost-complexity prunings.</p>
+<p>First we will fit a model that has as many decisions as we want, with very little of the pruning.
+<img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Here is another visualization of the same decision tree.
+<img src="finalproj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>The decision tree shows that the model uses classification, department, “is public domain” and subregion of the world to determine whether the artwork is a highlight of the Metropolitan Museum of Art. Interestingly, 34% of the artworks can be excluded as “not highlights” by merely the type of art it is. If something is calligraphy, metalwork, textiles, daggers, glass, or etc., they are unlikely to be important to the Met. This is a unique finding because it shows that historic arts that were more likely to be done by women, such as textiles or basketry, are not highlighted by the Met. In accordance to what we might expect, preliminary or supporting artwork, such as drawings, stencils or photo negatives, are also deemed not a highlight. Also interesting is that then the decision tree uses departments to decide, indicating that Asian Art, Costumes, Drawings, Photographs, and Egyptian Art are less indicative of a Highlight status. Older artworks, as expected, are more likely to be highlights (according to the public domain variable). In the last two decisions, we learn that jewelry, shells, enamels, and some other classifications are unlikely to indicate being a highlight, as well as the fact that certain subregions indicate that the artwork is not highlighted. Upon investigation, these subregions are all parts of Egypt that are less famous for ruins. Compared to another subregion, such as Saqqara, which is an Ancient burial ground.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<img src="finalproj_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>Unfortunately, after pruning, the only decision that remains is based on the classification of the artwork. Basically, the model can tell most of the time that if it is not one of these categories, such as prints, plates, or books, that it will not be a highlight. It is able to have a .71 accuracy on the training set, which is a slight improvement from the previous OneR model, yet not a large enough improvement.</p>
+<p>Thus far, our interpretable ML has shown us that we believe that the Met is more likley to deem an artwork a highlight if it is in the public domain, and it is not one of the above categories.</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="neural-network.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="onerule.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="random-forest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -173,7 +184,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/katelmarsh/final-project-2023/edit/main/reflections.Rmd",
+"link": "https://github.com/katelmarsh/final-project-2023/edit/main/model2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -181,7 +192,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/katelmarsh/final-project-2023/blob/main/reflections.Rmd",
+"link": "https://github.com/katelmarsh/final-project-2023/blob/main/model2.Rmd",
 "text": null
 },
 "download": null,

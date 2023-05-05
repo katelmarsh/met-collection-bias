@@ -1,6 +1,6 @@
 # OneRule
 
-
+# Exploratory Analysis
 ```{r}
 
 # using https://www.kaggle.com/datasets/metmuseum/the-metropolitan-museum-of-art-open-access
@@ -65,7 +65,7 @@ mod <- OneR(Is.Highlight ~ Classification + Country + Artist.Nationality + Artis
       
 The One Rule Model does not work for this task. The summary of the model is incredibly dense, and the "One Rule" chosen is in fact the name of the artist. For a datset of this size, it is almost impossible to interpret the model results because the model results are no better than me walking into the Met with a list of famous artists in my head. Van Gogh = Is.Highlight I would expect, and that is the case. 
 
-
+## The Model
 
 ```{r}
 
@@ -145,10 +145,10 @@ The period and culture variables are dominated by empty values. The department i
 
       
 Basic Data Cleaning:       
-- all to lowercase
-- removed punctuation, "possibly" and "probably" 
-- Removed columns with significant NA values: Period, Dynasty, Reign, Portfolio, Artist Prefix, Excavation, River, Repository, etc. 
-
+- all to lowercase      
+- removed punctuation, "possibly" and "probably"       
+- Removed columns with significant NA values: Period, Dynasty, Reign, Portfolio, Artist Prefix, Excavation, River, Repository, etc.       
+      
 
 ```{r}
 library(dplyr)
