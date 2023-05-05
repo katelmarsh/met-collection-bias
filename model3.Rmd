@@ -160,7 +160,7 @@ The description of this artpiece is as follows: This is one of a small group of 
 ```{r}
 test_dat[5,]$object.id
 df[which(df$object.id == "314397"),]
-knitr::include_graphics("object.id314397.jpeg")
+knitr::include_graphics("object.id314397.png")
 ```
             
 The description of this artwork is as follows: Baule peoples and their neighbors to the West, the Guro, are famous as weavers, and are known for their fine indigo-and-white cotton fabrics. Used on the traditional narrow-band loom, heddle pulleys are functional objects used to ease the movements of the heddles while separating the warp threads and allowing the shuttle to seamlessly pass through the layers of thread. Like many other carved objects used in everyday activities among the Baule, these pulleys were often embellished for the weaver’s delight. Scholars have suggested that the prominent display of pulleys, hanging over the weaver’s loom in the public place, afforded artists their best opportunity to showcase their carving skills, in the hope to attract commissions for figures and masks. This example, distinctive for its Janus representation and conical hairdos, demonstrates the efforts put by Baule carvers into beautifying the simplest functional object.
