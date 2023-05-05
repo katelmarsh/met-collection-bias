@@ -1,11 +1,10 @@
-# [Model 5]
+# Neural Network
 
-## neural network 
 
 Lastly, I conducted a neural network.
       
 This neural network has three different layers, an Adam optimizer, 50 epochs, and a batch size of 5. 
-```{r}
+```{r message=FALSE}
 library(keras)
 library(dplyr)
 train_dat <- read.csv("train_dat_cleaned2.csv")
@@ -63,7 +62,7 @@ According to "9.6 SHAP (SHapley Additive exPlanations)" from our IML textbook (h
 In this graph, we can see what is most important to the first artwork. 
 
 
-```{r}
+```{r message=FALSE}
 library(iml)
 library(keras)
 
@@ -92,7 +91,7 @@ This makes a lot of sense. From this we can tell that the Met has much more exte
         
 ### Shapley Values for full Test Set 
 
-```{r}
+```{r message=FALSE}
 library(iml)
 
 mod <- Predictor$new(model, data = shap_train)
@@ -124,7 +123,7 @@ That is a lot of double negatives! Whew!
 In summary, it is more likely to be a highlight if it is not in the Asian Art department, it is oil on canvas, it has a stated culture, it is a painting, it has a nationality, it is not a print, and it was not made by a French or American person. 
 
         
-```{r}
+```{r message=FALSE}
 library(lime)
 
 ## works!
@@ -165,7 +164,7 @@ Interestingly, the feature of Asian Art and Egyptian Art, as departments, did no
 
       
 It feels wrong to talk about these art pieces without looking at them. So what artwork is the first one in the left lime explanation?  
-```{r}
+```{r message=FALSE}
 test_dat[2,]$object.id
 df[which(df$object.id == "1083"),]
 knitr::include_graphics("object.id1083.jpeg")
@@ -173,7 +172,7 @@ knitr::include_graphics("object.id1083.jpeg")
 Yes, that's right! Daniel Pabst's cabinet. For reference, the website description continues as follows: "This Modern Gothic cabinet superbly demonstrates the influence of British reform theory on American design in the late nineteenth century. In form and decoration, it is indebted to the British architect Bruce J. Talbert, whose book "Gothic Forms Applied to Furniture, Metal Work, and Decoration for Domestic Purposes" (Birmingham, 1867; Boston, 1873) was influential in this country. A kinship with the work of the Philadelphia architect Frank Furness is also evident in the overall form of the cabinet, the verticality and shingled "roof" of which somewhat resemble Furness's bank buildings of the 1870s. The reverse-painted ribbed-glass panels are of a type Furness began to use on buildings as architectural decoration in 1876. Their stylized floral motif recalls the geometric plant forms of Christopher Dresser, a leading English ornamentist of the period who visited the Centennial Exhibition in Philadelphia in 1876 and whose published designs were well known in this country. Daniel Pabst, a leading manufacturer of artistic furniture in Philadelphia, probably executed the cabinet. A related cabinet, now in the Brooklyn Museum of Art, is documented to Pabst." 
         
 
-```{r}
+```{r message=FALSE}
 test_dat[366,]$object.id
 df[which(df$object.id == "420178"),]
 knitr::include_graphics("object.id420178.jpeg")
@@ -182,7 +181,7 @@ knitr::include_graphics("object.id420178.jpeg")
 This object, which is not a highlight is a "Trade card from the "Fish from American Waters" series (N39), issued in 1889 in a set of 50 cards to promote Allen & Ginter brand cigarettes," according to the Met description. The first thing in the LIME explanation that contributes to its correct "non-highlight" classification is the fact that it is a drawing/print. 
 
 
-```{r}
+```{r message=FALSE}
 set.seed(2244)
 vec <- sample(1:744, 20, replace = FALSE)
 
@@ -207,10 +206,11 @@ From this explanations graph, we can see a combination of important of features 
 
          
 Interestingly, the only departments that lack classification are the libraries, CostumeInstitute, and Egyptian Art. If we delineate by is.Highlight it makes a lot of sense to use an empty classification as a predictor because in all cases of empty classification, the libraries collection is a highlight. 
-```{r}
+```{r message=FALSE}
 table(df[which(df$classification == ""),]$department, df[which(df$classification == ""),]$is.highlight)
 ```
-```{r}
+
+```{r message=FALSE}
 empty_class <- df[which(df$classification == ""),]
 empty_class[which(empty_class$department == "TheLibraries"),]$title[3]
 ```

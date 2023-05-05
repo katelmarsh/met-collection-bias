@@ -6,7 +6,7 @@ site: bookdown::bookdown_site
 ---
 Final Project for Topics in Modern Statistics: Interpretable ML 
 
-# Proposal
+# Introduction
 
 
 ## Data 

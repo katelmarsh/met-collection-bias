@@ -1,6 +1,6 @@
-# [Model 1]
+# OneRule
 
-## OneRule Model 
+
 ```{r}
 
 # using https://www.kaggle.com/datasets/metmuseum/the-metropolitan-museum-of-art-open-access

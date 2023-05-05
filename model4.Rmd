@@ -1,6 +1,4 @@
-# [Model 4]
-
-## Support Vector Machine 
+# Support Vector Machine 
 
 In order to do the next two models, the data needed to be processed differently to account for the categories that appear in the training set and not the test set, or vice versa.        
             
