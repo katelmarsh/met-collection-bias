@@ -157,7 +157,7 @@ plot(rf_lime)
 ```{r}
 #test_dat[4,]$object.id
 #df[which(df$object.id == "2408"),]
-knitr::include_graphics("object.id2408.jpeg")
+knitr::include_graphics("object.id2408.jpeg", fig.align="center")
 ```
       
 The description of this artpiece is as follows: This is one of a small group of distinctive vessels from the Central Piedmont region of North Carolina. With its exuberant slip decoration and ample size, it is one of the finest of the known surviving pots from that area
@@ -166,7 +166,7 @@ The description of this artpiece is as follows: This is one of a small group of 
 ```{r}
 #test_dat[5,]$object.id
 #df[which(df$object.id == "314397"),]
-knitr::include_graphics("object.id314397.png")
+knitr::include_graphics("object.id314397.png", fig.align="center")
 ```
             
        

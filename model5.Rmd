@@ -155,7 +155,7 @@ explanation <- lime::explain (
     n_features   = 10, # returns top 10 features critical to each case
     kernel_width = 0.5) 
 
-plot_features (explanation) +
+plot_features(explanation) +
   labs (title = "LIME: Feature Importance Visualization",
         subtitle = "Hold Out (Test) Set, Object 200 and Object 322890")
 
@@ -172,7 +172,7 @@ It feels wrong to talk about these art pieces without looking at them. So what a
 ```{r message=FALSE}
 #test_dat[2,]$object.id
 #df[which(df$object.id == "1083"),]
-knitr::include_graphics("object.id1083.jpeg")
+knitr::include_graphics("object.id1083.jpeg", fig.align="center")
 ```
       
 Yes, that's right! Daniel Pabst's cabinet.       
@@ -204,6 +204,7 @@ plot_explanations (explanation) +
   labs (title = "LIME Feature Importance Heatmap",
         subtitle = "Hold Out (Test) Set, 20 Random Cases Shown")
 ```
+       
 As a reminder, blue in the above graph means that the feature supports the above classification, while red means it contradicts the classification.             
       
 From this explanations graph, we can see a combination of important of features based on feature weights from 20 random cases from the test set. 
@@ -221,7 +222,7 @@ table(df[which(df$classification == ""),]$department, df[which(df$classification
 ```{r message=FALSE}
 empty_class <- df[which(df$classification == ""),]
 #empty_class[which(empty_class$department == "TheLibraries"),]$title[3]
-knitr::include_graphics("object.idbook.jpeg")
+knitr::include_graphics("object.idbook.jpeg", fig.align="center")
 ```
 From a Met archive search, these appear to be illustrations and other types of art in books. In the end, this lack of classification is likely a data error that merely needs to be resolved in the met archive.      
 
