@@ -127,7 +127,7 @@ That is a lot of double negatives! Whew!
 In summary, it is more likely to be a highlight if it is not in the Asian Art department, it is oil on canvas, it has a stated culture, it is a painting, it has a nationality, it is not a print, and it was not made by a French or American person.       
 
         
-```{r message=FALSE}
+```{r message=FALSE, out.width="95%"}
 library(lime)
 
 ## works!
